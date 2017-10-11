@@ -1,0 +1,3 @@
+# HdbWebApi
+
+This codebase is meant to provide a REST API data service for a Reclamation Hydrologic Database (HDB). This codebase was adapated from the example posted at [this](https://github.com/MirzaMerdovic/WebApiStartTemplate) GitHub site. Work is currently in progress...
