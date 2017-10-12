@@ -131,6 +131,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SwaggerExtensions\discoveryUrlSelector.js" />
+    <EmbeddedResource Include="SwaggerExtensions\index.html" />
+    <EmbeddedResource Include="SwaggerExtensions\screen.css" />
+    <EmbeddedResource Include="SwaggerExtensions\typography.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

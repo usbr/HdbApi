@@ -14,6 +14,9 @@ namespace HdbApi
     /// </summary>
     public class Startup
     {
+
+        public static System.Reflection.Assembly thisAssembly = typeof(Startup).Assembly;
+
         /// <summary>
         /// Specifies how the ASP.NET application will respond to individual HTTP request.
         /// </summary>
