@@ -19,21 +19,21 @@ namespace HdbApi.Controllers
         [HttpGet, Route("sites")]
         public IHttpActionResult Get()
         {
-            return Ok(new List<string> { "Test 1", "Test 2" });
+            return Ok("Querying Site Types");
         }
 
         /// <summary>
-        /// Get Sites Given Site Type
+        /// Get Sites by Site Type
         /// </summary>
         /// <remarks>
-        /// Get a list of available Sites under the input site type
+        /// Get a list of available Sites under a particular site type
         /// </remarks>
         /// <param name="type">all</param>
         /// <returns></returns>
         [HttpGet, Route("sites/type/{type=type}")]
-        public IHttpActionResult Get(string type = "all")
+        public IHttpActionResult Get(string type)
         {
-            return Ok();
+            return Ok("Querying Site Type = " + type);
         }
 
         /// <summary>
@@ -47,7 +47,21 @@ namespace HdbApi.Controllers
         [HttpGet, Route("sites/{id:int}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok(id * id);
+            return Ok("Querying Site ID = " + id);
+        }
+
+        /// <summary>
+        /// Get Sites by IDs
+        /// </summary>
+        /// <remarks>
+        /// Get a list of Sites given Site IDs
+        /// </remarks>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet, Route("sites/{id:int}")]
+        public IHttpActionResult Get(List<string> ids)
+        {
+            return Ok("Querying Site IDs = " + ids.ToArray());
         }
     }
 }

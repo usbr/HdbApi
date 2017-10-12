@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Swashbuckle.Application;
+using Swashbuckle.Examples;
 
 namespace Compusight.MoveDesk.UserManagementApi.Configuration
 {
@@ -24,6 +25,7 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
                 //c.IncludeXmlComments(() => new XPathDocument(GetXmlDocumentationPath()));
                 c.IncludeXmlComments(string.Format(@"{0}\bin\HdbApi.XML", System.AppDomain.CurrentDomain.BaseDirectory));
                 c.DescribeAllEnumsAsStrings();
+                c.OperationFilter<ExamplesOperationFilter>();
             }).EnableSwaggerUi(c => { });
                         
         }
