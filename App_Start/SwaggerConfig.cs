@@ -14,15 +14,18 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
         /// <param name="configuration">Instance of <see cref="HttpConfiguration"/>.</param>
         public static void Configure(HttpConfiguration configuration)
         {
-            configuration
-                .EnableSwagger(c =>
-                {
-                    c.SingleApiVersion("v1", "HDB API Data Services");
-                    c.PrettyPrint();
-                    // Include if you want to setup XML comments.
-                    //c.IncludeXmlComments(() => new XPathDocument(GetXmlDocumentationPath()));
-                })
-                .EnableSwaggerUi(c => { });
+            // [JR] Swagger documentation path tutorial
+            // http://wmpratt.com/swagger-and-asp-net-web-api-part-1/
+            configuration.EnableSwagger(c =>
+            {
+                c.SingleApiVersion("v0", "HDB API Data Services");
+                c.PrettyPrint();
+                // Include if you want to setup XML comments.
+                //c.IncludeXmlComments(() => new XPathDocument(GetXmlDocumentationPath()));
+                c.IncludeXmlComments(string.Format(@"{0}\bin\HdbApi.XML", System.AppDomain.CurrentDomain.BaseDirectory));
+                c.DescribeAllEnumsAsStrings();
+            }).EnableSwaggerUi(c => { });
+                        
         }
     }
 }
