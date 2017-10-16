@@ -153,27 +153,43 @@ namespace HdbApi.Controllers
         {
             public object GetExamples()
             {
-                var tsMeta = new TimeSeriesQuery();
-                tsMeta.hdb = "lchdb2";
-                tsMeta.sdi = (new List<int> { 1980 }).ToArray();
-                tsMeta.t1 = new DateTime(2000, 1, 1, 0, 0, 0);
-                tsMeta.t2 = new DateTime(2000, 1, 2, 0, 0, 0);
-                tsMeta.interval = "day";
-                tsMeta.format = "json";
-                tsMeta.table = "r";
-                tsMeta.mrid = 0;
-                var tsPoint = new TimeSeriesPoint();
-                tsPoint.datetime = new DateTime(2000, 1, 1, 0, 0, 0);
-                tsPoint.value = 3.1416;
-                tsPoint.flag = "";
-                var ts = new TimeSeries();
-                ts.metadata = tsMeta;
-                var tsData = new List<TimeSeriesPoint>();
-                tsData.Add(tsPoint);
+                var tsMeta = new TimeSeriesQuery
+                {
+                    hdb = "lchdb2",
+                    sdi = (new List<int> { 1980 }).ToArray(),
+                    t1 = new DateTime(2000, 1, 1, 0, 0, 0),
+                    t2 = new DateTime(2000, 1, 2, 0, 0, 0),
+                    interval = "day",
+                    format = "json",
+                    table = "r",
+                    mrid = 0
+                };
+                var tsPoint1 = new TimeSeriesPoint
+                {
+                    datetime = new DateTime(2000, 1, 1, 0, 0, 0),
+                    value = 3.1416,
+                    flag = ""
+                };
+                var tsPoint2 = new TimeSeriesPoint
+                {
+                    datetime = new DateTime(2000, 1, 2, 0, 0, 0),
+                    value = 2.7183,
+                    flag = ""
+                };
+                var ts = new TimeSeries
+                {
+                    metadata = tsMeta
+                };
+                var tsData = new List<TimeSeriesPoint>
+                {
+                    tsPoint1, tsPoint2
+                };
                 ts.data = tsData;
                 var tsList = new TimeSeriesList();
-                var tsItems = new List<TimeSeries>();
-                tsItems.Add(ts);
+                var tsItems = new List<TimeSeries>
+                {
+                    ts
+                };
                 tsList.timeseries = tsItems;
                 return tsList;
             }

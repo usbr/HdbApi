@@ -9,35 +9,17 @@ namespace HdbApi.Controllers
     public class DataTypesController : ApiController
     {
         /// <summary>
-        /// Gets all Datatypes
+        /// Get DataType(s)
         /// </summary>
+        /// <remarks>
+        /// Get metadata for available DataType(s) 
+        /// </remarks>
+        /// <param name="id">(Optional) HDB DataType ID(s) of interest. Blank for all DataTypes</param>
         /// <returns></returns>
-        [HttpGet, Route("datatypes")]
-        public IHttpActionResult Get()
+        [HttpGet, Route("datatypes/")]
+        public IHttpActionResult Get([FromUri] int[] id = null)
         {
-            return Ok(new List<string> {"Test 1", "Test 2"});
-        }
-
-        /// <summary>
-        /// Gets IDs given and ID
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet, Route("datatypes/{id=id}")]
-        public IHttpActionResult Get(int id)
-        {
-            return Ok(id * id);
-        }
-
-        /// <summary>
-        /// Gets dataypes by units
-        /// </summary>
-        /// <param name="units"></param>
-        /// <returns></returns>
-        [HttpGet, Route("datatypes/{units=units}")]
-        public IHttpActionResult Get(string units)
-        {
-            return Ok(units.ToString());
+            return Ok("Querying Data Types");
         }
     }
 }

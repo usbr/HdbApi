@@ -9,34 +9,34 @@ namespace HdbApi.Controllers
     public class HdbsController : ApiController
     {
         /// <summary>
-        /// Gets all available HDBs
+        /// Gets available HDBs
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("hdb")]
         public IHttpActionResult Get()
         {
-            return Ok(new List<string> {"Test 1", "Test 2"});
+            return Ok(new List<string> { "Test 1", "Test 2" });
         }
 
         /// <summary>
-        /// Gets IDs given and ID
+        /// Connect to HDB
         /// </summary>
-        /// <param name="hdbinstance"></param>
+        /// <remarks>
+        /// Connect to HDB and authenticate credentials
+        /// </remarks>
+        /// <param name="hdb">HDB instance to connect to</param>
+        /// <param name="username">User name given HDB</param>
+        /// <param name="password">User credentials given HDB and User Name</param>
         /// <returns></returns>
-        [HttpGet, Route("hdb/{hdbinstance=hdbinstance}")]
-        public IHttpActionResult Get(string hdbinstance)
+        [HttpPost, Route("session/")]
+        public IHttpActionResult Post(string hdb = "", string username = "", string password = "")//, HdbCredentials connectionDetails = null)
         {
-            return Ok(hdbinstance.ToString());
-        }
-
-        /// <summary>
-        /// Gets IDs given and ID
-        /// </summary>
-        /// <param name="connectionDetails"></param>
-        /// <returns></returns>
-        [HttpPost, Route("hdb/connect")]
-        public IHttpActionResult Post(HdbCredentials connectionDetails)
-        {
+            HdbCredentials connectionDetails = new HdbCredentials
+            {
+                HdbInstance = hdb,
+                UserName = username,
+                Password = password
+            };
             return Ok(connectionDetails);
         }
 

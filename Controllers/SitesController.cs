@@ -10,58 +10,17 @@ namespace HdbApi.Controllers
     public class SitesController : ApiController
     {
         /// <summary>
-        /// Get Site Types
+        /// Get Site(s)
         /// </summary>
         /// <remarks>
-        /// Get a list of available Site Types
+        /// Get metadata for available Site(s) 
         /// </remarks>
+        /// <param name="id">(Optional) HDB Site ID(s) of interest. Blank for all Sites</param>
         /// <returns></returns>
-        [HttpGet, Route("sites")]
-        public IHttpActionResult Get()
+        [HttpGet, Route("sites/")]
+        public IHttpActionResult Get([FromUri] int[] id = null)
         {
             return Ok("Querying Site Types");
-        }
-
-        /// <summary>
-        /// Get Sites by Site Type
-        /// </summary>
-        /// <remarks>
-        /// Get a list of available Sites under a particular site type
-        /// </remarks>
-        /// <param name="type">all</param>
-        /// <returns></returns>
-        [HttpGet, Route("sites/type/{type=type}")]
-        public IHttpActionResult Get(string type)
-        {
-            return Ok("Querying Site Type = " + type);
-        }
-
-        /// <summary>
-        /// Get Site by ID
-        /// </summary>
-        /// <remarks>
-        /// Get a single Site given a Site ID
-        /// </remarks>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet, Route("sites/{id:int}")]
-        public IHttpActionResult Get(int id)
-        {
-            return Ok("Querying Site ID = " + id);
-        }
-
-        /// <summary>
-        /// Get Sites by IDs
-        /// </summary>
-        /// <remarks>
-        /// Get a list of Sites given Site IDs
-        /// </remarks>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet, Route("sites/{id:int}")]
-        public IHttpActionResult Get(List<string> ids)
-        {
-            return Ok("Querying Site IDs = " + ids.ToArray());
         }
     }
 }
