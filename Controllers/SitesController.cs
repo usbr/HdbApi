@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
-using System.Data;
-using Oracle.ManagedDataAccess.Client;
-using Dapper;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
 
@@ -25,10 +21,60 @@ namespace HdbApi.Controllers
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteExample))]
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
-            IDbConnection db = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["AppUserConnection"].ConnectionString);
-            string sqlString = "select * from HDB_SITE order by SITE_ID";
-            var sites = (List<Models.SiteModel.HdbSite>)db.Query<Models.SiteModel.HdbSite>(sqlString);
-            return Ok(sites);
+            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+            if (id == null)
+            {
+                return Ok(siteProcessor.GetSites());
+            }
+            else
+            {
+                return Ok(siteProcessor.GetSites(id));
+            }
+        }
+
+        /// <summary>
+        /// Delete Site
+        /// </summary>
+        /// <remarks>
+        /// Delete specified Site 
+        /// </remarks>
+        /// <param name="id">HDB Site ID</param>
+        /// <returns></returns>
+        [HttpDelete, Route("sites/")]
+        public IHttpActionResult Delete([FromUri] int id)
+        {
+            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+            return Ok(siteProcessor.DeleteSite(id));
+        }
+
+        /// <summary>
+        /// Update Site
+        /// </summary>
+        /// <remarks>
+        /// Update a fully defined Site 
+        /// </remarks>
+        /// <param name="site">HDB Site</param>
+        /// <returns></returns>
+        [HttpPatch, Route("sites/")]
+        public IHttpActionResult Patch([FromBody] Models.SiteModel.HdbSite site)
+        {
+            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+            return Ok(siteProcessor.UpdateSite(site));
+        }
+
+        /// <summary>
+        /// Add Site
+        /// </summary>
+        /// <remarks>
+        /// Add a fully defined Site 
+        /// </remarks>
+        /// <param name="site">HDB Site</param>
+        /// <returns></returns>
+        [HttpPut, Route("sites/")]
+        public IHttpActionResult Put([FromBody] Models.SiteModel.HdbSite site)
+        {
+            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+            return Ok(siteProcessor.InsertSite(site));
         }
 
 

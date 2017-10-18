@@ -22,10 +22,10 @@ namespace HdbApi.App_Start
 
             var metadata = new ErrorInfoModel
             {
-                Message = "An unexpected error occurred! Please use the Error ID to contact support",
+                Message = context.Exception.Message + ". Feature is still in development... ",// "An unexpected error occurred! Please use the Error ID to contact support",
                 TimeStamp = DateTime.UtcNow,
                 RequestUri = context.Request.RequestUri,
-                ErrorId = correlationId
+                ErrorId = correlationId,                
             };
 
             var response = context.Request.CreateResponse(HttpStatusCode.InternalServerError, metadata);
