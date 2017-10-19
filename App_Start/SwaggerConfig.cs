@@ -22,11 +22,22 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
             configuration.EnableSwagger(c => //"HdbApi/{apiVersion}/swagger", c =>
             {
                 c.Schemes(new[] { "http", "https" });
-                c.SingleApiVersion("v0", "HDB API Data Services")
-                    .Description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                c.SingleApiVersion("v0", "HDB Data Services API")
+                    .Description(
+                        "This web page serves as the main interface, documentation, and testing service for the available HDB data services. " + 
+                        "This service is being developed using a technology stack comprised of Windows/.Net, IIS, Dapper, and Swagger. " +
+                        "Contact the developer for feedback, data service questions, or the development of new data services within this " + 
+                        "web page." +
+                        "\n\r" + 
+                        "This Application Programming Interface (API) is preliminary or provisional and is subject to revision. " + 
+                        "It is currently in development and as such, frequent updates, downtimes, and loss of functionality are to " + 
+                        "be expected. The API has not received final approval by Reclamation. No warranty, expressed or implied, is " + 
+                        "made as to the functionality of the API nor shall the fact of release constitute any such warranty. " + 
+                        "The API is provided on the condition that neither Reclamation nor the U.S. Government shall be held liable "+
+                        "for any damages resulting from the authorized or unauthorized use of the API."
+                    )
                     .TermsOfService("Terms-Of-Service Placeholder")
                     .Contact(cc => cc
-                        .Name("Jon Rocha")
                         .Email("jrocha@usbr.gov"))
                     .License(lc => lc
                         .Name("MIT License")

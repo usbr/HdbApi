@@ -37,7 +37,7 @@ namespace HdbApi.Controllers
         /// <remarks>
         /// Delete specified DataType 
         /// </remarks>
-        /// <param name="id">HDB Site ID</param>
+        /// <param name="id">HDB Datatype ID</param>
         /// <returns></returns>
         [HttpDelete, Route("datatypes/")]
         public IHttpActionResult Delete([FromUri] int id)

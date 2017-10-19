@@ -45,7 +45,7 @@ namespace HdbApi.Controllers
         [HttpPost, Route("series/{input=input}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
-        public IHttpActionResult Post(Models.SeriesModel.TimeSeriesQuery input)
+        public IHttpActionResult Post([FromBody] Models.SeriesModel.TimeSeriesQuery input)
         {
             return Ok(new Models.SeriesModel.TimeSeries());
         }
