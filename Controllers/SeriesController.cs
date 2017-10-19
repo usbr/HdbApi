@@ -20,7 +20,6 @@ namespace HdbApi.Controllers
         /// <param name="interval">Time-Series Interval</param>
         /// <param name="t1">Start Date in MM-DD-YYYY HH:MM</param>
         /// <param name="t2">End Date in MM-DD-YYYY HH:MM</param>
-        /// <param name="format">Optional</param>
         /// <param name="table">Optional - M for Modeled Data</param>
         /// <param name="mrid">Required if table=M</param>
         /// <returns></returns>
@@ -28,9 +27,10 @@ namespace HdbApi.Controllers
         [HttpGet, Route("series/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
-        public IHttpActionResult Get([FromUri] string hdb, [FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string format = "json", [FromUri] string table = "R", [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] string hdb, [FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
         {
-            return Ok(new Models.SeriesModel.TimeSeries());
+            var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
+            return Ok(seriesProcessor.GetSeries(hdb, sdi, interval, t1, t2, table, mrid)); ;
         }
 
         /// <summary>
@@ -56,16 +56,21 @@ namespace HdbApi.Controllers
         {
             public object GetExamples()
             {
-                var tsMeta = new Models.SeriesModel.TimeSeriesQuery
+                var tsQuery = new Models.SeriesModel.TimeSeriesQuery
                 {
                     hdb = "lchdb2",
                     sdi = 1980,
                     t1 = new DateTime(2000, 1, 1, 0, 0, 0),
                     t2 = new DateTime(2000, 1, 2, 0, 0, 0),
                     interval = "day",
-                    format = "json",
                     table = "r",
                     mrid = 0
+                };
+                var tsMeta = new Models.SeriesModel.TimeSeriesMetadata
+                {
+                    site_name = "",
+                    datatype_name = "",
+                    physical_quantity_name = ""
                 };
                 var tsPoint1 = new Models.SeriesModel.TimeSeriesPoint
                 {
@@ -79,19 +84,15 @@ namespace HdbApi.Controllers
                     value = 2.7183,
                     flag = ""
                 };
-                var ts = new Models.SeriesModel.TimeSeries
-                {
-                    metadata = tsMeta
-                };
                 var tsData = new List<Models.SeriesModel.TimeSeriesPoint>
                 {
                     tsPoint1, tsPoint2
                 };
-                ts.data = tsData;
-                var tsList = new Models.SeriesModel.TimeSeries();
-                var tsItems = new List<Models.SeriesModel.TimeSeries>
+                var ts = new Models.SeriesModel.TimeSeries
                 {
-                    ts
+                    query = tsQuery,
+                    metadata = tsMeta,
+                    data = tsData
                 };
                 return ts;
             }

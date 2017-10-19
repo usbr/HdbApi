@@ -13,32 +13,32 @@ namespace HdbApi.Models
         public class HdbDatatype
         {
             /// <summary>
-            /// Unique site ID
+            /// Unique Datatype ID
             /// </summary>
             public int datatype_id { get; set; }
 
             /// <summary>
-            /// Site name
+            /// Datatype name
             /// </summary>
             public string datatype_name { get; set; }
 
             /// <summary>
-            /// Site common name
+            /// Datatype common name
             /// </summary>
             public string datatype_common_name { get; set; }
 
             /// <summary>
-            /// Site description
+            /// Datatype physical quantity
             /// </summary>
             public string physical_quantity_name { get; set; }
 
             /// <summary>
-            /// Site geographic elevation (if applicable)
+            /// Datatype units ID
             /// </summary>
             public int unit_id { get; set; }
 
             /// <summary>
-            /// Site geographic latitude (if applicable)
+            /// Allowable time series intervals
             /// </summary>
             public string allowable_intervals { get; set; }
 
