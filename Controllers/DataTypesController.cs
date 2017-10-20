@@ -21,14 +21,7 @@ namespace HdbApi.Controllers
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            if (id == null)
-            {
-                return Ok(dtypeProcessor.GetDataTypes());
-            }
-            else
-            {
-                return Ok(dtypeProcessor.GetDataTypes(id));
-            }
+            return Ok(dtypeProcessor.GetDataTypes(id));
         }
 
         /// <summary>
@@ -88,6 +81,8 @@ namespace HdbApi.Controllers
                     datatype_common_name = "ave reservoir elevation",
                     physical_quantity_name = "water surface elevation",
                     unit_id = 4,
+                    unit_name = "feet",
+                    unit_common_name = "feet",
                     allowable_intervals = "non-instant",
                     agen_id = 0,
                     cmmnt = ""

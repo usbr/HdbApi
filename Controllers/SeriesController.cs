@@ -66,11 +66,46 @@ namespace HdbApi.Controllers
                     table = "r",
                     mrid = 0
                 };
-                var tsMeta = new Models.SeriesModel.TimeSeriesMetadata
+                var tsMeta =new Models.SiteDatatypeModel.SiteDataTypeMetadata
                 {
-                    site_name = "",
-                    datatype_name = "",
-                    physical_quantity_name = ""
+                    site_metadata = new Models.SiteModel.HdbSite
+                    {
+                        site_id = 919,
+                        site_name = "LAKE POWELL",
+                        site_common_name = "LAKE POWELL",
+                        description = DBNull.Value.ToString(),
+                        elevation = 3700,
+                        lat = "37.05778",
+                        longi = "-111.30332",
+                        db_site_code = "UC",
+                        objecttype_id = 7,
+                        objecttype_name = "reservoir",
+                        basin_id = 2029,
+                        hydrologic_unit = null,
+                        river_mile = float.NaN,
+                        segment_no = 0,
+                        state_id = 3,
+                        state_code = "UT",
+                        usgs_id = DBNull.Value.ToString(),
+                        nws_code = DBNull.Value.ToString(),
+                        shef_code = DBNull.Value.ToString(),
+                        scs_id = DBNull.Value.ToString(),
+                        parent_objecttype_id = 0,
+                        parent_site_id = 0
+                    },
+                    datatype_metadata = new Models.DatatypeModel.HdbDatatype
+                    {
+                        datatype_id = 1393,
+                        datatype_name = "average reservoir elevation",
+                        datatype_common_name = "ave reservoir elevation",
+                        physical_quantity_name = "water surface elevation",
+                        unit_id = 4,
+                        unit_name = "feet",
+                        unit_common_name = "feet",
+                        allowable_intervals = "non-instant",
+                        agen_id = 0,
+                        cmmnt = ""
+                    }
                 };
                 var tsPoint1 = new Models.SeriesModel.TimeSeriesPoint
                 {

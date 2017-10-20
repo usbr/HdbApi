@@ -10,8 +10,6 @@ namespace HdbApi.DataAccessLayer
 {
     internal interface ISiteRepository
     {
-        List<SiteModel.HdbSite> GetSites();
-
         List<SiteModel.HdbSite> GetSites(int[] id);
 
         bool InsertSite(SiteModel.HdbSite site);
@@ -26,15 +24,10 @@ namespace HdbApi.DataAccessLayer
     {
         private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
 
-        public List<SiteModel.HdbSite> GetSites()
-        {
-            string sqlString = "select * from HDB_SITE order by SITE_ID";
-            return (List<Models.SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString);
-        }
-
         public List<SiteModel.HdbSite> GetSites(int[] id)
         {
-            string sqlString = "select * from HDB_SITE";
+            string sqlString = "select * " +
+                "from HDB_SITE A, HDB_OBJECTTYPE B, HDB_STATE C where A.OBJECTTYPE_ID = B.OBJECTTYPE_ID and A.STATE_ID = C.STATE_ID ";
             if (id != null)
             {
                 string ids = "";
@@ -42,9 +35,9 @@ namespace HdbApi.DataAccessLayer
                 {
                     ids += ithId + ",";
                 }
-                sqlString += " where SITE_ID in (" + ids.TrimEnd(',') + ")";
+                sqlString += "and A.SITE_ID in (" + ids.TrimEnd(',') + ") ";
             }
-            sqlString += " order by SITE_ID";
+            sqlString += "order by A.SITE_ID";
 
             return (List<Models.SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString);
         }

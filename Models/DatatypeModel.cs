@@ -38,6 +38,16 @@ namespace HdbApi.Models
             public int unit_id { get; set; }
 
             /// <summary>
+            /// Datatype units name
+            /// </summary>
+            public string unit_name { get; set; }
+
+            /// <summary>
+            /// Datatype units common name or symbol
+            /// </summary>
+            public string unit_common_name { get; set; }
+
+            /// <summary>
             /// Allowable time series intervals
             /// </summary>
             public string allowable_intervals { get; set; }

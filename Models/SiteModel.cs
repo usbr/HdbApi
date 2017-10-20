@@ -53,9 +53,14 @@ namespace HdbApi.Models
             public string db_site_code { get; set; }
 
             /// <summary>
-            /// Site Object Type
+            /// Site Object Type ID
             /// </summary>
             public int objecttype_id { get; set; }
+
+            /// <summary>
+            /// Site Object Type name
+            /// </summary>
+            public string objecttype_name { get; set; }
 
             /// <summary>
             /// Basin (if applicable)
@@ -81,6 +86,11 @@ namespace HdbApi.Models
             /// State ID
             /// </summary>
             public int state_id { get; set; }
+
+            /// <summary>
+            /// State Code
+            /// </summary>
+            public string state_code { get; set; }
 
             /// <summary>
             /// USGS ID (if applicable)

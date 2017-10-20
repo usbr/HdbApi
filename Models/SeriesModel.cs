@@ -20,7 +20,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Object Metadata
             /// </summary>
-            public TimeSeriesMetadata metadata { get; set; }
+            public SiteDatatypeModel.SiteDataTypeMetadata metadata { get; set; }
 
             /// <summary>
             /// Object Time-Series Data
@@ -72,24 +72,6 @@ namespace HdbApi.Models
             /// Model Run ID
             /// </summary>
             public int mrid { get; set; } = 0;
-        }
-
-        public class TimeSeriesMetadata
-        {
-            /// <summary>
-            /// Site name
-            /// </summary>
-            public string site_name { get; set; }
-
-            /// <summary>
-            /// Datatype name
-            /// </summary>
-            public string datatype_name { get; set; }
-
-            /// <summary>
-            /// Datatype physical quantity
-            /// </summary>
-            public string physical_quantity_name { get; set; }
         }
 
         /// <summary>

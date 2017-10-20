@@ -10,8 +10,6 @@ namespace HdbApi.DataAccessLayer
 {
     internal interface IDataTypeRepository
     {
-        List<DatatypeModel.HdbDatatype> GetDataTypes();
-
         List<DatatypeModel.HdbDatatype> GetDataTypes(int[] id);
 
         bool InsertDataType(DatatypeModel.HdbDatatype dtype);
@@ -26,15 +24,10 @@ namespace HdbApi.DataAccessLayer
     {
         private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
 
-        public List<DatatypeModel.HdbDatatype> GetDataTypes()
-        {
-            string sqlString = "select * from HDB_DATATYPE order by DATATYPE_ID";
-            return (List<Models.DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString);
-        }
-
         public List<DatatypeModel.HdbDatatype> GetDataTypes(int[] id)
         {
-            string sqlString = "select * from HDB_DATATYPE";
+            string sqlString = "select * " +
+                "from HDB_DATATYPE A, HDB_UNIT B where A.UNIT_ID = B.UNIT_ID ";
             if (id != null)
             {
                 string ids = "";
@@ -42,9 +35,9 @@ namespace HdbApi.DataAccessLayer
                 {
                     ids += ithId + ",";
                 }
-                sqlString += " where DATATYPE_ID in (" + ids.TrimEnd(',') + ")";
+                sqlString += "and A.DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
             }
-            sqlString += " order by DATATYPE_ID";
+            sqlString += "order by A.DATATYPE_ID";
 
             return (List<Models.DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString);
         }

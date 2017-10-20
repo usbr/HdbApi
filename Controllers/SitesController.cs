@@ -22,14 +22,7 @@ namespace HdbApi.Controllers
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            if (id == null)
-            {
-                return Ok(siteProcessor.GetSites());
-            }
-            else
-            {
-                return Ok(siteProcessor.GetSites(id));
-            }
+            return Ok(siteProcessor.GetSites(id));
         }
 
         /// <summary>
@@ -93,11 +86,13 @@ namespace HdbApi.Controllers
                     longi = "-111.30332",
                     db_site_code = "UC",
                     objecttype_id = 7,
+                    objecttype_name = "reservoir",
                     basin_id = 2029,
                     hydrologic_unit = null,
                     river_mile = float.NaN,
                     segment_no = 0,
                     state_id = 3,
+                    state_code = "UT",
                     usgs_id = DBNull.Value.ToString(),
                     nws_code = DBNull.Value.ToString(),
                     shef_code = DBNull.Value.ToString(),
