@@ -27,18 +27,6 @@ namespace HdbApi.DataAccessLayer
 
         public SeriesModel.TimeSeries GetSeries(string hdbInst, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0)
         {
-            //// [JR] DONT KNOW WHY THIS WON'T WORK...
-            //var p = new OracleDynamicParameters();
-            //p.Add("o_cursorOutput", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-            //p.Add("i_sdiList", value: id, dbType: OracleDbType.Char);
-            //p.Add("i_tStep", value: tstep.ToUpper(), dbType: OracleDbType.Char);
-            //p.Add("i_startDate", value: startDate.ToString("dd-MMM-yyyy HH:mm"), dbType: OracleDbType.Char);
-            //p.Add("i_endDate", value: endDate.ToString("dd-MMM-yyyy HH:mm"), dbType: OracleDbType.Char);
-            //p.Add("i_sourceTable", value: sourceTable.ToUpper(), dbType: OracleDbType.Char);
-            //p.Add("i_modelRunIds", value: mrid, dbType: OracleDbType.Char);
-            //var result = db.Query<dynamic>("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
-            //return new List<SeriesModel.TimeSeries>();
-
             // [JR] ADD LOGIC TO RESOLVE HDB CONNECTION
 
             // GET QUERY VARS

@@ -13,7 +13,7 @@ namespace HdbApi.Controllers
         /// <remarks>
         /// Get metadata for available SiteDataType(s) 
         /// </remarks>
-        /// <param name="sdi">(Optional) HDB DataType ID(s) of interest. Blank for all DataTypes</param>
+        /// <param name="sdi">(Optional) HDB SiteDataType ID(s) of interest. Blank for all SiteDataTypes</param>
         /// <returns></returns>
         [HttpGet, Route("sitedatatypes/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SiteDatatypeModel.HdbSiteDatatype))]
@@ -78,7 +78,7 @@ namespace HdbApi.Controllers
                 {
                     datatype_id = 1393,
                     site_id = 919,
-                    site_dataype_id = 2101
+                    site_datatype_id = 2101
                 };
                 return sdi;
             }

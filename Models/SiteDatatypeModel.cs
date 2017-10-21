@@ -15,7 +15,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Unique Site Datatype ID
             /// </summary>
-            public int site_dataype_id { get; set; }
+            public int site_datatype_id { get; set; }
 
             /// <summary>
             /// Site ID

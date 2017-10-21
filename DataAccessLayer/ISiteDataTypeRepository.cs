@@ -27,7 +27,8 @@ namespace HdbApi.DataAccessLayer
         public List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(int[] id)
         {
             string sqlString = "select * " +
-                "from HDB_SITE_DATATYPE A ";
+                "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
+                "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID ";
             if (id != null)
             {
                 string ids = "";
@@ -35,11 +36,31 @@ namespace HdbApi.DataAccessLayer
                 {
                     ids += ithId + ",";
                 }
-                sqlString += "where A.SITE_DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
+                sqlString += "and A.SITE_DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
             }
             sqlString += "order by A.SITE_DATATYPE_ID";
+            
+            // MULTIMAP 
+            var result = (List<SiteDatatypeModel.HdbSiteDatatype>)db.Query<
+                SiteDatatypeModel.HdbSiteDatatype,
+                SiteModel.HdbSite,
+                DatatypeModel.HdbDatatype,
+                SiteDatatypeModel.HdbSiteDatatype>(
+                    sqlString,
+                    (sdi, sdimeta, dtypemeta) =>
+                    {
+                        sdi.metadata = new SiteDatatypeModel.SiteDataTypeMetadata
+                        {
+                            site_metadata = sdimeta,
+                            datatype_metadata = dtypemeta
+                        };
+                        return sdi;
+                    },
+                    commandType: System.Data.CommandType.Text,
+                    splitOn: "site_id,datatype_id"
+            );
 
-            return (List<SiteDatatypeModel.HdbSiteDatatype>)db.Query<SiteDatatypeModel.HdbSiteDatatype>(sqlString);
+            return result;
         }
 
         public SiteDatatypeModel.SiteDataTypeMetadata GetSiteDataTypeForSeries(int id)
@@ -48,17 +69,28 @@ namespace HdbApi.DataAccessLayer
                 "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
                 "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID and " + 
                 "A.SITE_DATATYPE_ID = " + id;
+
+            // MULTIMAP 
+            var result = (List<SiteDatatypeModel.SiteDataTypeMetadata>)db.Query<
+                SiteDatatypeModel.SiteDataTypeMetadata,
+                SiteModel.HdbSite,
+                DatatypeModel.HdbDatatype,
+                SiteDatatypeModel.SiteDataTypeMetadata>(
+                    sqlString,
+                    (sdiMeta, sdimeta, dtypemeta) =>
+                    {
+                        sdiMeta = new SiteDatatypeModel.SiteDataTypeMetadata
+                        {
+                            site_metadata = sdimeta,
+                            datatype_metadata = dtypemeta
+                        };
+                        return sdiMeta;
+                    },
+                    commandType: System.Data.CommandType.Text,
+                    splitOn: "site_id,datatype_id"
+            );
             
-            SiteModel.HdbSite siteMeta = ((List<SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString))[0];
-            DatatypeModel.HdbDatatype dtypeMeta = ((List<DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString))[0]; 
-
-            var result = new SiteDatatypeModel.SiteDataTypeMetadata
-            {
-                site_metadata = siteMeta,
-                datatype_metadata = dtypeMeta
-            };
-
-            return result;
+            return result.FirstOrDefault();
         }
 
 
