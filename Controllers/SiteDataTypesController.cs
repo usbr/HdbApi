@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
+using System.Data;
 
 namespace HdbApi.Controllers
 {
@@ -20,8 +21,9 @@ namespace HdbApi.Controllers
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteDatatypeExample))]
         public IHttpActionResult Get([FromUri] int[] sdi = null)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.GetSiteDataTypes(sdi));
+            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi));
         }
 
         /// <summary>
@@ -35,8 +37,9 @@ namespace HdbApi.Controllers
         [HttpDelete, Route("sitedatatypes/")]
         public IHttpActionResult Delete([FromUri] int sdi)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.DeleteSiteDataType(sdi));
+            return Ok(sdiProcessor.DeleteSiteDataType(db, sdi));
         }
 
         /// <summary>
@@ -50,8 +53,9 @@ namespace HdbApi.Controllers
         [HttpPatch, Route("sitedatatypes/")]
         public IHttpActionResult Patch([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.UpdateSiteDataType(sdi));
+            return Ok(sdiProcessor.UpdateSiteDataType(db, sdi));
         }
 
         /// <summary>
@@ -65,8 +69,9 @@ namespace HdbApi.Controllers
         [HttpPut, Route("sitedatatypes/")]
         public IHttpActionResult Put([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.InsertSiteDataType(sdi));
+            return Ok(sdiProcessor.InsertSiteDataType(db, sdi));
         }
 
 

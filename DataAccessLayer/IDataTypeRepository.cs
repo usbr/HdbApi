@@ -5,26 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using HdbApi.Models;
 using Dapper;
+using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
     internal interface IDataTypeRepository
     {
-        List<DatatypeModel.HdbDatatype> GetDataTypes(int[] id);
+        List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, int[] id);
 
-        bool InsertDataType(DatatypeModel.HdbDatatype dtype);
+        bool InsertDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype);
 
-        bool UpdateDataType(DatatypeModel.HdbDatatype dtype);
+        bool UpdateDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype);
 
-        bool DeleteDataType(int id);
+        bool DeleteDataType(IDbConnection db, int id);
     }
 
     
     public class DataTypeRepository : IDataTypeRepository
     {
-        private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
-
-        public List<DatatypeModel.HdbDatatype> GetDataTypes(int[] id)
+        //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
+        
+        public List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, int[] id)
         {
             string sqlString = "select * " +
                 "from HDB_DATATYPE A, HDB_UNIT B where A.UNIT_ID = B.UNIT_ID ";
@@ -38,21 +39,21 @@ namespace HdbApi.DataAccessLayer
                 sqlString += "and A.DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
             }
             sqlString += "order by A.DATATYPE_ID";
-
+            
             return (List<Models.DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString);
         }
 
-        public bool InsertDataType(DatatypeModel.HdbDatatype dtype)
+        public bool InsertDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateDataType(DatatypeModel.HdbDatatype dtype)
+        public bool UpdateDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteDataType(int id)
+        public bool DeleteDataType(IDbConnection db, int id)
         {
             throw new NotImplementedException();
         }

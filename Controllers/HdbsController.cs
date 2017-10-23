@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Data;
+using System.Collections.Generic;
 using System.Web.Http;
+using Dapper;
+using Oracle.ManagedDataAccess.Client;
 
 namespace HdbApi.Controllers
 {
     /// <summary>
     /// Represents test controller that should be removed.
     /// </summary>
-    public class HdbsController : ApiController
+    public class HdbController : ApiController
     {
         /// <summary>
         /// Gets available HDBs
@@ -38,6 +41,29 @@ namespace HdbApi.Controllers
                 Password = password
             };
             return Ok(connectionDetails);
+        }
+
+        public static IDbConnection Connect(System.Net.Http.Headers.HttpRequestHeaders apiRequest)
+        {
+            string hdbKey, userKey, passKey;
+            if (apiRequest.Contains("api_hdb") && apiRequest.Contains("api_user") && apiRequest.Contains("api_pass"))
+            {
+                hdbKey = apiRequest.GetValues("api_hdb").AsList<string>()[0];
+                userKey = apiRequest.GetValues("api_user").AsList<string>()[0];
+                passKey = apiRequest.GetValues("api_pass").AsList<string>()[0];
+            }
+            else
+            {
+                throw new KeyNotFoundException("HTTP Request Header Keys missing. Refer to the API guide for proper formatting of the API Request...");
+            }
+
+            // Log-in
+            System.Data.IDbConnection db = new OracleConnection("Data Source=" + hdbKey + ";User Id=" + userKey + ";Password=" + passKey + ";");
+
+            // Check ref_user_groups
+            //string sqlString = "select * from ref_user_groups where lower(user_name) = '" + userKey + "'";
+
+            return db;
         }
 
         /// <summary>

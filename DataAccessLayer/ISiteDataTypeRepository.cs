@@ -5,26 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using HdbApi.Models;
 using Dapper;
+using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
     internal interface ISiteDataTypeRepository
     {
-        List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(int[] sdi);
+        List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] sdi);
 
-        bool InsertSiteDataType(SiteDatatypeModel.HdbSiteDatatype sdi);
+        bool InsertSiteDataType(IDbConnection db, SiteDatatypeModel.HdbSiteDatatype sdi);
 
-        bool UpdateSiteDataType(SiteDatatypeModel.HdbSiteDatatype sdi);
+        bool UpdateSiteDataType(IDbConnection db, SiteDatatypeModel.HdbSiteDatatype sdi);
 
-        bool DeleteSiteDataType(int sdi);
+        bool DeleteSiteDataType(IDbConnection db, int sdi);
     }
 
     
     public class SiteDataTypeRepository : ISiteDataTypeRepository
     {
-        private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
+        //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(int[] id)
+        public List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] id)
         {
             string sqlString = "select * " +
                 "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
@@ -63,7 +64,7 @@ namespace HdbApi.DataAccessLayer
             return result;
         }
 
-        public SiteDatatypeModel.SiteDataTypeMetadata GetSiteDataTypeForSeries(int id)
+        public SiteDatatypeModel.SiteDataTypeMetadata GetSiteDataTypeForSeries(IDbConnection db, int id)
         {
             string sqlString = "select * " +
                 "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
@@ -94,17 +95,17 @@ namespace HdbApi.DataAccessLayer
         }
 
 
-        public bool InsertSiteDataType(SiteDatatypeModel.HdbSiteDatatype dtype)
+        public bool InsertSiteDataType(IDbConnection db, SiteDatatypeModel.HdbSiteDatatype dtype)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateSiteDataType(SiteDatatypeModel.HdbSiteDatatype dtype)
+        public bool UpdateSiteDataType(IDbConnection db, SiteDatatypeModel.HdbSiteDatatype dtype)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteSiteDataType(int id)
+        public bool DeleteSiteDataType(IDbConnection db, int id)
         {
             throw new NotImplementedException();
         }

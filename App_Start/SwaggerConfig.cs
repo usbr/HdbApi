@@ -22,6 +22,10 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
             configuration.EnableSwagger(c => //"HdbApi/{apiVersion}/swagger", c =>
             {
                 c.Schemes(new[] { "http", "https" });
+                //c.ApiKey("apiKey")
+                //    .Description("API Key Authentication")
+                //    .Name("X-ApiKey")
+                //    .In("header");
                 c.SingleApiVersion("v0", "HDB Data Services API")
                     .Description(
                         "This web page serves as the main interface, documentation, and testing service for the available HDB data services. " + 
@@ -29,6 +33,12 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
                         "Contact the developer for feedback, data service questions, or the development of new data services within this " + 
                         "web page." +
                         "\n\r" + 
+                        "USAGE - Input your HDB and Log-In information in the boxes on the top-right corner of this page before testing any of. " +
+                        "the available APIs. These will be your typical HDB log-in credentials. For example, I will put in lchdb2, my username, " +
+                        "and my password in order to connect to the LC HDB as myself. In code, you would have to attach custom headers to your HTTP " + 
+                        "Request with the keys (1)api_hdb, (2)api_user, and (3)api_pass for the (1)HDB you are trying to access and your (2)user name and (3)password " + 
+                        "credentials." + 
+                        "\n\r" +
                         "This Application Programming Interface (API) is preliminary or provisional and is subject to revision. " + 
                         "It is currently in development and as such, frequent updates, downtimes, and loss of functionality are to " + 
                         "be expected. The API has not received final approval by Reclamation. No warranty, expressed or implied, is " + 
@@ -50,11 +60,14 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
                 c.OperationFilter<ExamplesOperationFilter>();
             }).EnableSwaggerUi(c => //"HdbApi/{*assetPath}", c => 
             {
+                //c.EnableApiKeySupport("X-ApiKey", "header");
+                c.DisableValidator();
                 // custom swagger resources
                 c.CustomAsset("index", HdbApi.Startup.thisAssembly, "HdbApi.SwaggerExtensions.index.html");
                 c.InjectStylesheet(HdbApi.Startup.thisAssembly, "HdbApi.SwaggerExtensions.screen.css");
                 c.InjectStylesheet(HdbApi.Startup.thisAssembly, "HdbApi.SwaggerExtensions.typography.css");
                 c.InjectJavaScript(HdbApi.Startup.thisAssembly, "HdbApi.SwaggerExtensions.discoveryUrlSelector.js");
+                c.InjectJavaScript(HdbApi.Startup.thisAssembly, "HdbApi.SwaggerExtensions.basicAuth.js");
             });
                         
         }

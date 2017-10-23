@@ -4,6 +4,7 @@ using System;
 using System.Net;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
+using System.Data;
 
 namespace HdbApi.Controllers
 {
@@ -15,7 +16,6 @@ namespace HdbApi.Controllers
         /// <remarks>
         /// Gets Time-Series Data given certain input filters
         /// </remarks>
-        /// <param name="hdb">HDB DB Name</param>
         /// <param name="sdi">Site Datatype ID</param>
         /// <param name="interval">Time-Series Interval</param>
         /// <param name="t1">Start Date in MM-DD-YYYY HH:MM</param>
@@ -27,10 +27,11 @@ namespace HdbApi.Controllers
         [HttpGet, Route("series/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
-        public IHttpActionResult Get([FromUri] string hdb, [FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
-            return Ok(seriesProcessor.GetSeries(hdb, sdi, interval, t1, t2, table, mrid)); ;
+            return Ok(seriesProcessor.GetSeries(db, sdi, interval, t1, t2, table, mrid)); ;
         }
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace HdbApi.Controllers
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
         public IHttpActionResult Post([FromBody] Models.SeriesModel.TimeSeriesQuery input)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             return Ok(new Models.SeriesModel.TimeSeries());
         }
 

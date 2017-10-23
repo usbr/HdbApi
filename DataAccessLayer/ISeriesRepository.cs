@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using HdbApi.Models;
 using Dapper;
-using Oracle.ManagedDataAccess.Client;
+using System.Text.RegularExpressions;
 
 namespace HdbApi.DataAccessLayer
 {
     internal interface ISeriesRepository
     {
-        SeriesModel.TimeSeries GetSeries(string hdb, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0);
+        SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0);
 
         bool InsertSeries();
 
@@ -23,16 +23,18 @@ namespace HdbApi.DataAccessLayer
     
     public class SeriesRepository : ISeriesRepository
     {
-        private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
+        //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public SeriesModel.TimeSeries GetSeries(string hdbInst, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0)
+        public SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0)
         {
-            // [JR] ADD LOGIC TO RESOLVE HDB CONNECTION
+            // RESOLVE HDB CONNECTION
+            Regex regex = new Regex(@"Data Source=([^;]*);");
+            Match match = regex.Match(db.ConnectionString);
 
             // GET QUERY VARS
             var tsQuery = new Models.SeriesModel.TimeSeriesQuery
             {
-                hdb = hdbInst.ToUpper(),
+                hdb = match.Groups[1].Value.ToString().ToUpper(),
                 sdi = id,
                 t1 = startDate,
                 t2 = endDate,
@@ -57,7 +59,7 @@ namespace HdbApi.DataAccessLayer
 
             // [JR] GET TS METADATA
             var seriesMetaProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            var tsMeta = seriesMetaProcessor.GetSiteDataTypeForSeries(id);
+            var tsMeta = seriesMetaProcessor.GetSiteDataTypeForSeries(db, id);
 
             // BUILD OUTPUT
             var ts = new Models.SeriesModel.TimeSeries

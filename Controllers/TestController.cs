@@ -14,7 +14,7 @@ namespace HdbApi.Controllers
         [HttpGet, Route("tests")]
         public IHttpActionResult Get()
         {
-            System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
 
             //// [JR] STOREDPROC CALL SAMPLE
             var p = new OracleDynamicParameters();

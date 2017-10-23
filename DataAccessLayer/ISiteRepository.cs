@@ -5,26 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using HdbApi.Models;
 using Dapper;
+using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
     internal interface ISiteRepository
     {
-        List<SiteModel.HdbSite> GetSites(int[] id);
+        List<SiteModel.HdbSite> GetSites(IDbConnection db, int[] id);
 
-        bool InsertSite(SiteModel.HdbSite site);
+        bool InsertSite(IDbConnection db, SiteModel.HdbSite site);
 
-        bool UpdateSite(SiteModel.HdbSite site);
+        bool UpdateSite(IDbConnection db, SiteModel.HdbSite site);
 
-        bool DeleteSite(int id);
+        bool DeleteSite(IDbConnection db, int id);
     }
 
     
     public class SiteRepository : ISiteRepository
     {
-        private System.Data.IDbConnection db = HdbApi.Code.DbConnect.Connect();
+        //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public List<SiteModel.HdbSite> GetSites(int[] id)
+        public List<SiteModel.HdbSite> GetSites(IDbConnection db, int[] id)
         {
             string sqlString = "select * " +
                 "from HDB_SITE A, HDB_OBJECTTYPE B, HDB_STATE C where A.OBJECTTYPE_ID = B.OBJECTTYPE_ID and A.STATE_ID = C.STATE_ID ";
@@ -42,17 +43,17 @@ namespace HdbApi.DataAccessLayer
             return (List<Models.SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString);
         }
 
-        public bool InsertSite(SiteModel.HdbSite site)
+        public bool InsertSite(IDbConnection db, SiteModel.HdbSite site)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateSite(SiteModel.HdbSite site)
+        public bool UpdateSite(IDbConnection db, SiteModel.HdbSite site)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteSite(int id)
+        public bool DeleteSite(IDbConnection db, int id)
         {
             throw new NotImplementedException();
         }

@@ -143,12 +143,12 @@
     <EmbeddedResource Include="SwaggerExtensions\index.html" />
     <EmbeddedResource Include="SwaggerExtensions\screen.css" />
     <EmbeddedResource Include="SwaggerExtensions\typography.css" />
+    <EmbeddedResource Include="SwaggerExtensions\basicAuth.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DbConnect.cs" />
     <Compile Include="App_Code\OracleDynamicParameters.cs" />
     <Compile Include="App_Start\ApiExceptionHandler.cs" />
     <Compile Include="App_Start\ApiExceptionLogger.cs" />

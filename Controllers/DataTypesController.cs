@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
+using System.Data;
 
 namespace HdbApi.Controllers
 {
@@ -20,8 +21,9 @@ namespace HdbApi.Controllers
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(DatatypeExample))]
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.GetDataTypes(id));
+            return Ok(dtypeProcessor.GetDataTypes(db, id));
         }
 
         /// <summary>
@@ -35,8 +37,9 @@ namespace HdbApi.Controllers
         [HttpDelete, Route("datatypes/")]
         public IHttpActionResult Delete([FromUri] int id)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.DeleteDataType(id));
+            return Ok(dtypeProcessor.DeleteDataType(db, id));
         }
 
         /// <summary>
@@ -50,8 +53,9 @@ namespace HdbApi.Controllers
         [HttpPatch, Route("datatypes/")]
         public IHttpActionResult Patch([FromBody] Models.DatatypeModel.HdbDatatype dtype)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.UpdateDataType(dtype));
+            return Ok(dtypeProcessor.UpdateDataType(db, dtype));
         }
 
         /// <summary>
@@ -65,8 +69,9 @@ namespace HdbApi.Controllers
         [HttpPut, Route("datatypes/")]
         public IHttpActionResult Put([FromBody] Models.DatatypeModel.HdbDatatype dtype)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.InsertDataType(dtype));
+            return Ok(dtypeProcessor.InsertDataType(db, dtype));
         }
 
 

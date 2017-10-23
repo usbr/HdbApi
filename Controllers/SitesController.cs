@@ -3,6 +3,7 @@ using System.Net;
 using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
+using System.Data;
 
 namespace HdbApi.Controllers
 {
@@ -21,8 +22,9 @@ namespace HdbApi.Controllers
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteExample))]
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.GetSites(id));
+            return Ok(siteProcessor.GetSites(db, id));
         }
 
         /// <summary>
@@ -36,8 +38,9 @@ namespace HdbApi.Controllers
         [HttpDelete, Route("sites/")]
         public IHttpActionResult Delete([FromUri] int id)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.DeleteSite(id));
+            return Ok(siteProcessor.DeleteSite(db, id));
         }
 
         /// <summary>
@@ -51,8 +54,9 @@ namespace HdbApi.Controllers
         [HttpPatch, Route("sites/")]
         public IHttpActionResult Patch([FromBody] Models.SiteModel.HdbSite site)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.UpdateSite(site));
+            return Ok(siteProcessor.UpdateSite(db, site));
         }
 
         /// <summary>
@@ -66,8 +70,9 @@ namespace HdbApi.Controllers
         [HttpPut, Route("sites/")]
         public IHttpActionResult Put([FromBody] Models.SiteModel.HdbSite site)
         {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.InsertSite(site));
+            return Ok(siteProcessor.InsertSite(db, site));
         }
 
 
