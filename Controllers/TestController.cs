@@ -14,11 +14,11 @@ namespace HdbApi.Controllers
     {
 
 
-        [HttpGet, Route("tests/{id:int}")]
-        [SwaggerOperation(Tags = new[] { "Testing Sandbox" })]
-        public IHttpActionResult Get(int id)
-        {
-            return Ok(id * id);
-        }
+        //[HttpGet, Route("tests/{id:int}")]
+        //[SwaggerOperation(Tags = new[] { "Testing Sandbox" })]
+        //public IHttpActionResult Get(int id)
+        //{
+        //    return Ok(id * id);
+        //}
     }
 }

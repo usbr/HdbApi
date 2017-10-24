@@ -27,7 +27,7 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
                 //    .Description("API Key Authentication")
                 //    .Name("X-ApiKey")
                 //    .In("header");
-                c.SingleApiVersion("ALPHA", "HDB Data Services API")
+                c.SingleApiVersion("BETA", "HDB Data Services API")
                     .Description(
                         "This web page serves as the main interface, documentation, and testing service for the available HDB data services. " + 
                         "This service is being developed using a technology stack comprised of Windows/.Net, IIS, Dapper, and Swagger. " +

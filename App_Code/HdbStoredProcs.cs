@@ -125,12 +125,12 @@ namespace HdbApi.App_Code
             LookupApplication(db);
 
             var p = new OracleDynamicParameters();
-            p.Add("SAMPLE_SDI", value: sdi, dbType: OracleDbType.Int32);
+            p.Add("SAMPLE_SDI", value: sdi, dbType: OracleDbType.Decimal);
             p.Add("SAMPLE_DATE_TIME", value: t, dbType: OracleDbType.Date);
             p.Add("SAMPLE_END_TIME", value: DBNull.Value, dbType: OracleDbType.Date);
             p.Add("SAMPLE_INTERVAL", value: interval, dbType: OracleDbType.Varchar2);
             p.Add("LOADING_APP_ID", value: s_LOADING_APPLICATION_ID, dbType: OracleDbType.Varchar2);
-            p.Add("MODELRUN_ID", value: mrid, dbType: OracleDbType.Int32);
+            p.Add("MODELRUN_ID", value: mrid, dbType: OracleDbType.Decimal);
             p.Add("AGENCY_ID", value: s_AGEN_ID, dbType: OracleDbType.Varchar2);
             p.Add("TIME_ZONE", value: DBNull.Value, dbType: OracleDbType.Varchar2);
 
@@ -139,7 +139,7 @@ namespace HdbApi.App_Code
 
 
         /// <summary>
-        /// Method that generates arrays of TS data
+        /// Method that generates arrays of TS data used by legacy CGI program
         /// </summary>
         /// <param name="db"></param>
         /// <param name="sdi"></param>

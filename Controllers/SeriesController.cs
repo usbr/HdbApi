@@ -47,7 +47,6 @@ namespace HdbApi.Controllers
         /// <response code="200"></response>
         [HttpPost, Route("series/r-write/{input=input}")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ObservedPoint))]
         public IHttpActionResult Post([FromBody] List<Models.PointModel.ObservedPoint> input)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -57,6 +56,32 @@ namespace HdbApi.Controllers
             foreach (Models.PointModel.ObservedPoint point in input)
             {
                 var result = hdbProcessor.modify_r_base_raw(db,point.site_datatype_id,point.interval,point.start_date_time,point.value,point.overwrite_flag,point.validation,point.do_update_y_or_n);
+            }
+
+            return Ok(input);
+        }
+
+
+        /// <summary>
+        /// Delete Observed Data
+        /// </summary>
+        /// <remarks>
+        /// Delete Time-Series Data points for Observed Data
+        /// </remarks>
+        /// <param name="input">HDB Observed Data Writer Object</param>
+        /// <returns></returns>
+        /// <response code="200"></response>
+        [HttpDelete, Route("series/r-delete/{input=input}")]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
+        public IHttpActionResult Delete([FromBody] List<Models.PointModel.ObservedPoint> input)
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+
+            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+
+            foreach (Models.PointModel.ObservedPoint point in input)
+            {
+                var result = hdbProcessor.delete_from_hdb(db, point.site_datatype_id, point.start_date_time, point.interval);
             }
 
             return Ok(input);
@@ -74,7 +99,6 @@ namespace HdbApi.Controllers
         /// <response code="200"></response>
         [HttpPost, Route("series/m-write/{input=input}")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ModeledPoint))]
         public IHttpActionResult Post([FromBody] List<Models.PointModel.ModeledPoint> input)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -88,11 +112,37 @@ namespace HdbApi.Controllers
 
             return Ok(input);
         }
-
+        
 
         /// <summary>
-        /// Example provider for the Get TimeSeries method 
+        /// Delete Modeled Data
         /// </summary>
+        /// <remarks>
+        /// Delete Time-Series Data points for Modeled Data
+        /// </remarks>
+        /// <param name="input">HDB Modeled Data Writer Object</param>
+        /// <returns></returns>
+        /// <response code="200"></response>
+        [HttpDelete, Route("series/m-delete/{input=input}")]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
+        public IHttpActionResult Delete([FromBody] List<Models.PointModel.ModeledPoint> input)
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+
+            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+
+            foreach (Models.PointModel.ModeledPoint point in input)
+            {
+                var result = hdbProcessor.delete_from_hdb(db, point.site_datatype_id, point.start_date_time, point.interval, point.model_run_id);
+            }
+
+            return Ok(input);
+        }
+        
+        
+        /// <summary>
+         /// Example provider for the Get TimeSeries method 
+         /// </summary>
         public class TimeSeriesExample : IExamplesProvider
         {
             public object GetExamples()
