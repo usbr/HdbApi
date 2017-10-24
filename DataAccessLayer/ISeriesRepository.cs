@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Text;
-using System.Threading.Tasks;
 using HdbApi.Models;
-using Dapper;
 using System.Text.RegularExpressions;
+using Oracle.ManagedDataAccess.Client;
+using System.Data;
+using Dapper;
 
 namespace HdbApi.DataAccessLayer
 {
@@ -86,5 +85,6 @@ namespace HdbApi.DataAccessLayer
         {
             throw new NotImplementedException();
         }
+                
     }
 }

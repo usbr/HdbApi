@@ -34,25 +34,43 @@ namespace HdbApi.Controllers
             return Ok(seriesProcessor.GetSeries(db, sdi, interval, t1, t2, table, mrid)); ;
         }
 
+
         /// <summary>
-        /// Query Time-Series Data
+        /// Write Observed Data
         /// </summary>
         /// <remarks>
-        /// Gets Time-Series Data given certain input filters
+        /// Write Time-Series Data points for Observed Data
         /// </remarks>
-        /// <param name="input">HDB Time-Series Query Input Array</param>
+        /// <param name="input">HDB Observed Data Writer Object</param>
         /// <returns></returns>
         /// <response code="200"></response>
-        [HttpPost, Route("series/{input=input}")]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
-        [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
-        public IHttpActionResult Post([FromBody] Models.SeriesModel.TimeSeriesQuery input)
+        [HttpPost, Route("point/r-write/{input=input}")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ObservedPoint))]
+        public IHttpActionResult Post([FromBody] Models.PointModel.ObservedPoint input)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
-            return Ok(new Models.SeriesModel.TimeSeries());
+            return Ok(new Models.PointModel.ObservedPoint());
         }
 
-        
+
+        /// <summary>
+        /// Write Modeled Data
+        /// </summary>
+        /// <remarks>
+        /// Write Time-Series Data points for Modeled Data
+        /// </remarks>
+        /// <param name="input">HDB Modeled Data Writer Object</param>
+        /// <returns></returns>
+        /// <response code="200"></response>
+        [HttpPost, Route("point/m-write/{input=input}")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ModeledPoint))]
+        public IHttpActionResult Post([FromBody] Models.PointModel.ModeledPoint input)
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+            return Ok(new Models.PointModel.ModeledPoint());
+        }
+
+
 
         public class TimeSeriesExample : IExamplesProvider
         {

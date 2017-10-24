@@ -12,37 +12,50 @@ namespace HdbApi.Controllers
     public class HdbController : ApiController
     {
         /// <summary>
-        /// Gets available HDBs
+        /// List HDBs
         /// </summary>
+        /// <remarks>
+        /// List available HDB instances that the API can connect to
+        /// </remarks>
         /// <returns></returns>
         [HttpGet, Route("hdb")]
         public IHttpActionResult Get()
         {
-            return Ok(new List<string> { "Test 1", "Test 2" });
+            return Ok(new List<string>
+            {
+                "LCHDB2 - LC Production HDB",
+                "LCHDEV - LC Test HDB",
+                "LCHDB - LC Oracle 12c Test HDB",
+                "UCHDB2 - UC Production HDB",
+                "YAOHDB - YAO Production HDB",
+                "ECOHDB - ECAO Production HDB"
+            });
         }
 
         /// <summary>
         /// Connect to HDB
         /// </summary>
         /// <remarks>
-        /// Connect to HDB and authenticate credentials
+        /// Test connection to HDB and authenticate credentials
         /// </remarks>
         /// <param name="hdb">HDB instance to connect to</param>
         /// <param name="username">User name given HDB</param>
         /// <param name="password">User credentials given HDB and User Name</param>
         /// <returns></returns>
-        [HttpPost, Route("session/")]
-        public IHttpActionResult Post(string hdb = "", string username = "", string password = "")//, HdbCredentials connectionDetails = null)
+        [HttpGet, Route("connect/")]
+        public IHttpActionResult Get([FromUri] string hdb, [FromUri]string username, [FromUri]string password)
         {
-            HdbCredentials connectionDetails = new HdbCredentials
-            {
-                HdbInstance = hdb,
-                UserName = username,
-                Password = password
-            };
-            return Ok(connectionDetails);
+            var db = Connect(hdb, username, password);
+            var result = db.Query<dynamic>("select * from all_users where username='" + username.ToUpper() + "'");
+            return Ok(result);
         }
 
+
+        /// <summary>
+        /// Method to generate a DB Connection from HTTP Request
+        /// </summary>
+        /// <param name="apiRequest"></param>
+        /// <returns></returns>
         public static IDbConnection Connect(System.Net.Http.Headers.HttpRequestHeaders apiRequest)
         {
             string hdbKey, userKey, passKey;
@@ -58,7 +71,8 @@ namespace HdbApi.Controllers
             }
 
             // Log-in
-            System.Data.IDbConnection db = new OracleConnection("Data Source=" + hdbKey + ";User Id=" + userKey + ";Password=" + passKey + ";");
+            //System.Data.IDbConnection db = new OracleConnection("Data Source=" + hdbKey + ";User Id=" + userKey + ";Password=" + passKey + ";");
+            System.Data.IDbConnection db = Connect(hdbKey, userKey, passKey);
 
             // Check ref_user_groups
             //string sqlString = "select * from ref_user_groups where lower(user_name) = '" + userKey + "'";
@@ -66,23 +80,20 @@ namespace HdbApi.Controllers
             return db;
         }
 
+
         /// <summary>
-        /// Model for passing connection details to connect
+        /// Overloaded method to generate a DB Connection from parse HTTP Request Headers
         /// </summary>
-        public class HdbCredentials
+        /// <param name="hdb"></param>
+        /// <param name="user"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public static IDbConnection Connect(string hdb, string user, string pass)
         {
-            /// <summary>
-            /// HDB Instance to connect to
-            /// </summary>
-            public string HdbInstance { get; set; }
-            /// <summary>
-            /// HDB Instance User Name
-            /// </summary>
-            public string UserName { get; set; }
-            /// <summary>
-            /// HDB Instance Password
-            /// </summary>
-            public string Password { get; set; }
+            // Log-in
+            return new OracleConnection("Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";");
         }
+
+        
     }
 }

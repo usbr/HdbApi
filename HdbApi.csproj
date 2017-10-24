@@ -149,6 +149,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\HdbStoredProcs.cs" />
     <Compile Include="App_Code\OracleDynamicParameters.cs" />
     <Compile Include="App_Start\ApiExceptionHandler.cs" />
     <Compile Include="App_Start\ApiExceptionLogger.cs" />
