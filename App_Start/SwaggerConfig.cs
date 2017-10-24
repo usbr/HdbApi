@@ -22,11 +22,12 @@ namespace Compusight.MoveDesk.UserManagementApi.Configuration
             configuration.EnableSwagger(c => //"HdbApi/{apiVersion}/swagger", c =>
             {
                 c.Schemes(new[] { "http", "https" });
+                //c.GroupActionsBy(apiDesc => apiDesc.HttpMethod.ToString());
                 //c.ApiKey("apiKey")
                 //    .Description("API Key Authentication")
                 //    .Name("X-ApiKey")
                 //    .In("header");
-                c.SingleApiVersion("v0", "HDB Data Services API")
+                c.SingleApiVersion("ALPHA", "HDB Data Services API")
                     .Description(
                         "This web page serves as the main interface, documentation, and testing service for the available HDB data services. " + 
                         "This service is being developed using a technology stack comprised of Windows/.Net, IIS, Dapper, and Swagger. " +

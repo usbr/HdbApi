@@ -19,6 +19,7 @@ namespace HdbApi.Controllers
         [HttpGet, Route("sitedatatypes/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SiteDatatypeModel.HdbSiteDatatype))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteDatatypeExample))]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Get([FromUri] int[] sdi = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -35,6 +36,7 @@ namespace HdbApi.Controllers
         /// <param name="sdi">HDB SiteDataType ID</param>
         /// <returns></returns>
         [HttpDelete, Route("sitedatatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Delete([FromUri] int sdi)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -51,6 +53,7 @@ namespace HdbApi.Controllers
         /// <param name="sdi">HDB SiteDataType</param>
         /// <returns></returns>
         [HttpPatch, Route("sitedatatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Patch([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -67,6 +70,7 @@ namespace HdbApi.Controllers
         /// <param name="sdi">HDB SiteDataType</param>
         /// <returns></returns>
         [HttpPut, Route("sitedatatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Put([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);

@@ -19,6 +19,7 @@ namespace HdbApi.Controllers
         [HttpGet, Route("datatypes/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.DatatypeModel.HdbDatatype))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(DatatypeExample))]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Get([FromUri] int[] id = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -35,6 +36,7 @@ namespace HdbApi.Controllers
         /// <param name="id">HDB Datatype ID</param>
         /// <returns></returns>
         [HttpDelete, Route("datatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Delete([FromUri] int id)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -51,6 +53,7 @@ namespace HdbApi.Controllers
         /// <param name="dtype">HDB DataType</param>
         /// <returns></returns>
         [HttpPatch, Route("datatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Patch([FromBody] Models.DatatypeModel.HdbDatatype dtype)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -67,6 +70,7 @@ namespace HdbApi.Controllers
         /// <param name="dtype">HDB DataType</param>
         /// <returns></returns>
         [HttpPut, Route("datatypes/")]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
         public IHttpActionResult Put([FromBody] Models.DatatypeModel.HdbDatatype dtype)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);

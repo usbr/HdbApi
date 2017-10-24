@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Dapper;
 using Oracle.ManagedDataAccess.Client;
+using Swashbuckle.Swagger.Annotations;
 
 namespace HdbApi.Controllers
 {
@@ -19,6 +20,7 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <returns></returns>
         [HttpGet, Route("hdb")]
+        [SwaggerOperation(Tags = new[] { "HDB Connections" })]
         public IHttpActionResult Get()
         {
             return Ok(new List<string>
@@ -43,6 +45,7 @@ namespace HdbApi.Controllers
         /// <param name="password">User credentials given HDB and User Name</param>
         /// <returns></returns>
         [HttpGet, Route("connect/")]
+        [SwaggerOperation(Tags = new[] { "HDB Connections" })]
         public IHttpActionResult Get([FromUri] string hdb, [FromUri]string username, [FromUri]string password)
         {
             var db = Connect(hdb, username, password);
@@ -67,11 +70,10 @@ namespace HdbApi.Controllers
             }
             else
             {
-                throw new KeyNotFoundException("HTTP Request Header Keys missing. Refer to the API guide for proper formatting of the API Request...");
+                throw new KeyNotFoundException("HTTP Request Header Keys missing. Refer to the API guide for proper formatting of the API Request.");
             }
 
             // Log-in
-            //System.Data.IDbConnection db = new OracleConnection("Data Source=" + hdbKey + ";User Id=" + userKey + ";Password=" + passKey + ";");
             System.Data.IDbConnection db = Connect(hdbKey, userKey, passKey);
 
             // Check ref_user_groups
@@ -82,7 +84,7 @@ namespace HdbApi.Controllers
 
 
         /// <summary>
-        /// Overloaded method to generate a DB Connection from parse HTTP Request Headers
+        /// Overloaded method to generate a DB Connection from parsed keys in the HTTP Request Header
         /// </summary>
         /// <param name="hdb"></param>
         /// <param name="user"></param>

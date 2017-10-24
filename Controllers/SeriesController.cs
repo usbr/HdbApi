@@ -27,6 +27,7 @@ namespace HdbApi.Controllers
         [HttpGet, Route("series/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
         public IHttpActionResult Get([FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
@@ -44,12 +45,21 @@ namespace HdbApi.Controllers
         /// <param name="input">HDB Observed Data Writer Object</param>
         /// <returns></returns>
         /// <response code="200"></response>
-        [HttpPost, Route("point/r-write/{input=input}")]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ObservedPoint))]
-        public IHttpActionResult Post([FromBody] Models.PointModel.ObservedPoint input)
+        [HttpPost, Route("series/r-write/{input=input}")]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
+        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ObservedPoint))]
+        public IHttpActionResult Post([FromBody] List<Models.PointModel.ObservedPoint> input)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
-            return Ok(new Models.PointModel.ObservedPoint());
+
+            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+            
+            foreach (Models.PointModel.ObservedPoint point in input)
+            {
+                var result = hdbProcessor.modify_r_base_raw(db,point.site_datatype_id,point.interval,point.start_date_time,point.value,point.overwrite_flag,point.validation,point.do_update_y_or_n);
+            }
+
+            return Ok(input);
         }
 
 
@@ -62,16 +72,27 @@ namespace HdbApi.Controllers
         /// <param name="input">HDB Modeled Data Writer Object</param>
         /// <returns></returns>
         /// <response code="200"></response>
-        [HttpPost, Route("point/m-write/{input=input}")]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ModeledPoint))]
-        public IHttpActionResult Post([FromBody] Models.PointModel.ModeledPoint input)
+        [HttpPost, Route("series/m-write/{input=input}")]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
+        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.PointModel.ModeledPoint))]
+        public IHttpActionResult Post([FromBody] List<Models.PointModel.ModeledPoint> input)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
-            return Ok(new Models.PointModel.ModeledPoint());
+
+            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+
+            foreach (Models.PointModel.ModeledPoint point in input)
+            {
+                var result = hdbProcessor.modify_m_table_raw(db, point.model_run_id, point.site_datatype_id, point.start_date_time, point.value, point.interval, point.do_update_y_or_n);
+            }
+
+            return Ok(input);
         }
 
 
-
+        /// <summary>
+        /// Example provider for the Get TimeSeries method 
+        /// </summary>
         public class TimeSeriesExample : IExamplesProvider
         {
             public object GetExamples()
@@ -151,6 +172,33 @@ namespace HdbApi.Controllers
                 };
                 return ts;
             }
+        }
+
+
+        /// <summary>
+        /// Query Time-Series Data (Legacy CGI Program)
+        /// </summary>
+        /// <remarks>
+        /// Calls the stored procedure used by the legacy CGI program for backwards compatibility
+        /// </remarks>
+        /// <returns></returns>
+        /// <param name="sdi">Comma delimited list of SDIs</param>
+        /// <param name="tstp">Interval table {INSTANT, HOUR, DAY, MONTH, YEAR}</param>
+        /// <param name="t1">Start Date</param>
+        /// <param name="t2">End Date</param>
+        /// <param name="table">Optional - HDB Table {R, M}</param>
+        /// <param name="mrid">Optional - Model Run ID if table=M</param>
+        /// <returns></returns>
+        [HttpGet, Route("cgi")]
+        [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
+        public IHttpActionResult Get([FromUri] string sdi, [FromUri] string tstp, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+
+            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+            var result = hdbProcessor.get_hdb_cgi_data(db, sdi, tstp, t1, t2, table, mrid);
+
+            return Ok(result);
         }
 
     }
