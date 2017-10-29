@@ -23,7 +23,7 @@ function addAuthorization() {
             window.authorizations.add("api_hdb", new SwaggerClient.ApiKeyAuthorization("api_hdb", hdb, "header"));
             window.authorizations.add("api_user", new SwaggerClient.ApiKeyAuthorization("api_user", username, "header"));
             window.authorizations.add("api_pass", new SwaggerClient.ApiKeyAuthorization("api_pass", password, "header"));
-            console.log("authorization added: hdb = " + hdb + ", username = " + username + ", password = " + password);
+            console.log("HDB Log-In: hdb = " + hdb + ", username = " + username);
         }
     }
 })();

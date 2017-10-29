@@ -92,6 +92,7 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         public static IDbConnection Connect(string hdb, string user, string pass)
         {
+            App_Code.HdbApiLogging.LogHdbApiInfoMessage(user + " using " + hdb);
             // Log-in
             return new OracleConnection("Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";");
         }
