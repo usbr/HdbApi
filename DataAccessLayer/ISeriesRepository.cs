@@ -59,6 +59,7 @@ namespace HdbApi.DataAccessLayer
             {
                 sqlString += string.Format(" AND MODEL_RUN_ID = {0}", mrid);
             }
+            sqlString += string.Format(" ORDER BY t.DATE_TIME", mrid);
             List<SeriesModel.TimeSeriesPoint> tsData = (List<SeriesModel.TimeSeriesPoint>)db.Query<SeriesModel.TimeSeriesPoint>(sqlString);
 
             // [JR] GET TS METADATA
