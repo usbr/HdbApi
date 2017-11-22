@@ -201,13 +201,13 @@ namespace HdbApi.Controllers
                 var tsPoint1 = new Models.SeriesModel.TimeSeriesPoint
                 {
                     datetime = new DateTime(2000, 1, 1, 0, 0, 0),
-                    value = 3.1416,
+                    value = 3.1416.ToString(),
                     flag = ""
                 };
                 var tsPoint2 = new Models.SeriesModel.TimeSeriesPoint
                 {
                     datetime = new DateTime(2000, 1, 2, 0, 0, 0),
-                    value = 2.7183,
+                    value = 2.7183.ToString(),
                     flag = ""
                 };
                 var tsData = new List<Models.SeriesModel.TimeSeriesPoint>

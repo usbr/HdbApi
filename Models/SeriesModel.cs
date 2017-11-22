@@ -98,7 +98,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Value
             /// </summary>
-            public double value { get; set; }
+            public string value { get; set; }
 
             /// <summary>
             /// Flag
