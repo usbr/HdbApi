@@ -72,6 +72,11 @@ namespace HdbApi.Models
             /// Model Run ID
             /// </summary>
             public int mrid { get; set; } = 0;
+
+            /// <summary>
+            /// Use R-Base tables
+            /// </summary>
+            public bool rbase { get; set; } = false;
         }
 
         /// <summary>

@@ -20,19 +20,27 @@ namespace HdbApi.Controllers
         /// <param name="interval">Time-Series Interval</param>
         /// <param name="t1">Start Date in MM-DD-YYYY HH:MM</param>
         /// <param name="t2">End Date in MM-DD-YYYY HH:MM</param>
-        /// <param name="table">Optional - M for Modeled Data</param>
-        /// <param name="mrid">Required if table=M</param>
+        /// <param name="rbase">Optional: TRUE to query r-base tables, FALSE to query interval tables (default)</param>
+        /// <param name="table">Optional: R for Observed Data (default), M for Modeled Projections</param>
+        /// <param name="mrid">Model Run ID required if table=M</param>
         /// <returns></returns>
         /// <response code="200"></response>
         [HttpGet, Route("series/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] bool rbase = false, [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
-            return Ok(seriesProcessor.GetSeries(db, sdi, interval, t1, t2, table, mrid)); ;
+            return Ok(seriesProcessor.GetSeries(db, sdi, interval, t1, t2, table.ToString(), mrid, rbase)); ;
+        }
+
+
+        public enum TableType
+        {
+            R = 0,
+            M = 1
         }
 
 
