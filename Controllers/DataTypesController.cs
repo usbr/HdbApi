@@ -35,14 +35,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="id">HDB Datatype ID</param>
         /// <returns></returns>
-        [HttpDelete, Route("datatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Delete([FromUri] int id)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.DeleteDataType(db, id));
-        }
+        //[HttpDelete, Route("datatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Delete([FromUri] int id)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
+        //    return Ok(dtypeProcessor.DeleteDataType(db, id));
+        //}
 
         /// <summary>
         /// Update DataType
@@ -52,14 +52,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="dtype">HDB DataType</param>
         /// <returns></returns>
-        [HttpPatch, Route("datatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Patch([FromBody] Models.DatatypeModel.HdbDatatype dtype)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.UpdateDataType(db, dtype));
-        }
+        //[HttpPatch, Route("datatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Patch([FromBody] Models.DatatypeModel.HdbDatatype dtype)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
+        //    return Ok(dtypeProcessor.UpdateDataType(db, dtype));
+        //}
 
         /// <summary>
         /// Add DataType
@@ -69,14 +69,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="dtype">HDB DataType</param>
         /// <returns></returns>
-        [HttpPut, Route("datatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Put([FromBody] Models.DatatypeModel.HdbDatatype dtype)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.InsertDataType(db, dtype));
-        }
+        //[HttpPut, Route("datatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Put([FromBody] Models.DatatypeModel.HdbDatatype dtype)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
+        //    return Ok(dtypeProcessor.InsertDataType(db, dtype));
+        //}
 
 
         public class DatatypeExample : IExamplesProvider

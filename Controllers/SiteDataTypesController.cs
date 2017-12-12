@@ -35,14 +35,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="sdi">HDB SiteDataType ID</param>
         /// <returns></returns>
-        [HttpDelete, Route("sitedatatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Delete([FromUri] int sdi)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.DeleteSiteDataType(db, sdi));
-        }
+        //[HttpDelete, Route("sitedatatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Delete([FromUri] int sdi)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
+        //    return Ok(sdiProcessor.DeleteSiteDataType(db, sdi));
+        //}
 
         /// <summary>
         /// Update SiteDataType
@@ -52,14 +52,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="sdi">HDB SiteDataType</param>
         /// <returns></returns>
-        [HttpPatch, Route("sitedatatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Patch([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.UpdateSiteDataType(db, sdi));
-        }
+        //[HttpPatch, Route("sitedatatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Patch([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
+        //    return Ok(sdiProcessor.UpdateSiteDataType(db, sdi));
+        //}
 
         /// <summary>
         /// Add SiteDataType
@@ -69,14 +69,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="sdi">HDB SiteDataType</param>
         /// <returns></returns>
-        [HttpPut, Route("sitedatatypes/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Put([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.InsertSiteDataType(db, sdi));
-        }
+        //[HttpPut, Route("sitedatatypes/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Put([FromBody] Models.SiteDatatypeModel.HdbSiteDatatype sdi)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
+        //    return Ok(sdiProcessor.InsertSiteDataType(db, sdi));
+        //}
 
 
         public class SiteDatatypeExample : IExamplesProvider

@@ -164,11 +164,13 @@
     <Compile Include="Controllers\DataTypesController.cs" />
     <Compile Include="Controllers\HdbsController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
+    <Compile Include="Controllers\ModelRunController.cs" />
     <Compile Include="Controllers\SitesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DataAccessLayer\ISiteDataTypeRepository.cs" />
     <Compile Include="DataAccessLayer\IDataTypeRepository.cs" />
     <Compile Include="DataAccessLayer\ISeriesRepository.cs" />
+    <Compile Include="DataAccessLayer\IModelRunRepository.cs" />
     <Compile Include="DataAccessLayer\ISiteRepository.cs" />
     <Compile Include="Models\ErrorInfoModel.cs" />
     <Compile Include="Models\HttpRequestModel.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Models\SeriesModel.cs" />
     <Compile Include="Models\DatatypeModel.cs" />
     <Compile Include="Models\SiteDatatypeModel.cs" />
+    <Compile Include="Models\ModelRunModel.cs" />
     <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
