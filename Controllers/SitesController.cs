@@ -36,14 +36,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="id">HDB Site ID</param>
         /// <returns></returns>
-        [HttpDelete, Route("sites/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Delete([FromUri] int id)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.DeleteSite(db, id));
-        }
+        //[HttpDelete, Route("sites/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Delete([FromUri] int id)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+        //    return Ok(siteProcessor.DeleteSite(db, id));
+        //}
 
         /// <summary>
         /// Update Site
@@ -53,14 +53,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="site">HDB Site</param>
         /// <returns></returns>
-        [HttpPatch, Route("sites/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Patch([FromBody] Models.SiteModel.HdbSite site)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.UpdateSite(db, site));
-        }
+        //[HttpPatch, Route("sites/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Patch([FromBody] Models.SiteModel.HdbSite site)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+        //    return Ok(siteProcessor.UpdateSite(db, site));
+        //}
 
         /// <summary>
         /// Add Site
@@ -70,14 +70,14 @@ namespace HdbApi.Controllers
         /// </remarks>
         /// <param name="site">HDB Site</param>
         /// <returns></returns>
-        [HttpPut, Route("sites/")]
-        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Put([FromBody] Models.SiteModel.HdbSite site)
-        {
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
-            var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.InsertSite(db, site));
-        }
+        //[HttpPut, Route("sites/")]
+        //[SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        //public IHttpActionResult Put([FromBody] Models.SiteModel.HdbSite site)
+        //{
+        //    IDbConnection db = HdbController.Connect(this.Request.Headers);
+        //    var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
+        //    return Ok(siteProcessor.InsertSite(db, site));
+        //}
 
 
         public class SiteExample : IExamplesProvider
