@@ -29,11 +29,11 @@ namespace HdbApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] int sdi, [FromUri] string interval, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] bool rbase = false, [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] int sdi, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] IntervalType interval = new IntervalType(), [FromUri] bool rbase = false, [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
-            return Ok(seriesProcessor.GetSeries(db, sdi, interval, t1, t2, table.ToString(), mrid, rbase)); ;
+            return Ok(seriesProcessor.GetSeries(db, sdi, interval.ToString(), t1, t2, table.ToString(), mrid, rbase)); ;
         }
 
 
@@ -41,6 +41,15 @@ namespace HdbApi.Controllers
         {
             R = 0,
             M = 1
+        }
+
+
+        public enum IntervalType
+        {
+            month = 0,
+            day = 1,
+            hour = 2,
+            instant = 3
         }
 
 
@@ -249,12 +258,12 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         [HttpGet, Route("cgi")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] string sdi, [FromUri] string tstp, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string table = "R", [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
 
             var hdbProcessor = new HdbApi.App_Code.HdbCommands();
-            var result = hdbProcessor.get_hdb_cgi_data(db, sdi, tstp, t1, t2, table, mrid);
+            var result = hdbProcessor.get_hdb_cgi_data(db, sdi, tstp.ToString(), t1, t2, table.ToString(), mrid);
 
             return Ok(result);
         }

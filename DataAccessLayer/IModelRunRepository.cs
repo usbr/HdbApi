@@ -11,7 +11,7 @@ namespace HdbApi.DataAccessLayer
 {
     internal interface IModelRunRepository
     {
-        List<ModelRunModel.HdbModelRun> GetModelRun(IDbConnection db, int[] id, string modelrunname);
+        List<ModelRunModel.HdbModelRun> GetModelRun(IDbConnection db, string idtype, int[] id, string modelrunname);
 
         bool InsertModelRun(IDbConnection db, SiteModel.HdbSite site);
 
@@ -25,7 +25,7 @@ namespace HdbApi.DataAccessLayer
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public List<ModelRunModel.HdbModelRun> GetModelRun(IDbConnection db, int[] id, string modelrunname)
+        public List<ModelRunModel.HdbModelRun> GetModelRun(IDbConnection db, string idtype, int[] id, string modelrunname)
         {
             string sqlString = "select b.model_run_id, b.model_run_name, b.date_time_loaded, b.run_date, "
                 + "b.user_name, b.cmmnt as model_run_cmmnt, A.model_id, A.model_name, A.cmmnt as model_cmmnt "
@@ -37,7 +37,7 @@ namespace HdbApi.DataAccessLayer
                 {
                     ids += ithId + ",";
                 }
-                sqlString += "and b.model_run_id in (" + ids.TrimEnd(',') + ") ";
+                sqlString += "and b."+ idtype + " in (" + ids.TrimEnd(',') + ") ";
             }
             else if (modelrunname != null)
             {

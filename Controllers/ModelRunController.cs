@@ -15,18 +15,26 @@ namespace HdbApi.Controllers
         /// <remarks>
         /// Get metadata for available Model Run(s) 
         /// </remarks>
-        /// <param name="id">(Optional) HDB Model Run ID(s) of interest. Blank for all Model Runs</param>
+        /// <param name="idtype">(Optional) ID category to query. model_run_id (default) or model_id. </param>
+        /// <param name="id">(Optional) ID(s) of interest. Blank for all Model Runs</param>
         /// <param name="modelrunname">(Optional) HDB Model Run name of interest. Blank for all Model Runs</param>
         /// <returns></returns>
         [HttpGet, Route("modelruns/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.ModelRunModel.HdbModelRun))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(ModelRunExample))]
         [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Get([FromUri] int[] id = null, [FromUri] string modelrunname = null)
+        public IHttpActionResult Get([FromUri] IdType idtype = new IdType(), [FromUri] int[] id = null, [FromUri] string modelrunname = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var modelRunProcessor = new HdbApi.DataAccessLayer.ModelRunRepository();
-            return Ok(modelRunProcessor.GetModelRun(db, id, modelrunname));
+            return Ok(modelRunProcessor.GetModelRun(db, idtype.ToString(), id, modelrunname));
+        }
+
+
+        public enum IdType
+        {
+            model_run_id = 0,
+            model_id = 1
         }
 
 
