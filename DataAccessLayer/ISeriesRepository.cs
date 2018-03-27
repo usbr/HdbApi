@@ -64,10 +64,17 @@ namespace HdbApi.DataAccessLayer
             //    id.ToString("F0"), startDate.ToString("dd-MMM-yyyy HH:mm"), endDate.ToString("dd-MMM-yyyy HH:mm"));
 
             // Fills missing with NULL
+            string dateArrayFunction = "DATES_BETWEEN";
+            string dateArrayIdentifier = tstep.ToUpper();
+            if (tstep.ToUpper() == "INSTANT")
+            {
+                dateArrayFunction = "INSTANTS_BETWEEN";
+                dateArrayIdentifier = "60";
+            }
             string sqlString = string.Format("SELECT t.DATE_TIME AS DATETIME, CAST(NVL(VALUE,NULL) AS VARCHAR(10)) " +
-                "AS VALUE FROM "+ queryTable + " v RIGHT OUTER JOIN TABLE(DATES_BETWEEN(to_date('{0}','dd-mon-yyyy hh24:mi'), " +
-                "to_date('{1}','dd-mon-yyyy hh24:mi'),LOWER('{2}'))) t ON v.START_DATE_TIME = t.DATE_TIME AND " + "v.SITE_DATATYPE_ID IN ({3})", 
-                startDate.ToString("dd-MMM-yyyy HH:mm"), endDate.ToString("dd-MMM-yyyy HH:mm"), tstep.ToUpper(), id.ToString("F0"));
+                "AS VALUE FROM " + queryTable + " v RIGHT OUTER JOIN TABLE(" + dateArrayFunction + "(to_date('{0}','dd-mon-yyyy hh24:mi'), " +
+                "to_date('{1}','dd-mon-yyyy hh24:mi')," + dateArrayIdentifier + ")) t ON v.START_DATE_TIME = t.DATE_TIME AND " + 
+                "v.SITE_DATATYPE_ID IN ({2})", startDate.ToString("dd-MMM-yyyy HH:mm"), endDate.ToString("dd-MMM-yyyy HH:mm"), id.ToString("F0"));
 
             if (sourceTable.ToUpper() == "M")
             {
