@@ -1,4 +1,4 @@
-![API Home Page](https://github.com/usbr/HdbWebApi/blob/master/Docs/HomPage.PNG)
+![API Home Page](https://github.com/usbr/HdbWebApi/blob/master/Docs/HomPage.png)
 
 This codebase generates the main interface, documentation, and testing service for the available Hydrologic Database (HDB) data services. This service is being developed using a technology stack comprised of Windows/.Net, IIS, Dapper, and Swagger. Contact the developer for feedback, data service questions, or the development of new data services within this web page.
 
