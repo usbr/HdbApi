@@ -39,14 +39,11 @@ namespace HdbApi.DataAccessLayer
                 }
                 sqlString += "and b."+ idtype + " in (" + ids.TrimEnd(',') + ") ";
             }
-            else if (modelrunname != null)
+            if (modelrunname != null)
             {
-                sqlString += "and lower(b.model_run_name) like '%" + modelrunname.ToLower() + "%'";
+                sqlString += "and lower(b.model_run_name) like '%" + modelrunname.ToLower() + "%' ";
             }
-            else
-            {
-
-            }
+            
             sqlString += "order by b.date_time_loaded desc";
 
             return (List<Models.ModelRunModel.HdbModelRun>)db.Query<ModelRunModel.HdbModelRun>(sqlString);
