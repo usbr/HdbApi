@@ -65,7 +65,7 @@ namespace HdbApi.DataAccessLayer
 
             // Fills missing with NULL
             string dateArrayFunction = "DATES_BETWEEN";
-            string dateArrayIdentifier = tstep.ToUpper();
+            string dateArrayIdentifier = "'" + tstep.ToLower() + "'";
             if (tstep.ToUpper() == "INSTANT")
             {
                 dateArrayFunction = "INSTANTS_BETWEEN";
