@@ -12,13 +12,14 @@ namespace HdbApi.Controllers
     /// </summary>
     public class TestController : ApiController
     {
+        [HttpGet, Route("tests/")]
+        [SwaggerOperation(Tags = new[] { "Testing Sandbox" })]
+        public IHttpActionResult Get()
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+            var sprocProcessor = new HdbApi.DataAccessLayer.SprocRepository();
+            return Ok(sprocProcessor.GetData(db));
+        }
 
-
-        //[HttpGet, Route("tests/{id:int}")]
-        //[SwaggerOperation(Tags = new[] { "Testing Sandbox" })]
-        //public IHttpActionResult Get(int id)
-        //{
-        //    return Ok(id * id);
-        //}
     }
 }
