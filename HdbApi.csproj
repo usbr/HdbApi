@@ -171,6 +171,7 @@
     <Compile Include="DataAccessLayer\IDataTypeRepository.cs" />
     <Compile Include="DataAccessLayer\ISeriesRepository.cs" />
     <Compile Include="DataAccessLayer\IModelRunRepository.cs" />
+    <Compile Include="DataAccessLayer\ISprocRepository.cs" />
     <Compile Include="DataAccessLayer\ISiteRepository.cs" />
     <Compile Include="Models\ErrorInfoModel.cs" />
     <Compile Include="Models\HttpRequestModel.cs" />
