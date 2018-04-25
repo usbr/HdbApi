@@ -29,11 +29,11 @@ namespace HdbApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SeriesModel.TimeSeries))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(TimeSeriesExample))]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] int sdi, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] IntervalType interval = new IntervalType(), [FromUri] bool rbase = false, [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] int sdi, [FromUri] DateTime t1, [FromUri] DateTime t2, [FromUri] IntervalType interval = new IntervalType(), [FromUri] bool rbase = false, [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string instantMinutes = "60")
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
-            return Ok(seriesProcessor.GetSeries(db, sdi, interval.ToString(), t1, t2, table.ToString(), mrid, rbase)); ;
+            return Ok(seriesProcessor.GetSeries(db, sdi, interval.ToString(), t1, t2, table.ToString(), mrid, rbase, instantMinutes)); ;
         }
 
 

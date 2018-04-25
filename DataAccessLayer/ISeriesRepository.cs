@@ -10,7 +10,7 @@ namespace HdbApi.DataAccessLayer
 {
     internal interface ISeriesRepository
     {
-        SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0, bool rbase = false);
+        SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0, bool rbase = false, string instantMinutes = "60");
 
         bool InsertSeries();
 
@@ -24,7 +24,7 @@ namespace HdbApi.DataAccessLayer
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0, bool useRbase = false)
+        public SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0, bool useRbase = false, string instantMinutes = "60")
         {
             // RESOLVE HDB CONNECTION
             Regex regex = new Regex(@"Data Source=([^;]*);");
@@ -69,7 +69,7 @@ namespace HdbApi.DataAccessLayer
             if (tstep.ToUpper() == "INSTANT")
             {
                 dateArrayFunction = "INSTANTS_BETWEEN";
-                dateArrayIdentifier = "60";
+                dateArrayIdentifier = instantMinutes;
             }
             string sqlString = string.Format("SELECT t.DATE_TIME AS DATETIME, CAST(NVL(VALUE,NULL) AS VARCHAR(10)) " +
                 "AS VALUE FROM " + queryTable + " v RIGHT OUTER JOIN TABLE(" + dateArrayFunction + "(to_date('{0}','dd-mon-yyyy hh24:mi'), " +
