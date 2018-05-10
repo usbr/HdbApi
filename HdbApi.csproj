@@ -144,6 +144,9 @@
     <EmbeddedResource Include="SwaggerExtensions\screen.css" />
     <EmbeddedResource Include="SwaggerExtensions\typography.css" />
     <EmbeddedResource Include="SwaggerExtensions\basicAuth.js" />
+    <Content Include="hostlist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -171,6 +174,7 @@
     <Compile Include="DataAccessLayer\IDataTypeRepository.cs" />
     <Compile Include="DataAccessLayer\ISeriesRepository.cs" />
     <Compile Include="DataAccessLayer\IModelRunRepository.cs" />
+    <Compile Include="DataAccessLayer\ICgiRepository.cs" />
     <Compile Include="DataAccessLayer\ISprocRepository.cs" />
     <Compile Include="DataAccessLayer\ISiteRepository.cs" />
     <Compile Include="Models\ErrorInfoModel.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="Models\DatatypeModel.cs" />
     <Compile Include="Models\SiteDatatypeModel.cs" />
     <Compile Include="Models\ModelRunModel.cs" />
+    <Compile Include="Models\CgiModel.cs" />
     <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

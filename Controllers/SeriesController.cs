@@ -249,24 +249,76 @@ namespace HdbApi.Controllers
         /// Calls the stored procedure used by the legacy CGI program for backwards compatibility
         /// </remarks>
         /// <returns></returns>
+        /// <param name="svr">HDB instance name</param>
         /// <param name="sdi">Comma delimited list of SDIs</param>
         /// <param name="tstp">Interval table {INSTANT, HOUR, DAY, MONTH, YEAR}</param>
-        /// <param name="t1">Start Date</param>
-        /// <param name="t2">End Date</param>
+        /// <param name="t1">Start date</param>
+        /// <param name="t2">End date</param>
         /// <param name="table">Optional - HDB Table {R, M}</param>
         /// <param name="mrid">Optional - Model Run ID if table=M</param>
+        /// <param name="format">Output format</param>
         /// <returns></returns>
         [HttpGet, Route("cgi")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(string))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0)
+        public IHttpActionResult Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "json")
         {
+            var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
+
+            // Connect to HDB
+            bool hostFound = false;
+            string user, pass;
+            List<string[]> hostList = cgiProcessor.get_host_list();
+            foreach (string[] hostInfo in hostList)
+            {
+                if (svr == hostInfo[0].ToString())
+                {
+                    hostFound = true;
+                    this.Request.Headers.Add("api_hdb", hostInfo[0]);
+                    this.Request.Headers.Add("api_user", hostInfo[4]);
+                    this.Request.Headers.Add("api_pass", hostInfo[5]);
+                }
+            }
+            if (!hostFound)
+            {
+                throw new Exception("HDB Database not recognized.");
+            }
             IDbConnection db = HdbController.Connect(this.Request.Headers);
 
-            var hdbProcessor = new HdbApi.App_Code.HdbCommands();
-            var result = hdbProcessor.get_hdb_cgi_data(db, sdi, tstp.ToString(), t1, t2, table.ToString(), mrid);
+            // Build CGI query URL
+            //      ?svr=lchdb2&sdi=25401&tstp=IN&t1=2018-05-07T05:00&t2=2018-05-07T08:00&table=R&mrid=&format=2            
+            var tstpString = "";
+            switch (tstp.ToString())
+            {
+                case "instant":
+                    tstpString = "IN";
+                    break;
+                case "month":
+                    tstpString = "MN";
+                    break;
+                case "hour":
+                    tstpString = "HR";
+                    break;
+                default:
+                    tstpString = "DY";
+                    break;
+            }
 
+            var urlString = "?svr=" + svr
+                + "&sdi=" + sdi
+                + "&tstp=" + tstpString
+                + "&t1=" + t1.ToString("yyyy-MM-ddTHH\\:mm")
+                + "&t2=" + t2.ToString("yyyy-MM-ddTHH\\:mm")
+                + "&table=" + table.ToString()
+                + "&mrid=" + mrid
+                + "&format=" + format;
+            var result = cgiProcessor.get_cgi_data(db, urlString);
+                            
             return Ok(result);
         }
+
+
 
     }
 }
