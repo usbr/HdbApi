@@ -259,10 +259,8 @@ namespace HdbApi.Controllers
         /// <param name="format">Output format</param>
         /// <returns></returns>
         [HttpGet, Route("cgi")]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(string))]
-        [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "json")
+        public IHttpActionResult Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
         {
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
 
@@ -314,8 +312,10 @@ namespace HdbApi.Controllers
                 + "&mrid=" + mrid
                 + "&format=" + format;
             var result = cgiProcessor.get_cgi_data(db, urlString);
-                            
-            return Ok(result);
+
+            var output = String.Join<string>(String.Empty, result);
+            
+            return Ok(output);
         }
 
 
