@@ -19,7 +19,11 @@ namespace HdbApi.App_Code
 
         IEnumerable<dynamic> delete_from_hdb(IDbConnection db, decimal sdi, DateTime t, string interval, decimal mrid = 0);
 
-        IEnumerable<dynamic> get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0);
+        DataTable get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0);
+
+        DataTable get_hdb_cgi_info(IDbConnection db, string sdiString);
+
+        string get_sdis_from_mrid(IDbConnection db, string mridString, string interval);
     }
 
 
@@ -27,6 +31,14 @@ namespace HdbApi.App_Code
     {
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         // [JR] CODE CONVENTIONS AND STORED PROCS BELOW ADOPTED FROM THE POET CODEBASE
+        //
+        // STORED PROCS REQUIRED TO RUN THE API ARE AS FOLLOWS:
+        //      - MODIFY_R_BASE_RAW
+        //      - MODIFY_M_TABLE_RAW
+        //      - DELETE_FROM_HDB
+        //      - GET_HDB_CGI_DATA
+        //      - LOOKUP_APPLICATION (THIS REQUIRES AN 'HDB API' ENTRY IN THE HDB_LOADING_APPLICATION TABLE)
+        //
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         #region
         private static decimal HDB_INVALID_ID = -1;
@@ -149,7 +161,7 @@ namespace HdbApi.App_Code
         /// <param name="table"></param>
         /// <param name="mrid"></param>
         /// <returns></returns>
-        public IEnumerable<dynamic> get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0)
+        public DataTable get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0)
         {
             var p = new OracleDynamicParameters();
             p.Add("o_cursorOutput", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
@@ -159,9 +171,66 @@ namespace HdbApi.App_Code
             p.Add("i_endDate", value: t2.ToString("dd-MMM-yyyy"), dbType: OracleDbType.Varchar2);
             p.Add("i_sourceTable", value: table, dbType: OracleDbType.Varchar2);
             p.Add("i_modelRunIds", value: mrid, dbType: OracleDbType.Varchar2);
-            var result = db.Query<dynamic>("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
+            //var result = db.Query<dynamic>("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
 
-            return result;
+            var dr = db.ExecuteReader("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
+            var dTab = new DataTable();
+            dTab.Load(dr);
+
+            return dTab;
+        }
+
+
+        /// <summary>
+        /// Method that generates arrays of TS data used by legacy CGI program
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="sdi"></param>
+        /// <param name="tstp"></param>
+        /// <param name="t1"></param>
+        /// <param name="t2"></param>
+        /// <param name="table"></param>
+        /// <param name="mrid"></param>
+        /// <returns></returns>
+        public DataTable get_hdb_cgi_info(IDbConnection db, string sdiString)
+        {
+            var p = new OracleDynamicParameters();
+            p.Add("o_cursorOutput", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+            p.Add("i_sdiList", value: sdiString, dbType: OracleDbType.Varchar2);
+            //var result = db.Query<dynamic>("GET_HDB_CGI_INFO", param: p, commandType: CommandType.StoredProcedure);
+
+            var dr = db.ExecuteReader("GET_HDB_CGI_INFO", param: p, commandType: CommandType.StoredProcedure);
+            var dTab = new DataTable();
+            dTab.Load(dr);
+
+            return dTab;
+        }
+
+
+        /// <summary>
+        /// Gets unique SDIs given a particular MRID and M-Table interval
+        /// </summary>
+        /// <param name="conx"></param>
+        /// <param name="mridString"></param>
+        /// <param name="interval"></param>
+        /// <returns></returns>
+        public string get_sdis_from_mrid(IDbConnection db, string mridString, string interval)
+        {
+            // Initialize stuff...
+            string sdiString = "";
+            string sql = "SELECT UNIQUE(SITE_DATATYPE_ID) FROM M_" + interval + " WHERE MODEL_RUN_ID IN (" + mridString + ")";
+            //var result = db.Query<dynamic>(sql, commandType: CommandType.Text);
+
+            var dr = db.ExecuteReader(sql, commandType: CommandType.Text);
+            
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Build a string of SDIS with a comma delimiter
+            while (dr.Read())
+            {
+                sdiString = sdiString + dr[0].ToString() + ",";
+            }           
+            
+            return sdiString;
         }
 
 
