@@ -359,7 +359,7 @@ namespace HdbApi.DataAccessLayer
 
             // Resolve MRIDs
             var mridList = new List<string>();
-            if (mridString == "" || mridString == null) { mridList.Add(null); }
+            if (mridString == "" || mridString == null || mridString == "0") { mridList.Add(null); }
             else { mridList.AddRange(mridString.Split(',').ToArray<string>()); }
 
             // Initialize JSON SDI/Site container
