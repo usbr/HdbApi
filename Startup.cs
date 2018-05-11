@@ -35,16 +35,7 @@ namespace HdbApi
             RouteConfig.Configure(configuration);
             ServiceConfig.Configure(configuration);
             SwaggerConfig.Configure(configuration);
-
-            // Code that allows the cgi endpoint to render html reponses instead of JSON
-            configuration.Formatters.Clear();
-            var jsonFormatter = new System.Net.Http.Formatting.JsonMediaTypeFormatter();
-            jsonFormatter.SupportedMediaTypes.Clear();
-            jsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            jsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("text/json"));
-            jsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("text/html"));
-            configuration.Formatters.Add(jsonFormatter);
-
+            
             app.UseWebApi(configuration);
         }
     }
