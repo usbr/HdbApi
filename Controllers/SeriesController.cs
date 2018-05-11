@@ -260,10 +260,10 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         [HttpGet, Route("cgi")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public IHttpActionResult Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] IntervalType tstp = new IntervalType(), [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
+        public System.Net.Http.HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
         {
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
-
+            
             // Connect to HDB
             bool hostFound = false;
             string user, pass;
@@ -287,15 +287,18 @@ namespace HdbApi.Controllers
             // Build CGI query URL
             //      ?svr=lchdb2&sdi=25401&tstp=IN&t1=2018-05-07T05:00&t2=2018-05-07T08:00&table=R&mrid=&format=2            
             var tstpString = "";
-            switch (tstp.ToString())
+            switch (tstp.ToString().ToLower())
             {
                 case "instant":
+                case "in":
                     tstpString = "IN";
                     break;
                 case "month":
+                case "mn":
                     tstpString = "MN";
                     break;
                 case "hour":
+                case "hr":
                     tstpString = "HR";
                     break;
                 default:
@@ -314,8 +317,9 @@ namespace HdbApi.Controllers
             var result = cgiProcessor.get_cgi_data(db, urlString);
 
             var output = String.Join<string>(String.Empty, result);
-            
-            return Ok(output);
+            var resp = new System.Net.Http.HttpResponseMessage(HttpStatusCode.OK);
+            resp.Content = new System.Net.Http.StringContent(output, System.Text.Encoding.UTF8, "text/html");
+            return resp;
         }
 
 
