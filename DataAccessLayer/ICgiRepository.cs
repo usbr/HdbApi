@@ -20,6 +20,8 @@ namespace HdbApi.DataAccessLayer
         List<string> get_cgi_data(IDbConnection db, string urlArgs);
 
         List<string[]> get_host_list();
+
+        IDbConnection connect_hdb(string hdbName);
     }
 
     
@@ -161,6 +163,35 @@ namespace HdbApi.DataAccessLayer
 
 
         /// <summary>
+        /// Connect to hdb instance
+        /// </summary>
+        /// <param name="hdbName"></param>
+        /// <returns></returns>
+        public IDbConnection connect_hdb(string hdbName)
+        {
+            // Connect to HDB
+            bool hostFound = false;
+            List<string[]> hostList = this.get_host_list();
+            var request = new System.Net.Http.HttpRequestMessage();
+            foreach (string[] hostInfo in hostList)
+            {
+                if (hdbName == hostInfo[0].ToString())
+                {
+                    hostFound = true;
+                    request.Headers.Add("api_hdb", hostInfo[0]);
+                    request.Headers.Add("api_user", hostInfo[4]);
+                    request.Headers.Add("api_pass", hostInfo[5]);
+                }
+            }
+            if (!hostFound)
+            {
+                throw new Exception("HDB Database not recognized.");
+            }
+            IDbConnection db = HdbApi.Controllers.HdbController.Connect(request.Headers);
+            return db;
+        }
+
+        /// <summary>
         /// Get hostlist.txt file which contains the specifics for the HDBs that are available for active connections
         /// </summary>
         public List<string[]> get_host_list()
@@ -186,7 +217,7 @@ namespace HdbApi.DataAccessLayer
                 exceptionString += "Textfile containing HDB hosts information not found...";
                 exceptionString += "\thostlist.txt has to be in the same folder as the executable ";
                 exceptionString += "\ttext should contain:";
-                exceptionString += "\thdb-server-name, hdb-service-name, hdb-port-number, hdb-user-name, hdb-user-password";
+                exceptionString += "\thdb-instance-name, hdb-server-name, hdb-service-name, hdb-port-number, hdb-user-name, hdb-user-password";
                 exceptionString += "";
 
                 throw new FileNotFoundException(exceptionString);
