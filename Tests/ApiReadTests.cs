@@ -117,5 +117,22 @@ namespace HdbApi.Tests
                 Assert.AreEqual(0, 1);
             }
         }
+
+        [Test()]
+        public void SeriesEndPointQuery()
+        {
+            var seriesProcessor = new DataAccessLayer.SeriesRepository();
+            var result = seriesProcessor.GetSeries(conx, 1930, "month", new DateTime(1980, 1, 1, 0, 0, 0), new DateTime(1980, 1, 1, 0, 0, 0));
+            if (result.data[0].value == "1198.98999" &&
+                result.metadata.site_metadata.site_id == 921 &&
+                result.metadata.datatype_metadata.datatype_id == 49)
+            {
+                Assert.AreEqual(1, 1);
+            }
+            else
+            {
+                Assert.AreEqual(0, 1);
+            }
+        }
     }
 }
