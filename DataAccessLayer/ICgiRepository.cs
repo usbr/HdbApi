@@ -12,6 +12,9 @@ using Newtonsoft.Json;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for CGI Series objects
+    /// </summary>
     internal interface ICgiRepository
     {
         List<string> get_cgi_data(IDbConnection db, string urlArgs);
@@ -26,31 +29,35 @@ namespace HdbApi.DataAccessLayer
 
         public List<string> get_cgi_data(IDbConnection hDB, string srchStr)
         {
-
             var hdbProcessor = new HdbApi.App_Code.HdbCommands();
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Build date ranges for series lookup
-
             // Define HDB table time-step.
             Match outTstep = Regex.Match(srchStr, @"&tstp=([A-Za-z]+)&");
             string sourceTstep = "";
-            if (outTstep.Groups[1].Value.ToString().ToLower() == "in")
-            { sourceTstep = "INSTANT"; }
-            else if (outTstep.Groups[1].Value.ToString().ToLower() == "hr")
-            { sourceTstep = "HOUR"; }
-            else if (outTstep.Groups[1].Value.ToString().ToLower() == "dy")
-            { sourceTstep = "DAY"; }
-            else if (outTstep.Groups[1].Value.ToString().ToLower() == "mn")
-            { sourceTstep = "MONTH"; }
-            else if (outTstep.Groups[1].Value.ToString().ToLower() == "yr")
-            { sourceTstep = "YEAR"; }
-            else if (outTstep.Groups[1].Value.ToString().ToLower() == "wy")
-            { sourceTstep = "WY"; }
-            else
+            switch (outTstep.Groups[1].Value.ToString().ToLower())
             {
-                Console.WriteLine("Error: Invalid Query Time-Step.");
-                return new List<string> { };
+                case "in":
+                    sourceTstep = "INSTANT";
+                    break;
+                case "hr":
+                    sourceTstep = "HOUR";
+                    break;
+                case "dy":
+                    sourceTstep = "DAY";
+                    break;
+                case "mn":
+                    sourceTstep = "MONTH";
+                    break;
+                case "yr":
+                    sourceTstep = "YEAR";
+                    break;
+                case "wy":
+                    sourceTstep = "WY";
+                    break;
+                default:
+                    throw new Exception("Error: Invalid Query Time-Step.");
             }
 
             DateTime t1 = new DateTime();
@@ -58,80 +65,11 @@ namespace HdbApi.DataAccessLayer
             DateTime t1Input = new DateTime();
             DateTime t2Input = new DateTime();
 
-            // support for cgi v0 date format
-            Match sYrStr = Regex.Match(srchStr, @"&syer=([0-9\-]+)&");
-            Match sMnStr = Regex.Match(srchStr, @"&smon=([0-9\-]+)&");
-            Match sDyStr = Regex.Match(srchStr, @"&sday=([0-9\-]+)&");
-            Match eYrStr = Regex.Match(srchStr, @"&eyer=([0-9\-]+)&");
-            Match eMnStr = Regex.Match(srchStr, @"&emon=([0-9\-]+)&");
-            Match eDyStr = Regex.Match(srchStr, @"&eday=([0-9\-]+)&");
-            // support for cgi v1 date format
-            Match t1Str = Regex.Match(srchStr, @"&t1=([0-9\0-9-]+)&");
-            Match t2Str = Regex.Match(srchStr, @"&t2=([0-9\0-9-]+)&");
             // support for iso8601/parse-able date formats
             Match t1Iso = Regex.Match(srchStr, @"&t1=(.+?)&");
             Match t2Iso = Regex.Match(srchStr, @"&t2=(.+?)&");
-            bool isValidISO = false;
 
             if (DateTime.TryParse(t1Iso.Groups[1].Value, out t1) && DateTime.TryParse(t2Iso.Groups[1].Value, out t2))
-            {
-                isValidISO = true;
-            }
-
-            // Search string has V0 DateTime patterns
-            if (sYrStr.Success && sMnStr.Success && sDyStr.Success && eYrStr.Success && eMnStr.Success && eDyStr.Success)
-            {
-                t1 = new DateTime(Convert.ToInt16(sYrStr.Groups[1].Value), Convert.ToInt16(sMnStr.Groups[1].Value),
-                    Convert.ToInt16(sDyStr.Groups[1].Value));
-                t2 = new DateTime(Convert.ToInt16(eYrStr.Groups[1].Value), Convert.ToInt16(eMnStr.Groups[1].Value),
-                        Convert.ToInt16(eDyStr.Groups[1].Value));
-                t1Input = t1;
-                t2Input = t2;
-            }
-            // Search string has V1 DateTime patterns
-            else if (t1Str.Success)
-            {
-                if (t2Str.Success)
-                {
-                    t1 = DateTime.Parse(t1Str.Groups[1].Value);
-                    t2 = DateTime.Parse(t2Str.Groups[1].Value);
-                    t1Input = t1;
-                    t2Input = t2;
-                }
-                else
-                {
-                    switch (sourceTstep)
-                    {
-                        case "DAY":
-                            t1 = DateTime.Now.Date.AddDays(Convert.ToInt16(t1Str.Groups[1].Value));
-                            t2 = DateTime.Now.Date;
-                            break;
-                        case "MONTH":
-                            t1 = new DateTime(DateTime.Now.AddMonths(Convert.ToInt16(t1Str.Groups[1].Value)).Year,
-                                DateTime.Now.AddMonths(Convert.ToInt16(t1Str.Groups[1].Value)).Month,
-                                1);
-                            t2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                            break;
-                        case "YEAR":
-                            t1 = new DateTime(DateTime.Now.AddYears(Convert.ToInt16(t1Str.Groups[1].Value)).Year, 1, 1);
-                            t2 = new DateTime(DateTime.Now.Year, 1, 1);
-                            break;
-                        default:
-                            //case "INSTANT":
-                            //case "HOUR":
-                            t1 = new DateTime(DateTime.Now.AddHours(Convert.ToInt16(t1Str.Groups[1].Value)).Year,
-                                DateTime.Now.AddHours(Convert.ToInt16(t1Str.Groups[1].Value)).Month,
-                                DateTime.Now.AddHours(Convert.ToInt16(t1Str.Groups[1].Value)).Day,
-                                DateTime.Now.AddHours(Convert.ToInt16(t1Str.Groups[1].Value)).Hour, 0, 0);
-                            t2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-                            break;
-                    }
-                    t1Input = t1;
-                    t2Input = t2;
-                }
-            }
-            // Search string has iso/parse-able DateTime patterns
-            else if (isValidISO)
             {
                 t1Input = t1;
                 t2Input = t2;
@@ -139,13 +77,11 @@ namespace HdbApi.DataAccessLayer
             }
             else
             {
-                Console.WriteLine("Error: Invalid Query Dates.");
-                return new List<string> { };
+                throw new Exception("Error: Invalid Query Dates.");
             }
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Get SDIs and query information for HDB lookup
-            string outFormat = Regex.Match(srchStr, @"&format=([A-Za-z0-9]+)").Groups[1].Value.ToString();
             // [OPTIONAL INPUT] Define HDB table source. Default to the R-tables if not defined in input search string
             string sourceTable = "";
             string mridString = "0";
@@ -193,10 +129,7 @@ namespace HdbApi.DataAccessLayer
             // Get HDB data
             // Main data query. Uses Stored HDB Procedure "GET_HDB_CGI_DATA" & "GET_HDB_CGI_INFO"
             var downloadTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
-            if (isValidISO)
-            {
-                downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
-            }
+            downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
             // SDI info query
             var sdiInfo = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
 
@@ -204,6 +137,7 @@ namespace HdbApi.DataAccessLayer
             // Generate output
             DataTable table = new DataTable();
             var outFile = new List<string>();
+            string outFormat = Regex.Match(srchStr, @"&format=([A-Za-z0-9]+)").Groups[1].Value.ToString();
             if (outFormat == "json")
             {
                 var jsonOut = buildOutputJson(sdiInfo, downloadTable, t1, t2, sourceTstep, sourceTable, mridString);
@@ -222,7 +156,7 @@ namespace HdbApi.DataAccessLayer
         /// </summary>
         private static List<string[]> hostList = new List<string[]>
         {
-            // new string[] {host, service, port, user, pass}
+            // new string[] {hdbname, host, service, port, user, pass}
         };
 
 
@@ -268,7 +202,7 @@ namespace HdbApi.DataAccessLayer
         /// <param name="srchStr"></param>
         /// <param name="outFormat"></param>
         /// <returns></returns>
-        public static List<string> buildOutputText(DataTable sdiInfo, DataTable downloadTable,
+        private static List<string> buildOutputText(DataTable sdiInfo, DataTable downloadTable,
             string srchStr, string outFormat)
         {
             var outText = new List<string>();
@@ -340,7 +274,7 @@ namespace HdbApi.DataAccessLayer
         /// <param name="srchStr"></param>
         /// <param name="outFormat"></param>
         /// <returns></returns>
-        public static CgiModel.HdbCgiJson buildOutputJson(DataTable sdiInfo, DataTable downloadTable,
+        private static CgiModel.HdbCgiJson buildOutputJson(DataTable sdiInfo, DataTable downloadTable,
              DateTime t1, DateTime t2, string sourceTstep, string sourceTable, string mridString)
         {
             var outText = new List<string>();
@@ -428,7 +362,8 @@ namespace HdbApi.DataAccessLayer
         /// Writes a HTML tagged C# List for output
         /// </summary>
         /// <param name="outFile"></param>
-        /// <param name="format"></param>
+        /// <param name="outFormat"></param>
+        /// <param name="srchStr"></param>
         /// <returns></returns>
         private static List<string> writeHTML(string[] outFile, string outFormat, string srchStr)
         {
@@ -580,9 +515,10 @@ namespace HdbApi.DataAccessLayer
         /// Writes a HTML tagged C# List for dyGraphs output
         /// </summary>
         /// <param name="outFile"></param>
-        /// <param name="format"></param>
+        /// <param name="query"></param>
+        /// <param name="dygraphsUrlData"></param>
         /// <returns></returns>
-        public static List<string> writeHTML_dyGraphs(string[] outFile, string query, bool dygraphsUrlData = true)
+        private static List<string> writeHTML_dyGraphs(string[] outFile, string query, bool dygraphsUrlData = true)
         {
             // The data in the outFile has to be preceded by a line that says "BEGIN DATA"
             //      and followed by a line that says "END DATA"
@@ -653,7 +589,7 @@ namespace HdbApi.DataAccessLayer
             }
             else
             {
-                //string query = @"http://ibr3lcrxcn01.bor.doi.net:8080/HDB_CGI.com?sdi=1930,1863&tstp=HR&syer=2015&smon=1&sday=1&eyer=2015&emon=1&eday=10&format=88";
+                //string query = @"localhost:8080/HDB_CGI.com?sdi=1930,1863&tstp=HR&syer=2015&smon=1&sday=1&eyer=2015&emon=1&eday=10&format=88";
                 var tempQuery = query;
                 tempQuery = tempQuery.ToLower().Replace("format=9", "format=88");
                 tempQuery = tempQuery.ToLower().Replace("format=graph", "format=88");

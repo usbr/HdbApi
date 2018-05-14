@@ -10,6 +10,9 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for SPROC objects
+    /// </summary>
     internal interface ISprocRepository
     {
         List<dynamic> GetData(IDbConnection db);

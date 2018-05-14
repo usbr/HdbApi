@@ -5,6 +5,9 @@ using System.Web;
 
 namespace HdbApi.Models
 {
+    /// <summary>
+    /// Data Model for data in the HDB_SITE table
+    /// </summary>
     public class SiteModel
     {
         /// <summary>

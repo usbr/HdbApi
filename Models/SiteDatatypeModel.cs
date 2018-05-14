@@ -5,6 +5,9 @@ using System.Web;
 
 namespace HdbApi.Models
 {
+    /// <summary>
+    /// Data Model for data in the HDB_SITE_DATATYPE table
+    /// </summary>
     public class SiteDatatypeModel
     {
         /// <summary>
@@ -35,7 +38,9 @@ namespace HdbApi.Models
         }
 
 
-
+        /// <summary>
+        /// Data object for site and datatype metadata
+        /// </summary>
         public class SiteDataTypeMetadata
         {
             /// <summary>

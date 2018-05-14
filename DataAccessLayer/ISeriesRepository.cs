@@ -8,6 +8,9 @@ using Dapper;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for Series objects
+    /// </summary>
     internal interface ISeriesRepository
     {
         SeriesModel.TimeSeries GetSeries(IDbConnection db, int id, string tstep, DateTime startDate, DateTime endDate, string sourceTable = "R", int mrid = 0, bool rbase = false, string instantMinutes = "60");
@@ -19,7 +22,9 @@ namespace HdbApi.DataAccessLayer
         bool DeleteSeries();
     }
 
-    
+    /// <summary>
+    /// Processors for Series objects
+    /// </summary>
     public class SeriesRepository : ISeriesRepository
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();

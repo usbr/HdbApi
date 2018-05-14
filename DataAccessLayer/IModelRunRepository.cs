@@ -9,6 +9,9 @@ using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for Model info objects
+    /// </summary>
     internal interface IModelRunRepository
     {
         List<ModelRunModel.HdbModelRun> GetModelRun(IDbConnection db, string idtype, int[] id, string modelrunname);

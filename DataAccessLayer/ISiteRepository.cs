@@ -9,6 +9,9 @@ using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for Site objects
+    /// </summary>
     internal interface ISiteRepository
     {
         List<SiteModel.HdbSite> GetSites(IDbConnection db, int[] id);
