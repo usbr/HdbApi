@@ -5,6 +5,9 @@ using System.Web;
 
 namespace HdbApi.Models
 {
+    /// <summary>
+    /// Data model for model run information
+    /// </summary>
     public class ModelRunModel
     {
         /// <summary>

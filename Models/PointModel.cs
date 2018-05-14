@@ -5,6 +5,9 @@ using System.Web;
 
 namespace HdbApi.Models
 {
+    /// <summary>
+    /// Data Model for time-series point data
+    /// </summary>
     public class PointModel
     {
         /// <summary>

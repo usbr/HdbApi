@@ -9,6 +9,9 @@ using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for site datatype objects
+    /// </summary>
     internal interface ISiteDataTypeRepository
     {
         List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] sdi);

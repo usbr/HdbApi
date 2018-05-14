@@ -9,6 +9,9 @@ using System.Data;
 
 namespace HdbApi.DataAccessLayer
 {
+    /// <summary>
+    /// Processors for Datatype objects
+    /// </summary>
     internal interface IDataTypeRepository
     {
         List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, int[] id);

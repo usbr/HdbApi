@@ -266,7 +266,6 @@ namespace HdbApi.Controllers
             
             // Connect to HDB
             bool hostFound = false;
-            string user, pass;
             List<string[]> hostList = cgiProcessor.get_host_list();
             foreach (string[] hostInfo in hostList)
             {
@@ -317,9 +316,9 @@ namespace HdbApi.Controllers
             var result = cgiProcessor.get_cgi_data(db, urlString);
 
             var output = String.Join<string>(String.Empty, result);
-            var resp = new System.Net.Http.HttpResponseMessage(HttpStatusCode.OK);
-            resp.Content = new System.Net.Http.StringContent(output, System.Text.Encoding.UTF8, "text/html");
-            return resp;
+            var response = new System.Net.Http.HttpResponseMessage(HttpStatusCode.OK);
+            response.Content = new System.Net.Http.StringContent(output, System.Text.Encoding.UTF8, "text/html");
+            return response;
         }
 
 

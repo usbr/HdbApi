@@ -7,22 +7,41 @@ namespace HdbApi.Models
     /// </summary>
     public class HttpRequestModel
     {
+        /// <summary>
+        /// Http verb
+        /// </summary>
         public string Method { get; set; }
-
+        /// <summary>
+        /// API host machine
+        /// </summary>
         public string Host { get; set; }
-
+        /// <summary>
+        /// Base URl
+        /// </summary>
         public string PathBase { get; set; }
-
+        /// <summary>
+        /// URL
+        /// </summary>
         public string Path { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string QueryString { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Scheme { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Protocol { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Body { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Uri
         {
             get

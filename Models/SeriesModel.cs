@@ -5,6 +5,9 @@ using System.Web;
 
 namespace HdbApi.Models
 {
+    /// <summary>
+    /// Data Model for time-series data
+    /// </summary>
     public class SeriesModel
     {
         /// <summary>
