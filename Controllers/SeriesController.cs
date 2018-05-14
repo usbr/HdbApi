@@ -2,6 +2,7 @@
 using System.Web.Http;
 using System;
 using System.Net;
+using System.Net.Http;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
 using System.Data;
@@ -260,7 +261,7 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         [HttpGet, Route("cgi")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public System.Net.Http.HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
+        public HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
         {
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
             
@@ -292,13 +293,20 @@ namespace HdbApi.Controllers
                 case "in":
                     tstpString = "IN";
                     break;
+                case "hour":
+                case "hr":
+                    tstpString = "HR";
+                    break;
                 case "month":
                 case "mn":
                     tstpString = "MN";
                     break;
-                case "hour":
-                case "hr":
-                    tstpString = "HR";
+                case "year":
+                case "yr":
+                    tstpString = "YR";
+                    break;
+                case "wy":
+                    tstpString = "WY";
                     break;
                 default:
                     tstpString = "DY";
@@ -316,8 +324,8 @@ namespace HdbApi.Controllers
             var result = cgiProcessor.get_cgi_data(db, urlString);
 
             var output = String.Join<string>(String.Empty, result);
-            var response = new System.Net.Http.HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new System.Net.Http.StringContent(output, System.Text.Encoding.UTF8, "text/html");
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            response.Content = new StringContent(output, System.Text.Encoding.UTF8, "text/html");
             return response;
         }
 
