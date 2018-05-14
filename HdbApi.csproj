@@ -193,6 +193,7 @@
     <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Tests\ApiCrudTests.cs" />
     <Compile Include="Tests\ApiReadTests.cs" />
     <Compile Include="Tests\ConnectTests.cs" />
     <Compile Include="Tests\CgiTests.cs" />
