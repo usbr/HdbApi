@@ -50,7 +50,8 @@ namespace HdbApi.Controllers
             month = 0,
             day = 1,
             hour = 2,
-            instant = 3
+            instant = 3,
+            year = 4
         }
 
 
