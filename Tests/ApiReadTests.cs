@@ -39,7 +39,7 @@ namespace HdbApi.Tests
             var datatypeProcessor = new DataAccessLayer.DataTypeRepository();
             var result = datatypeProcessor.GetDataTypes(conx, new int[] { 49 });
             if (result[0].datatype_common_name.ToLower() == "pool elevation" &&
-                result[0].datatype_name.ToLower() == "reservoir ws elevation, eop primary reading" &&
+                result[0].datatype_name.ToLower() == "reservoir ws elevation, end of period primary reading" &&
                 result[0].datatype_id == 49 &&
                 result[0].unit_name.ToLower() == "feet" &&
                 result[0].physical_quantity_name.ToLower() == "water surface elevation")
