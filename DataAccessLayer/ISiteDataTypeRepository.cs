@@ -14,7 +14,7 @@ namespace HdbApi.DataAccessLayer
     /// </summary>
     internal interface ISiteDataTypeRepository
     {
-        List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] sdi);
+        List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] sdid, int[] sid, int[] did);
 
         bool InsertSiteDataType(IDbConnection db, SiteDatatypeModel.HdbSiteDatatype sdi);
 
@@ -28,19 +28,37 @@ namespace HdbApi.DataAccessLayer
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] id)
+        public List<SiteDatatypeModel.HdbSiteDatatype> GetSiteDataTypes(IDbConnection db, int[] sdid, int[] sid, int[] did)
         {
             string sqlString = "select * " +
                 "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
                 "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID ";
-            if (id != null)
+            if (sdid != null && sdid.Count() != 0)
             {
                 string ids = "";
-                foreach (int ithId in id)
+                foreach (int ithId in sdid)
                 {
                     ids += ithId + ",";
                 }
                 sqlString += "and A.SITE_DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
+            }
+            if (sid != null && sid.Count() != 0)
+            {
+                string ids = "";
+                foreach (int ithId in sid)
+                {
+                    ids += ithId + ",";
+                }
+                sqlString += "and A.SITE_ID in (" + ids.TrimEnd(',') + ") ";
+            }
+            if (did != null && did.Count() != 0)
+            {
+                string ids = "";
+                foreach (int ithId in did)
+                {
+                    ids += ithId + ",";
+                }
+                sqlString += "and A.DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
             }
             sqlString += "order by A.SITE_DATATYPE_ID";
             
