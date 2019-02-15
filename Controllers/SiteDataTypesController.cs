@@ -15,16 +15,18 @@ namespace HdbApi.Controllers
         /// Get metadata for available SiteDataType(s) 
         /// </remarks>
         /// <param name="sdi">(Optional) HDB SiteDataType ID(s) of interest. Blank for all SiteDataTypes</param>
+        /// <param name="sid">(Optional) HDB Site ID(s) of interest. Blank for all Sites</param>
+        /// <param name="did">(Optional) HDB DataType ID(s) of interest. Blank for all DataTypes</param>
         /// <returns></returns>
         [HttpGet, Route("sitedatatypes/")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SiteDatatypeModel.HdbSiteDatatype))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteDatatypeExample))]
         [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Get([FromUri] int[] sdi = null)
+        public IHttpActionResult Get([FromUri] int[] sdi = null, [FromUri] int[] sid = null, [FromUri] int[] did = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi));
+            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi, sid, did));
         }
 
         /// <summary>

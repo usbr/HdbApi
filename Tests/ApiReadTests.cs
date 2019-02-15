@@ -56,7 +56,7 @@ namespace HdbApi.Tests
         public void SiteDatatypeEndPointQuery()
         {
             var sitedatatypeProcessor = new DataAccessLayer.SiteDataTypeRepository();
-            var result = sitedatatypeProcessor.GetSiteDataTypes(conx, new int[] { 1930 });
+            var result = sitedatatypeProcessor.GetSiteDataTypes(conx, new int[] { 1930 }, new int[] { }, new int[] { });
             
             var siteProcessor = new DataAccessLayer.SiteRepository();
             var resultSite = siteProcessor.GetSites(conx, new int[] { 921 });
