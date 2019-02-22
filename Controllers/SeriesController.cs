@@ -262,7 +262,7 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         [HttpGet, Route("cgi")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] System.DateTime t1, [FromUri] System.DateTime t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
+        public HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] string t1, [FromUri] string t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
         {
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
             
@@ -314,11 +314,51 @@ namespace HdbApi.Controllers
                     break;
             }
 
+            int t1Int, t2Int;
+            DateTime t1Input, t2Input;
+
+            if (DateTime.TryParse(t1, out t1Input) && DateTime.TryParse(t2, out t2Input))
+            {
+                t1Input = t1Input;
+                t2Input = t2Input;
+            }
+            // Special case for T1 and T2 - If integers, query last X-timestep's worth of data
+            else if (int.TryParse(t1, out t1Int) && int.TryParse(t2, out t2Int))
+            {
+                switch (tstp.ToString().ToLower())
+                {
+                    case "in":
+                    case "hr":
+                        t1Input = DateTime.Now.AddHours(t1Int);
+                        t2Input = DateTime.Now.AddHours(t2Int);
+                        break;
+                    case "dy":
+                        t1Input = DateTime.Now.AddDays(t1Int);
+                        t2Input = DateTime.Now.AddDays(t2Int);
+                        break;
+                    case "mn":
+                        t1Input = DateTime.Now.AddMonths(t1Int);
+                        t2Input = DateTime.Now.AddMonths(t2Int);
+                        break;
+                    case "yr":
+                    case "wy":
+                        t1Input = DateTime.Now.AddYears(t1Int);
+                        t2Input = DateTime.Now.AddYears(t2Int);
+                        break;
+                    default:
+                        throw new Exception("Error: Invalid Query Time-Step.");
+                }
+            }
+            else
+            {
+                throw new Exception("Error: Invalid Query Dates.");
+            }
+
             var urlString = "?svr=" + svr
                 + "&sdi=" + sdi
                 + "&tstp=" + tstpString
-                + "&t1=" + t1.ToString("yyyy-MM-ddTHH\\:mm")
-                + "&t2=" + t2.ToString("yyyy-MM-ddTHH\\:mm")
+                + "&t1=" + t1Input.ToString("yyyy-MM-ddTHH\\:mm")
+                + "&t2=" + t2Input.ToString("yyyy-MM-ddTHH\\:mm")
                 + "&table=" + table.ToString()
                 + "&mrid=" + mrid
                 + "&format=" + format;
