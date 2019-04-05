@@ -63,7 +63,7 @@ namespace HdbApi.Models
             ///// <summary>
             ///// Loading Application ID
             ///// </summary>
-            //public int loading_application_id { get; set; }
+            public int loading_application_id { get; set; }
 
             ///// <summary>
             ///// Method ID

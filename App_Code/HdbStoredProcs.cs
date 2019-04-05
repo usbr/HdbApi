@@ -13,7 +13,7 @@ namespace HdbApi.App_Code
         IEnumerable<dynamic> modify_r_base_raw(IDbConnection db, decimal sdi,
             string interval, // 'instant', 'other', 'hour', 'day', 'month', 'year', 'wy', 'table interval'
             DateTime t, double val, bool overwrite, //   'O'  'null' 
-            char s_validation, bool isNewEntry);
+            char s_validation, bool isNewEntry, int loadingApplicationId);
 
         IEnumerable<dynamic> modify_m_table_raw(IDbConnection db, decimal mrid, decimal sdi, DateTime t, double val, string interval, bool isNewEntry);
 
@@ -63,7 +63,7 @@ namespace HdbApi.App_Code
         public IEnumerable<dynamic> modify_r_base_raw(IDbConnection db, decimal sdi,
             string interval, // 'instant', 'other', 'hour', 'day', 'month', 'year', 'wy', 'table interval'
             DateTime t, double val, bool overwrite, //   'O'  'null' 
-            char s_validation, bool isNewEntry)
+            char s_validation, bool isNewEntry, int loadingApplicationId = -99)
         {
             LookupApplication(db);
 
@@ -80,7 +80,10 @@ namespace HdbApi.App_Code
             { p.Add("OVERWRITE_FLAG", value: DBNull.Value, dbType: OracleDbType.Varchar2); }
             p.Add("VALIDATION", value: s_validation, dbType: OracleDbType.Varchar2);
             p.Add("COLLECTION_SYSTEM_ID", value: s_COLLECTION_SYSTEM_ID, dbType: OracleDbType.Decimal);
-            p.Add("LOADING_APPLICATION_ID", value: s_LOADING_APPLICATION_ID, dbType: OracleDbType.Decimal);
+            if (loadingApplicationId == -99)
+            { p.Add("LOADING_APPLICATION_ID", value: s_LOADING_APPLICATION_ID, dbType: OracleDbType.Decimal); }
+            else
+            { p.Add("LOADING_APPLICATION_ID", value: loadingApplicationId, dbType: OracleDbType.Decimal); }
             p.Add("METHOD_ID", value: s_METHOD_ID, dbType: OracleDbType.Decimal);
             p.Add("COMPUTATION_ID", value: s_COMPUTATION_ID, dbType: OracleDbType.Decimal);
             if (isNewEntry)

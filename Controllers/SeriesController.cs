@@ -74,7 +74,7 @@ namespace HdbApi.Controllers
             
             foreach (Models.PointModel.ObservedPoint point in input)
             {
-                var result = hdbProcessor.modify_r_base_raw(db,point.site_datatype_id,point.interval,point.start_date_time,point.value,point.overwrite_flag,point.validation,point.do_update_y_or_n);
+                var result = hdbProcessor.modify_r_base_raw(db, point.site_datatype_id, point.interval, point.start_date_time, point.value, point.overwrite_flag, point.validation, point.do_update_y_or_n, point.loading_application_id);
             }
 
             return Ok(input);

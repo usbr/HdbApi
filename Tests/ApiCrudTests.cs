@@ -20,12 +20,13 @@ namespace HdbApi.Tests
         private double testVal = 5.0;
         private bool testBool = false;
         private char testFlag = 'Z';
+        private int testLoadingApplicationId = 31;
 
         [Test()]
         public void SeriesRtableInsertEndPoint()
         {
             var hdbProcessor = new HdbApi.App_Code.HdbCommands();
-            var result = hdbProcessor.modify_r_base_raw(conx, testSDI, testInterval, testT, testVal, testBool, testFlag, testBool);
+            var result = hdbProcessor.modify_r_base_raw(conx, testSDI, testInterval, testT, testVal, testBool, testFlag, testBool, testLoadingApplicationId);
 
             var seriesProcessor = new DataAccessLayer.SeriesRepository();
             var verification = seriesProcessor.GetSeries(conx, testSDI, testInterval, testT, testT);
@@ -38,7 +39,7 @@ namespace HdbApi.Tests
         public void SeriesRtableDeleteEndPoint()
         {
             var hdbProcessor = new HdbApi.App_Code.HdbCommands();
-            var result = hdbProcessor.modify_r_base_raw(conx, testSDI, testInterval, testT, testVal, testBool, testFlag, testBool);
+            var result = hdbProcessor.modify_r_base_raw(conx, testSDI, testInterval, testT, testVal, testBool, testFlag, testBool, testLoadingApplicationId);
             hdbProcessor.delete_from_hdb(conx, testSDI, testT, testInterval);
 
             var seriesProcessor = new DataAccessLayer.SeriesRepository();
