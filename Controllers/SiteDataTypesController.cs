@@ -3,6 +3,7 @@ using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using Swashbuckle.Examples;
 using System.Data;
+using System.Collections.Generic;
 
 namespace HdbApi.Controllers
 {
@@ -27,6 +28,49 @@ namespace HdbApi.Controllers
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
             return Ok(sdiProcessor.GetSiteDataTypes(db, sdi, sid, did));
+        }
+
+        /// <summary>
+        /// Get SiteDataType(s)
+        /// </summary>
+        /// <remarks>
+        /// Get metadata for available SiteDataType(s) 
+        /// </remarks>
+        /// <param name="sdi">(Optional) HDB SiteDataType ID(s) of interest. Blank for all SiteDataTypes</param>
+        /// <param name="sid">(Optional) HDB Site ID(s) of interest. Blank for all Sites</param>
+        /// <param name="did">(Optional) HDB DataType ID(s) of interest. Blank for all DataTypes</param>
+        /// <returns></returns>
+        [HttpPost, Route("sitedatatypes/")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SiteDatatypeModel.HdbSiteDatatype))]
+        [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteDatatypeExample))]
+        [SwaggerOperation(Tags = new[] { "HDB Tables" })]
+        public IHttpActionResult Post([FromBody] List<dataTypeList.dataType> input)
+        {
+            IDbConnection db = HdbController.Connect(this.Request.Headers);
+            var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
+            List<int> sdi = new List<int>();
+            List<int> sid = new List<int>();
+            List<int> did = new List<int>();
+            foreach (dataTypeList.dataType dType in input)
+            {
+                if (dType.sdi > 0)
+                { sdi.Add(dType.sdi); }
+                if (dType.sid > 0)
+                { sid.Add(dType.sid); }
+                if (dType.did > 0)
+                { did.Add(dType.did); }
+            }
+            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi.ToArray(), sid.ToArray(), did.ToArray()));
+        }
+
+        public class dataTypeList
+        {
+            public class dataType
+            {
+                public int sdi { get; set; }
+                public int sid { get; set; }
+                public int did { get; set; }
+            }
         }
 
         /// <summary>
