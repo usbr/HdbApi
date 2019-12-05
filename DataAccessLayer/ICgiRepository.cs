@@ -125,13 +125,22 @@ namespace HdbApi.DataAccessLayer
                 foreach (var item in sdiList)
                 { sdiString = sdiString + item + ","; }
             }
-            sdiString = sdiString.Remove(sdiString.Count() - 1);
+            sdiString = sdiString.Remove(sdiString.Count() - 1);                        
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Get HDB data
             // Main data query. Uses Stored HDB Procedure "GET_HDB_CGI_DATA" & "GET_HDB_CGI_INFO"
-            var downloadTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
-            downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+            DataTable downloadTable;
+            if (sourceTstep == "INSTANT")
+            {
+                downloadTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2);
+                downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+            }
+            else
+            {
+                downloadTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
+                downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+            }
             // SDI info query
             var sdiInfo = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
 
@@ -489,7 +498,7 @@ namespace HdbApi.DataAccessLayer
                         if (false)//!HDB_CGI.cgi.jrDebug)
                         { htmlOut.Add("<BR>" + outFile[i]); }
                         else
-                        { htmlOut.Add(outFile[i]); }
+                        { htmlOut.Add("<BR>" + outFile[i]); } //[JR] add <BR> html tag to mimic legacy CGI program output format
                     }
                     htmlOut.Add("</PRE>");
                     htmlOut.Add("<p>");
