@@ -21,6 +21,8 @@ namespace HdbApi.App_Code
 
         DataTable get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0);
 
+        DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2);
+
         DataTable get_hdb_cgi_info(IDbConnection db, string sdiString);
 
         string get_sdis_from_mrid(IDbConnection db, string mridString, string interval);
@@ -177,6 +179,41 @@ namespace HdbApi.App_Code
             //var result = db.Query<dynamic>("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
 
             var dr = db.ExecuteReader("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
+            var dTab = new DataTable();
+            dTab.Load(dr);
+
+            return dTab;
+        }
+
+        public DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2)
+        {
+            /*
+             * SELECT 
+             *      START_DATE_TIME as HDB_DATETIME, SDI_4841, SDI_8067, SDI_4842, SDI_8068 
+             * FROM 
+             *      (SELECT SITE_DATATYPE_ID, START_DATE_TIME, VALUE FROM R_INSTANT WHERE SITE_DATATYPE_ID IN (4841,8067,4842,8068) AND START_DATE_TIME BETWEEN '18-JAN-2017 00:00' and '25-JAN-2017 00:00')
+             * PIVOT 
+             *      (MAX(VALUE) FOR (SITE_DATATYPE_ID) IN ('4841' as SDI_4841,'8067' as SDI_8067,'4842' as SDI_4842,'8068' as SDI_8068))
+             * ORDER BY START_DATE_TIME ASC;
+            */
+            var sql = "select START_DATE_TIME as HDB_DATETIME";
+            var sdisString = "";
+            var pivotString = "pivot (max(VALUE) for (SITE_DATATYPE_ID) IN (";
+            foreach (string sdiItem in sdi.Split(','))
+            {
+                int sdiValue;
+                if (int.TryParse(sdiItem.Trim(), out sdiValue))
+                {
+                    sql += ",SDI_" + sdiValue.ToString("F0");
+                    sdisString += sdiValue.ToString("F0") + ",";
+                    pivotString += "'" + sdiValue.ToString("F0") + "' as SDI_" + sdiValue.ToString("F0") + ",";
+                }
+            }
+            sql += " from (select SITE_DATATYPE_ID, START_DATE_TIME, VALUE from R_INSTANT where SITE_DATATYPE_ID in (" + sdisString.TrimEnd(',') + ")";
+            sql += " and START_DATE_TIME between to_date('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY') and to_date('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'))";
+            sql += " " + pivotString.TrimEnd(',') + "))";
+            sql += " order by START_DATE_TIME asc";
+            var dr = db.ExecuteReader(sql, commandType: CommandType.Text);
             var dTab = new DataTable();
             dTab.Load(dr);
 
