@@ -32,6 +32,7 @@ namespace HdbApi.DataAccessLayer
         public List<string> get_cgi_data(IDbConnection hDB, string srchStr)
         {
             var hdbProcessor = new HdbApi.App_Code.HdbCommands();
+            var hydrometProcessor = new HdbApi.App_Code.HydrometCommands();
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Build date ranges for series lookup
@@ -75,11 +76,39 @@ namespace HdbApi.DataAccessLayer
             {
                 t1Input = t1;
                 t2Input = t2;
-                t2 = t2.AddDays(1);//hack to grab all t2 data
+                if (outTstep.Groups[1].Value.ToString().ToLower() == "in" || outTstep.Groups[1].Value.ToString().ToLower() == "hr")
+                {
+                    t2 = t2.AddDays(1);//hack to grab all t2 data
+                }
             }
             else
             {
                 throw new Exception("Error: Invalid Query Dates.");
+            }
+            
+            // Snap dates
+            switch (outTstep.Groups[1].Value.ToString().ToLower())
+            {
+                case "in":
+                case "hr":
+                    t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, t1Input.Hour, 0, 0);
+                    t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, t2Input.Hour, 0, 0);
+                    break;
+                case "dy":
+                    t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, 0, 0, 0);
+                    t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, 0, 0, 0);
+                    break;
+                case "mn":
+                    t1Input = new DateTime(t1Input.Year, t1Input.Month, 1, 0, 0, 0);
+                    t2Input = new DateTime(t2Input.Year, t2Input.Month, 1, 0, 0, 0);
+                    break;
+                case "yr":
+                case "wy":
+                    t1Input = new DateTime(t1Input.Year, 1, 1, 0, 0, 0);
+                    t2Input = new DateTime(t2Input.Year, 1, 1, 0, 0, 0);
+                    break;
+                default:
+                    throw new Exception("Error: Invalid Query Time-Step.");
             }
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,7 +129,7 @@ namespace HdbApi.DataAccessLayer
                 if (sourceTable == "M")
                 {
                     mridString = Regex.Match(srchStr, @"&mrid=([\s\S]*?)&").Groups[1].Value.ToString();
-                    mridInt = Convert.ToInt32(mridString);
+                    //mridInt = Convert.ToInt32(mridString);
                 }
             }
             // Get SDIs and check for duplicates
@@ -125,24 +154,36 @@ namespace HdbApi.DataAccessLayer
                 foreach (var item in sdiList)
                 { sdiString = sdiString + item + ","; }
             }
-            sdiString = sdiString.Remove(sdiString.Count() - 1);                        
+            sdiString = sdiString.Remove(sdiString.Count() - 1);
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Get HDB data
-            // Main data query. Uses Stored HDB Procedure "GET_HDB_CGI_DATA" & "GET_HDB_CGI_INFO"
-            DataTable downloadTable;
-            if (sourceTstep == "INSTANT")
+            DataTable dataTable;
+            DataTable infoTable;
+            if (hDB != null)
             {
-                downloadTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2);
-                downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+                // Get HDB data
+                // Main data query. Uses Stored HDB Procedure "GET_HDB_CGI_DATA" & "GET_HDB_CGI_INFO"
+                if (sourceTstep == "INSTANT")
+                {
+                    dataTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2);
+                    dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+                }
+                else
+                {
+                    //dataTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
+                    dataTable = hdbProcessor.get_hdb_cgi_data_sql(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridString);
+                    dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+                }
+                // SDI info query
+                infoTable = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
             }
             else
             {
-                downloadTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
-                downloadTable = downloadTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
+                DataTable[] dtOut = hydrometProcessor.get_hdyromet_data("pn", sourceTstep, sdiString, t1, t2);
+                dataTable = dtOut[0];
+                dataTable = dataTable.Select("DateTime >= #" + t1Input + "# AND DateTime <= #" + t2Input + "#").CopyToDataTable();
+                infoTable = dtOut[1];
             }
-            // SDI info query
-            var sdiInfo = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Generate output
@@ -151,12 +192,12 @@ namespace HdbApi.DataAccessLayer
             string outFormat = Regex.Match(srchStr, @"&format=([A-Za-z0-9]+)").Groups[1].Value.ToString();
             if (outFormat == "json")
             {
-                var jsonOut = buildOutputJson(sdiInfo, downloadTable, t1, t2, sourceTstep, sourceTable, mridString);
+                var jsonOut = buildOutputJson(infoTable, dataTable, t1, t2, sourceTstep, sourceTable, mridString);
                 outFile.Add(JsonConvert.SerializeObject(jsonOut));
             }
             else
             {
-                outFile = buildOutputText(sdiInfo, downloadTable, srchStr, outFormat);
+                outFile = buildOutputText(infoTable, dataTable, srchStr, outFormat);
             }
             return outFile;
         }

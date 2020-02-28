@@ -21,6 +21,8 @@ namespace HdbApi.App_Code
 
         DataTable get_hdb_cgi_data(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", int mrid = 0);
 
+        DataTable get_hdb_cgi_data_sql(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", string mrid = "0");
+
         DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2);
 
         DataTable get_hdb_cgi_info(IDbConnection db, string sdiString);
@@ -180,6 +182,102 @@ namespace HdbApi.App_Code
             //var result = db.Query<dynamic>("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
 
             var dr = db.ExecuteReader("GET_HDB_CGI_DATA", param: p, commandType: CommandType.StoredProcedure);
+            var dTab = new DataTable();
+            dTab.Load(dr);
+
+            var a = dTab.Copy();
+            Console.WriteLine(a.Rows.Count);
+            Console.WriteLine(a.Columns.Count);
+
+            return dTab;
+        }
+
+
+        /// <summary>
+        /// Method that generates arrays of TS data used by legacy CGI program
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="sdi"></param>
+        /// <param name="tstp"></param>
+        /// <param name="t1"></param>
+        /// <param name="t2"></param>
+        /// <param name="table"></param>
+        /// <param name="mrid"></param>
+        /// <returns></returns>
+        public DataTable get_hdb_cgi_data_sql(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", string mrid = "0")
+        {
+
+            /*
+             * -- R TABLES
+             select 
+              DATE_TIME as HDB_DATETIME,
+              SDI_4841,
+              SDI_8067,
+              SDI_4842,
+              SDI_8068
+            from TABLE(DATES_BETWEEN('18-JAN-2017 00:00','25-JAN-2017 00:00',LOWER('HOUR'))) t
+            LEFT OUTER JOIN
+            (
+              SELECT * FROM 
+                  (SELECT SITE_DATATYPE_ID, START_DATE_TIME, VALUE FROM R_HOUR WHERE SITE_DATATYPE_ID IN (4841,8067,4842,8068) AND START_DATE_TIME BETWEEN '18-JAN-2017 00:00' and '25-JAN-2017 00:00')
+              PIVOT (MAX(VALUE) FOR (SITE_DATATYPE_ID) IN ('4841' as SDI_4841,'8067' as SDI_8067,'4842' as SDI_4842,'8068' as SDI_8068))
+            ) v
+            ON t.date_time=v.start_date_time
+            ORDEr BY t.DATE_TIME ASC;
+            * -- M TABLES
+            select 
+              DATE_TIME as HDB_DATETIME,
+              model_run_id,
+              SDI_2097,
+              SDI_2101,
+              SDI_2096,
+              SDI_2086
+            from TABLE(DATES_BETWEEN('28-JAN-2017 00:00','30-JAN-2017 00:00',LOWER('HOUR'))) t
+            LEFT OUTER JOIN
+            (
+              SELECT * FROM 
+                  (SELECT SITE_DATATYPE_ID, model_run_id, START_DATE_TIME, VALUE FROM M_HOUR WHERE SITE_DATATYPE_ID IN (2097,2101,2096,2086) AND START_DATE_TIME BETWEEN '28-JAN-2017 00:00' and '30-JAN-2017 00:00' and MODEL_RUN_ID in (2))
+              PIVOT (MAX(VALUE) FOR (SITE_DATATYPE_ID) IN ('2097' as SDI_2097,'2101' as SDI_2101,'2096' as SDI_2096,'2086' as SDI_2086))
+            ) v
+            ON t.date_time=v.start_date_time
+            ORDEr BY t.DATE_TIME ASC;
+            */
+
+            string sql = "select t.DATE_TIME as HDB_DATETIME";
+            string modelrunfieldname = "";
+            string modelRunSearchString = "";
+            if (table.ToLower() == "m")
+            {
+                modelrunfieldname = ", MODEL_RUN_ID ";
+                modelRunSearchString = " AND MODEL_RUN_ID IN (" + mrid + ") ";
+            }
+
+            var sdisString = "";
+            var pivotString = "PIVOT (MAX(VALUE) FOR (SITE_DATATYPE_ID) IN (";
+
+            sql += modelrunfieldname;
+            foreach (string sdiItem in sdi.Split(','))
+            {
+                int sdiValue;
+                if (int.TryParse(sdiItem.Trim(), out sdiValue))
+                {
+                    sql += ",SDI_" + sdiValue.ToString("F0");
+                    sdisString += sdiValue.ToString("F0") + ",";
+                    pivotString += "'" + sdiValue.ToString("F0") + "' as SDI_" + sdiValue.ToString("F0") + ",";
+                }
+            }
+
+            sql += " FROM TABLE(DATES_BETWEEN(TO_DATE('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'),";
+            sql += " TO_DATE('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'),LOWER('" + tstp + "'))) t LEFT OUTER JOIN ( SELECT * FROM";
+            sql += " (select SITE_DATATYPE_ID" + modelrunfieldname + ", START_DATE_TIME, VALUE FROM " + table + "_" + tstp;
+            sql += " WHERE SITE_DATATYPE_ID IN (" + sdisString.TrimEnd(',') + ")";
+            sql += " AND START_DATE_TIME BETWEEN TO_DATE('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')";
+            sql += " AND TO_DATE('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')" + modelRunSearchString + ")";
+            sql += " " + pivotString.TrimEnd(',') + "))";
+            sql += " ) v ON t.DATE_TIME=v.START_DATE_TIME";
+            sql += " ORDER BY t.DATE_TIME ASC ";
+
+            var dr = db.ExecuteReader(sql, commandType: CommandType.Text);
             var dTab = new DataTable();
             dTab.Load(dr);
 
