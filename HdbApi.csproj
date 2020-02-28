@@ -160,6 +160,7 @@
     <Compile Include="App_Code\HdbApiLogging.cs" />
     <Compile Include="App_Code\HdbStoredProcs.cs" />
     <Compile Include="App_Code\OracleDynamicParameters.cs" />
+    <Compile Include="App_Code\HydrometStoredProcs.cs" />
     <Compile Include="App_Start\ApiExceptionHandler.cs" />
     <Compile Include="App_Start\ApiExceptionLogger.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
@@ -200,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="App_Code\pnHydrometParameterCatalog.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Code\pnHydrometSiteCatalog.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\SRV02-Output.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

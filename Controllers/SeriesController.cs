@@ -262,29 +262,37 @@ namespace HdbApi.Controllers
         /// <returns></returns>
         [HttpGet, Route("cgi")]
         [SwaggerOperation(Tags = new[] { "HDB TimeSeries Data" })]
-        public HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] string t1, [FromUri] string t2, [FromUri] string tstp = "DY", [FromUri] TableType table = new TableType(), [FromUri] int mrid = 0, [FromUri] string format = "1")
+        public HttpResponseMessage Get([FromUri] string svr, [FromUri] string sdi, [FromUri] string t1, [FromUri] string t2, [FromUri] string tstp = "DY", 
+            [FromUri] TableType table = new TableType(), [FromUri] string mrid = "0", [FromUri] string format = "1")
         {
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
-            
-            // Connect to HDB
-            bool hostFound = false;
-            List<string[]> hostList = cgiProcessor.get_host_list();
-            foreach (string[] hostInfo in hostList)
-            {
-                if (svr == hostInfo[0].ToString())
-                {
-                    hostFound = true;
-                    this.Request.Headers.Add("api_hdb", hostInfo[0]);
-                    this.Request.Headers.Add("api_user", hostInfo[4]);
-                    this.Request.Headers.Add("api_pass", hostInfo[5]);
-                }
-            }
-            if (!hostFound)
-            {
-                throw new Exception("HDB Database not recognized.");
-            }
-            IDbConnection db = HdbController.Connect(this.Request.Headers);
 
+            IDbConnection db;
+            if (svr.ToLower() == "pnhyd")
+            {
+                db = null;
+            }
+            else //HDB
+            {
+                // Connect to HDB
+                bool hostFound = false;
+                List<string[]> hostList = cgiProcessor.get_host_list();
+                foreach (string[] hostInfo in hostList)
+                {
+                    if (svr == hostInfo[0].ToString())
+                    {
+                        hostFound = true;
+                        this.Request.Headers.Add("api_hdb", hostInfo[0]);
+                        this.Request.Headers.Add("api_user", hostInfo[4]);
+                        this.Request.Headers.Add("api_pass", hostInfo[5]);
+                    }
+                }
+                if (!hostFound)
+                {
+                    throw new Exception("HDB Database not recognized.");
+                }
+                db = HdbController.Connect(this.Request.Headers);
+            }
             // Build CGI query URL
             //      ?svr=lchdb2&sdi=25401&tstp=IN&t1=2018-05-07T05:00&t2=2018-05-07T08:00&table=R&mrid=&format=2            
             var tstpString = "";
@@ -322,7 +330,7 @@ namespace HdbApi.Controllers
                 t1Input = t1Input;
                 t2Input = t2Input;
             }
-            // Special case for T1 and T2 - If integers, query last X-timestep's worth of data
+            // Special case for T1 and T2 - If integers, query last X-timestep's worth of data and snap dates
             else if (int.TryParse(t1, out t1Int) && int.TryParse(t2, out t2Int))
             {
                 switch (tstp.ToString().ToLower())
@@ -330,20 +338,28 @@ namespace HdbApi.Controllers
                     case "in":
                     case "hr":
                         t1Input = DateTime.Now.AddHours(t1Int);
+                        t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, t1Input.Hour, 0, 0);
                         t2Input = DateTime.Now.AddHours(t2Int);
+                        t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, t2Input.Hour, 0, 0);
                         break;
                     case "dy":
                         t1Input = DateTime.Now.AddDays(t1Int);
+                        t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, 0, 0, 0);
                         t2Input = DateTime.Now.AddDays(t2Int);
+                        t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, 0, 0, 0);
                         break;
                     case "mn":
                         t1Input = DateTime.Now.AddMonths(t1Int);
+                        t1Input = new DateTime(t1Input.Year, t1Input.Month, 1, 0, 0, 0);
                         t2Input = DateTime.Now.AddMonths(t2Int);
+                        t2Input = new DateTime(t2Input.Year, t2Input.Month, 1, 0, 0, 0);
                         break;
                     case "yr":
                     case "wy":
                         t1Input = DateTime.Now.AddYears(t1Int);
+                        t1Input = new DateTime(t1Input.Year, 1, 1, 0, 0, 0);
                         t2Input = DateTime.Now.AddYears(t2Int);
+                        t2Input = new DateTime(t2Input.Year, 1, 1, 0, 0, 0);
                         break;
                     default:
                         throw new Exception("Error: Invalid Query Time-Step.");
@@ -352,7 +368,7 @@ namespace HdbApi.Controllers
             else
             {
                 throw new Exception("Error: Invalid Query Dates.");
-            }
+            }            
 
             var urlString = "?svr=" + svr
                 + "&sdi=" + sdi
@@ -362,7 +378,7 @@ namespace HdbApi.Controllers
                 + "&table=" + table.ToString()
                 + "&mrid=" + mrid
                 + "&format=" + format;
-            var result = cgiProcessor.get_cgi_data(db, urlString);
+            List<string> result = cgiProcessor.get_cgi_data(db, urlString);
 
             var output = String.Join<string>(String.Empty, result);
             var response = new HttpResponseMessage(HttpStatusCode.OK);
