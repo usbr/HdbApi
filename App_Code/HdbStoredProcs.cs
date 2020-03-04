@@ -23,7 +23,7 @@ namespace HdbApi.App_Code
 
         DataTable get_hdb_cgi_data_sql(IDbConnection db, string sdi, string tstp, System.DateTime t1, System.DateTime t2, string table = "R", string mrid = "0");
 
-        DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2);
+        DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2, string table="R");
 
         DataTable get_hdb_cgi_info(IDbConnection db, string sdiString);
 
@@ -266,13 +266,20 @@ namespace HdbApi.App_Code
                     pivotString += "'" + sdiValue.ToString("F0") + "' as SDI_" + sdiValue.ToString("F0") + ",";
                 }
             }
+            string tableName = table + "_" + tstp;
+            string rbaseIntervalQuery = "";
+            if (table.ToLower() == "b")
+            {
+                tableName = "R_BASE";
+                rbaseIntervalQuery = " AND LOWER(interval)='" + tstp.ToLower() + "' ";
+            }
 
             sql += " FROM TABLE(DATES_BETWEEN(TO_DATE('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'),";
             sql += " TO_DATE('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'),LOWER('" + tstp + "'))) t LEFT OUTER JOIN ( SELECT * FROM";
-            sql += " (select SITE_DATATYPE_ID" + modelrunfieldname + ", START_DATE_TIME, VALUE FROM " + table + "_" + tstp;
+            sql += " (select SITE_DATATYPE_ID" + modelrunfieldname + ", START_DATE_TIME, VALUE FROM " + tableName;
             sql += " WHERE SITE_DATATYPE_ID IN (" + sdisString.TrimEnd(',') + ")";
             sql += " AND START_DATE_TIME BETWEEN TO_DATE('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')";
-            sql += " AND TO_DATE('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')" + modelRunSearchString + ")";
+            sql += " AND TO_DATE('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')" + modelRunSearchString + rbaseIntervalQuery + ")";
             sql += " " + pivotString.TrimEnd(',') + "))";
             sql += " ) v ON t.DATE_TIME=v.START_DATE_TIME";
             sql += " ORDER BY t.DATE_TIME ASC ";
@@ -284,7 +291,7 @@ namespace HdbApi.App_Code
             return dTab;
         }
 
-        public DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2)
+        public DataTable get_hdb_cgi_instant_data(IDbConnection db, string sdi, System.DateTime t1, System.DateTime t2, string table = "R")
         {
             /*
              * SELECT 
@@ -308,8 +315,18 @@ namespace HdbApi.App_Code
                     pivotString += "'" + sdiValue.ToString("F0") + "' as SDI_" + sdiValue.ToString("F0") + ",";
                 }
             }
-            sql += " from (select SITE_DATATYPE_ID, START_DATE_TIME, VALUE from R_INSTANT where SITE_DATATYPE_ID in (" + sdisString.TrimEnd(',') + ")";
-            sql += " and START_DATE_TIME between to_date('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY') and to_date('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY'))";
+
+            string tableName = "R_INSTANT";
+            string rbaseIntervalQuery = "";
+            if (table.ToLower() != "r")
+            {
+                tableName = "R_BASE";
+                rbaseIntervalQuery = " AND LOWER(interval)='instant' ";
+            }
+
+            sql += " from (select SITE_DATATYPE_ID, START_DATE_TIME, VALUE from " + tableName + " where SITE_DATATYPE_ID in (" + sdisString.TrimEnd(',') + ")";
+            sql += " and START_DATE_TIME between to_date('" + t1.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY') and to_date('" + t2.ToString("dd-MMM-yyyy") + "','DD-MON-YYYY')";
+            sql += " " + rbaseIntervalQuery + ") ";
             sql += " " + pivotString.TrimEnd(',') + "))";
             sql += " order by START_DATE_TIME asc";
             var dr = db.ExecuteReader(sql, commandType: CommandType.Text);

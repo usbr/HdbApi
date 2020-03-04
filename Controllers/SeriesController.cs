@@ -41,7 +41,8 @@ namespace HdbApi.Controllers
         public enum TableType
         {
             R = 0,
-            M = 1
+            M = 1,
+            B = 3
         }
 
 
@@ -256,7 +257,7 @@ namespace HdbApi.Controllers
         /// <param name="tstp">Interval table {INSTANT, HOUR, DAY, MONTH, YEAR}</param>
         /// <param name="t1">Start date</param>
         /// <param name="t2">End date</param>
-        /// <param name="table">Optional - HDB Table {R, M}</param>
+        /// <param name="table">Optional - HDB Table {R, M, B}</param>
         /// <param name="mrid">Optional - Model Run ID if table=M</param>
         /// <param name="format">Output format</param>
         /// <returns></returns>

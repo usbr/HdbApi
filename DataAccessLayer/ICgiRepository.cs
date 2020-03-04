@@ -165,7 +165,7 @@ namespace HdbApi.DataAccessLayer
                 // Main data query. Uses Stored HDB Procedure "GET_HDB_CGI_DATA" & "GET_HDB_CGI_INFO"
                 if (sourceTstep == "INSTANT")
                 {
-                    dataTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2);
+                    dataTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2, sourceTable);
                     dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
                 }
                 else
