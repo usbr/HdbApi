@@ -138,7 +138,10 @@ namespace HdbApi.DataAccessLayer
             sdiList.AddRange(sdiString.Split(','));
             sdiList = sdiList.Distinct().ToList();
             List<string> invalidSdiList = new List<string>();
-            invalidSdiList = sdiList.Where(w => w.Any(c => !Char.IsDigit(c))).ToList();
+            if (hDB != null)
+            {
+                invalidSdiList = sdiList.Where(w => w.Any(c => !Char.IsDigit(c))).ToList();
+            }
             sdiString = "";
             if (invalidSdiList.Count() > 0 && sourceTable == "M") //no sdi passed in so get a list of sdis
             {
@@ -166,13 +169,11 @@ namespace HdbApi.DataAccessLayer
                 if (sourceTstep == "INSTANT")
                 {
                     dataTable = hdbProcessor.get_hdb_cgi_instant_data(hDB, sdiString, t1, t2, sourceTable);
-                    dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
                 }
                 else
                 {
                     //dataTable = hdbProcessor.get_hdb_cgi_data(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridInt);
                     dataTable = hdbProcessor.get_hdb_cgi_data_sql(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridString);
-                    dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
                 }
                 // SDI info query
                 infoTable = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
@@ -181,9 +182,9 @@ namespace HdbApi.DataAccessLayer
             {
                 DataTable[] dtOut = hydrometProcessor.get_hdyromet_data("pn", sourceTstep, sdiString, t1, t2);
                 dataTable = dtOut[0];
-                dataTable = dataTable.Select("DateTime >= #" + t1Input + "# AND DateTime <= #" + t2Input + "#").CopyToDataTable();
                 infoTable = dtOut[1];
             }
+            dataTable = dataTable.Select("HDB_DATETIME >= #" + t1Input + "# AND HDB_DATETIME <= #" + t2Input + "#").CopyToDataTable();
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Generate output

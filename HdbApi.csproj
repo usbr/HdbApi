@@ -201,10 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="App_Code\pnHydrometParameterCatalog.csv">
+    <Content Include="pnHydrometParameterCatalog.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Code\pnHydrometSiteCatalog.csv">
+    <Content Include="pnHydrometSiteCatalog.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\SRV02-Output.pubxml" />
