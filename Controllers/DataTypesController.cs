@@ -20,7 +20,7 @@ namespace HdbApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.DatatypeModel.HdbDatatype))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(DatatypeExample))]
         [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Get([FromUri] int[] id = null)
+        public IHttpActionResult Get([FromUri] string[] id = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
@@ -85,7 +85,7 @@ namespace HdbApi.Controllers
             {
                 var site = new Models.DatatypeModel.HdbDatatype
                 {
-                    datatype_id = 1393,
+                    datatype_id = "1393",
                     datatype_name = "average reservoir elevation",
                     datatype_common_name = "ave reservoir elevation",
                     physical_quantity_name = "water surface elevation",

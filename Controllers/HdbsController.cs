@@ -31,7 +31,8 @@ namespace HdbApi.Controllers
                 "UCHDB2 - UC Production HDB",
                 "YAOHDB - YAO Production HDB",
                 "ECOHDB - ECAO Production HDB",
-                "LBOHDB - LBAO Production HDB"
+                "LBOHDB - LBAO Production HDB",
+                "PNHYD - PN Production Hydromet"
             });
         }
 
@@ -75,7 +76,15 @@ namespace HdbApi.Controllers
             }
 
             // Log-in
-            System.Data.IDbConnection db = Connect(hdbKey, userKey, passKey);
+            System.Data.IDbConnection db;
+            if (hdbKey.ToLower() == "pnhyd")
+            {
+                db = null;
+            }
+            else
+            {
+                db = Connect(hdbKey, userKey, passKey);
+            }
 
             // Check ref_user_groups
             //string sqlString = "select * from ref_user_groups where lower(user_name) = '" + userKey + "'";
