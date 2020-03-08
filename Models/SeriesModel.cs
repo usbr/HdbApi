@@ -44,7 +44,7 @@ namespace HdbApi.Models
             /// <summary>
             /// SDI to query
             /// </summary>
-            public int sdi { get; set; }
+            public string sdi { get; set; }
 
             /// <summary>
             /// Time-Series Time-Interval 

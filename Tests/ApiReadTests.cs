@@ -56,7 +56,7 @@ namespace HdbApi.Tests
         public void SiteDatatypeEndPointQuery()
         {
             var sitedatatypeProcessor = new DataAccessLayer.SiteDataTypeRepository();
-            var result = sitedatatypeProcessor.GetSiteDataTypes(conx, new int[] { 1930 }, new int[] { }, new int[] { });
+            var result = sitedatatypeProcessor.GetSiteDataTypes(conx, new string[] { "1930" }, new string[] { }, new string[] { });
             
             var siteProcessor = new DataAccessLayer.SiteRepository();
             var resultSite = siteProcessor.GetSites(conx, new string[] { "921" });
@@ -64,9 +64,9 @@ namespace HdbApi.Tests
             var datatypeProcessor = new DataAccessLayer.DataTypeRepository();
             var resultDatatype = datatypeProcessor.GetDataTypes(conx, new string[] { "49" });
             
-            if (result[0].datatype_id == 49 &&
-                result[0].site_id == 921 &&
-                result[0].site_datatype_id == 1930 &&
+            if (result[0].datatype_id == "49" &&
+                result[0].site_id == "921" &&
+                result[0].site_datatype_id == "1930" &&
                 result[0].metadata.site_metadata.site_id == resultSite[0].site_id &&
                 result[0].metadata.site_metadata.state_id == resultSite[0].state_id &&
                 result[0].metadata.site_metadata.objecttype_id == resultSite[0].objecttype_id &&
@@ -122,7 +122,7 @@ namespace HdbApi.Tests
         public void SeriesEndPointQuery()
         {
             var seriesProcessor = new DataAccessLayer.SeriesRepository();
-            var result = seriesProcessor.GetSeries(conx, 1930, "month", new DateTime(1980, 1, 1, 0, 0, 0), new DateTime(1980, 1, 1, 0, 0, 0));
+            var result = seriesProcessor.GetSeries(conx, "1930", "month", new DateTime(1980, 1, 1, 0, 0, 0), new DateTime(1980, 1, 1, 0, 0, 0));
             if (result.data[0].value == "1198.98999" &&
                 result.metadata.site_metadata.site_id == "921" &&
                 result.metadata.datatype_metadata.datatype_id == "49")

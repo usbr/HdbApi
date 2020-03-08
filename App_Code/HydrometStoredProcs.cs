@@ -26,54 +26,16 @@ namespace HdbApi.App_Code
         private static string gpInstantURL = "";
         private static DataTable pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
         private static DataTable siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
+        private static DataTable seriesTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSeriesCatalog.csv"), true);
 
 
         public DataTable[] get_hdyromet_data(string region, string tstep, string cbttPcode, DateTime t1, DateTime t2)
         {
-            string baseUrl;
-            if (tstep == "INSTANT")
-            {
-                baseUrl = pnInstantURL;
-            }
-            else
-            {
-                baseUrl = pnDailyURL;
-            }
-            
             var sitePcodeArray = cbttPcode.Trim().Split(',');
             // Get info table
             DataTable infoTable = GetInfoTable(sitePcodeArray);
             // Get data table
-            DataTable dataTable = new DataTable();
-
-            string url = baseUrl.Replace("$CBTTPCODE$", cbttPcode);
-            url = url.Replace("$T1$", t1.ToString("yyyy-MM-dd"));
-            url = url.Replace("$T2$", t2.ToString("yyyy-MM-dd"));
-
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            StreamReader sr = new StreamReader(resp.GetResponseStream());
-            string urlData = sr.ReadToEnd();
-            sr.Close();
-
-            string[] tableData = urlData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            // define datatable columns
-            dataTable.Columns.Add("HDB_DATETIME", typeof(string));
-            for (int i = 1; i < tableData[0].Split(',').Length; i++)
-            {
-                dataTable.Columns.Add("SDI_" + tableData[0].Split(',')[i].ToString().Trim().Replace(" ", "_").ToUpper(), typeof(string));
-            }
-            // populate datatable
-            for (int i = 1; i < tableData.Length; i++)
-            {
-                var tableDataRowVals = tableData[i].Split(',');
-                var newDataRow = dataTable.NewRow();
-                for (int j = 0; j < tableDataRowVals.Length; j++)
-                {
-                    newDataRow[j] = tableDataRowVals[j].ToString();
-                }
-                dataTable.Rows.Add(newDataRow);
-            }
+            DataTable dataTable = GetTsDataTable(tstep, cbttPcode, t1, t2);            
 
             return new DataTable[] { dataTable, infoTable };
         }
@@ -150,6 +112,50 @@ namespace HdbApi.App_Code
         }
 
 
+        public static DataTable GetTsDataTable(string tStep, string cbttPcode, DateTime t1, DateTime t2)
+        {
+            DataTable dataTable = new DataTable();
+            string baseUrl;
+            if (tStep.ToLower() == "instant")
+            {
+                baseUrl = pnInstantURL;
+            }
+            else
+            {
+                baseUrl = pnDailyURL;
+            }
+
+            string url = baseUrl.Replace("$CBTTPCODE$", cbttPcode);
+            url = url.Replace("$T1$", t1.ToString("yyyy-MM-dd"));
+            url = url.Replace("$T2$", t2.ToString("yyyy-MM-dd"));
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            StreamReader sr = new StreamReader(resp.GetResponseStream());
+            string urlData = sr.ReadToEnd();
+            sr.Close();
+
+            string[] tableData = urlData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            // define datatable columns
+            dataTable.Columns.Add("HDB_DATETIME", typeof(string));
+            for (int i = 1; i < tableData[0].Split(',').Length; i++)
+            {
+                dataTable.Columns.Add("SDI_" + tableData[0].Split(',')[i].ToString().Trim().Replace(" ", "_").ToUpper(), typeof(string));
+            }
+            // populate datatable
+            for (int i = 1; i < tableData.Length; i++)
+            {
+                var tableDataRowVals = tableData[i].Split(',');
+                var newDataRow = dataTable.NewRow();
+                for (int j = 0; j < tableDataRowVals.Length; j++)
+                {
+                    newDataRow[j] = tableDataRowVals[j].ToString();
+                }
+                dataTable.Rows.Add(newDataRow);
+            }
+            return dataTable;
+        }
+
         public static List<SiteModel.HdbSite> GetSiteInfo(string[] sitePcodeArray)
         {
             /*
@@ -178,17 +184,17 @@ namespace HdbApi.App_Code
             }
             */
             List<Models.SiteModel.HdbSite> siteReults = new List<SiteModel.HdbSite>();
-            var sitePcodeList = GetSitePcodeList(sitePcodeArray, false);
-            if (sitePcodeList == null)
+            var siteList = GetSitePcodeList(sitePcodeArray, false);
+            if (siteList == null)
             {
                 List<string[]> allSites = new List<string[]>();
                 for (int i = 0; i < siteTable.Rows.Count; i++)
                 {
                     allSites.Add(new string[] { siteTable.Rows[i]["siteid"].ToString() });
                 }
-                sitePcodeList = allSites;
+                siteList = allSites;
             }
-            foreach (string[] siteCode in sitePcodeList)
+            foreach (string[] siteCode in siteList)
             {
                 DataRow[] siteRow = siteTable.Select("siteid = '" + siteCode[0].ToString().ToLower() + "'");
                 if (siteRow.Length < 1)
@@ -227,17 +233,17 @@ namespace HdbApi.App_Code
             }
             */
             List<Models.DatatypeModel.HdbDatatype> pCodeResults = new List<DatatypeModel.HdbDatatype>();
-            var sitePcodeList = GetSitePcodeList(sitePcodeArray, false);
-            if (sitePcodeList == null)
+            var pcodeList = GetSitePcodeList(sitePcodeArray, false);
+            if (pcodeList == null)
             {
                 List<string[]> allSites = new List<string[]>();
                 for (int i = 0; i < pcodeTable.Rows.Count; i++)
                 {
                     allSites.Add(new string[] { pcodeTable.Rows[i]["pcode"].ToString() });
                 }
-                sitePcodeList = allSites;
+                pcodeList = allSites;
             }
-            foreach (string[] pCode in sitePcodeList)
+            foreach (string[] pCode in pcodeList)
             {
                 DataRow[] pCodeRow = pcodeTable.Select("pcode = '" + pCode[0].ToString().ToLower() + "'");
                 if (pCodeRow.Length < 1)
@@ -253,6 +259,69 @@ namespace HdbApi.App_Code
                 pCodeResults.Add(ithPCode);
             }
             return pCodeResults;
+        }
+
+
+        public static List<SiteDatatypeModel.HdbSiteDatatype> GetCbttPcodeInfo(string[] cbttPcode, string[] cbtt, string[] pcode)
+        {
+            List<Models.SiteDatatypeModel.HdbSiteDatatype> cbttPCodeResults = new List<SiteDatatypeModel.HdbSiteDatatype>();
+            var sitePcodeList = GetSitePcodeList(cbttPcode);
+            var siteList = GetSitePcodeList(cbtt, false);
+            var pcodeList = GetSitePcodeList(pcode, false);
+
+            var sqlString = "isfolder=0 ";
+            if (sitePcodeList != null && sitePcodeList.Count() != 0)
+            {
+                string ids = "";
+                foreach (string[] ithId in sitePcodeList)
+                {
+                    ids += "'" + ithId[0] + "_" + ithId[1] + "',";
+                }
+                sqlString += "and name in (" + ids.TrimEnd(',') + ") ";
+            }
+            if (siteList != null && siteList.Count() != 0)
+            {
+                string ids = "";
+                foreach (string[] ithId in siteList)
+                {
+                    ids += "'" + ithId[0] + "',";
+                }
+                sqlString += "and siteid in (" + ids.TrimEnd(',') + ") ";
+            }
+            if (pcodeList != null && pcodeList.Count() != 0)
+            {
+                string ids = "";
+                foreach (string[] ithId in pcodeList)
+                {
+                    ids += "'" + ithId[0] + "',";
+                }
+                sqlString += "and parameter in (" + ids.TrimEnd(',') + ") ";
+            }
+
+            var searchTable = seriesTable.Select(sqlString).CopyToDataTable();
+            DataRow[] sitePcodeRow = new DataView(searchTable).ToTable(true, "siteid", "parameter").Select();
+
+            foreach (DataRow sitePcode in sitePcodeRow)
+            {
+                try
+                {
+                    var ithSitePCode = new SiteDatatypeModel.HdbSiteDatatype();
+                    ithSitePCode.site_datatype_id = sitePcode["siteid"].ToString().ToUpper() + " " + sitePcode["parameter"].ToString().ToUpper();
+                    ithSitePCode.site_id = sitePcode["siteid"].ToString().ToUpper();
+                    ithSitePCode.datatype_id = sitePcode["parameter"].ToString().ToUpper();
+                    var siteMetadata = GetSiteInfo(new string[] { ithSitePCode.site_id });
+                    var pcodeMetadata = GetPcodeInfo(new string[] { ithSitePCode.datatype_id });
+                    ithSitePCode.metadata = new SiteDatatypeModel.SiteDataTypeMetadata();
+                    ithSitePCode.metadata.site_metadata = siteMetadata[0];
+                    ithSitePCode.metadata.datatype_metadata = pcodeMetadata[0];
+                    cbttPCodeResults.Add(ithSitePCode);
+                }
+                catch
+                {
+
+                }
+            }
+            return cbttPCodeResults;
         }
 
 

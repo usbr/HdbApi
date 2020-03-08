@@ -23,7 +23,7 @@ namespace HdbApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Models.SiteDatatypeModel.HdbSiteDatatype))]
         [SwaggerResponseExample(HttpStatusCode.OK, typeof(SiteDatatypeExample))]
         [SwaggerOperation(Tags = new[] { "HDB Tables" })]
-        public IHttpActionResult Get([FromUri] int[] sdi = null, [FromUri] int[] sid = null, [FromUri] int[] did = null)
+        public IHttpActionResult Get([FromUri] string[] sdi = null, [FromUri] string[] sid = null, [FromUri] string[] did = null)
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
@@ -48,17 +48,20 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            List<int> sdi = new List<int>();
-            List<int> sid = new List<int>();
-            List<int> did = new List<int>();
+            List<string> sdi = new List<string>();
+            List<string> sid = new List<string>();
+            List<string> did = new List<string>();
             foreach (dataTypeList.dataType dType in input)
             {
-                if (dType.sdi > 0)
-                { sdi.Add(dType.sdi); }
-                if (dType.sid > 0)
-                { sid.Add(dType.sid); }
-                if (dType.did > 0)
-                { did.Add(dType.did); }
+                //if (dType.sdi > 0)
+                //{ sdi.Add(dType.sdi); }
+                //if (dType.sid > 0)
+                //{ sid.Add(dType.sid); }
+                //if (dType.did > 0)
+                //{ did.Add(dType.did); }
+                sdi.Add(dType.sdi);
+                sid.Add(dType.sid);
+                did.Add(dType.did);
             }
             return Ok(sdiProcessor.GetSiteDataTypes(db, sdi.ToArray(), sid.ToArray(), did.ToArray()));
         }
@@ -67,9 +70,9 @@ namespace HdbApi.Controllers
         {
             public class dataType
             {
-                public int sdi { get; set; }
-                public int sid { get; set; }
-                public int did { get; set; }
+                public string sdi { get; set; }
+                public string sid { get; set; }
+                public string did { get; set; }
             }
         }
 
@@ -131,9 +134,9 @@ namespace HdbApi.Controllers
             {
                 var sdi = new Models.SiteDatatypeModel.HdbSiteDatatype
                 {
-                    datatype_id = 1393,
-                    site_id = 919,
-                    site_datatype_id = 2101
+                    datatype_id = "1393",
+                    site_id = "919",
+                    site_datatype_id = "2101"
                 };
                 return sdi;
             }
