@@ -18,17 +18,17 @@ namespace HdbApi.Models
             /// <summary>
             /// Unique Site Datatype ID
             /// </summary>
-            public int site_datatype_id { get; set; }
+            public string site_datatype_id { get; set; }
 
             /// <summary>
             /// Site ID
             /// </summary>
-            public int site_id { get; set; }
+            public string site_id { get; set; }
 
             /// <summary>
             /// Datatype ID
             /// </summary>
-            public int datatype_id { get; set; } 
+            public string datatype_id { get; set; } 
             
             /// <summary>
             /// Site and Datatype Metadata
