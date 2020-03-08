@@ -17,10 +17,10 @@ namespace HdbApi.Tests
         public void SiteEndPointQuery()
         {
             var siteProcessor = new DataAccessLayer.SiteRepository();
-            var result = siteProcessor.GetSites(conx, new int[] { 921 });
+            var result = siteProcessor.GetSites(conx, new string[] { "921" });
             if (result[0].site_common_name.ToLower() == "hdmlc" &&
                 result[0].site_name.ToLower() == "lake mead" &&
-                result[0].site_id == 921 &&
+                result[0].site_id == "921" &&
                 result[0].state_code.ToLower() == "nv" &&
                 result[0].objecttype_name.ToLower() == "reservoir" &&
                 result[0].db_site_code.ToLower() == "lc")
@@ -37,10 +37,10 @@ namespace HdbApi.Tests
         public void DatatypeEndPointQuery()
         {
             var datatypeProcessor = new DataAccessLayer.DataTypeRepository();
-            var result = datatypeProcessor.GetDataTypes(conx, new int[] { 49 });
+            var result = datatypeProcessor.GetDataTypes(conx, new string[] { "49" });
             if (result[0].datatype_common_name.ToLower() == "pool elevation" &&
                 result[0].datatype_name.ToLower() == "reservoir ws elevation, end of period primary reading" &&
-                result[0].datatype_id == 49 &&
+                result[0].datatype_id == "49" &&
                 result[0].unit_name.ToLower() == "feet" &&
                 result[0].physical_quantity_name.ToLower() == "water surface elevation")
             {
@@ -59,10 +59,10 @@ namespace HdbApi.Tests
             var result = sitedatatypeProcessor.GetSiteDataTypes(conx, new int[] { 1930 }, new int[] { }, new int[] { });
             
             var siteProcessor = new DataAccessLayer.SiteRepository();
-            var resultSite = siteProcessor.GetSites(conx, new int[] { 921 });
+            var resultSite = siteProcessor.GetSites(conx, new string[] { "921" });
 
             var datatypeProcessor = new DataAccessLayer.DataTypeRepository();
-            var resultDatatype = datatypeProcessor.GetDataTypes(conx, new int[] { 49 });
+            var resultDatatype = datatypeProcessor.GetDataTypes(conx, new string[] { "49" });
             
             if (result[0].datatype_id == 49 &&
                 result[0].site_id == 921 &&
@@ -124,8 +124,8 @@ namespace HdbApi.Tests
             var seriesProcessor = new DataAccessLayer.SeriesRepository();
             var result = seriesProcessor.GetSeries(conx, 1930, "month", new DateTime(1980, 1, 1, 0, 0, 0), new DateTime(1980, 1, 1, 0, 0, 0));
             if (result.data[0].value == "1198.98999" &&
-                result.metadata.site_metadata.site_id == 921 &&
-                result.metadata.datatype_metadata.datatype_id == 49)
+                result.metadata.site_metadata.site_id == "921" &&
+                result.metadata.datatype_metadata.datatype_id == "49")
             {
                 Assert.AreEqual(1, 1);
             }

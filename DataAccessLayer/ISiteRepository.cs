@@ -14,7 +14,7 @@ namespace HdbApi.DataAccessLayer
     /// </summary>
     internal interface ISiteRepository
     {
-        List<SiteModel.HdbSite> GetSites(IDbConnection db, int[] id);
+        List<SiteModel.HdbSite> GetSites(IDbConnection db, string[] id);
 
         bool InsertSite(IDbConnection db, SiteModel.HdbSite site);
 
@@ -28,22 +28,30 @@ namespace HdbApi.DataAccessLayer
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
 
-        public List<SiteModel.HdbSite> GetSites(IDbConnection db, int[] id)
+        public List<SiteModel.HdbSite> GetSites(IDbConnection db, string[] id)
         {
-            string sqlString = "select * " +
-                "from HDB_SITE A, HDB_OBJECTTYPE B, HDB_STATE C where A.OBJECTTYPE_ID = B.OBJECTTYPE_ID and A.STATE_ID = C.STATE_ID ";
-            if (id != null)
+            List<Models.SiteModel.HdbSite> siteResults = new List<SiteModel.HdbSite>();
+            if (db != null)
             {
-                string ids = "";
-                foreach (int ithId in id)
+                string sqlString = "select * " +
+                    "from HDB_SITE A, HDB_OBJECTTYPE B, HDB_STATE C where A.OBJECTTYPE_ID = B.OBJECTTYPE_ID and A.STATE_ID = C.STATE_ID ";
+                if (id != null)
                 {
-                    ids += ithId + ",";
+                    string ids = "";
+                    foreach (string ithId in id)
+                    {
+                        ids += ithId + ",";
+                    }
+                    sqlString += "and A.SITE_ID in (" + ids.TrimEnd(',') + ") ";
                 }
-                sqlString += "and A.SITE_ID in (" + ids.TrimEnd(',') + ") ";
+                sqlString += "order by A.SITE_ID";
+                siteResults = (List<Models.SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString);
             }
-            sqlString += "order by A.SITE_ID";
-
-            return (List<Models.SiteModel.HdbSite>)db.Query<SiteModel.HdbSite>(sqlString);
+            else
+            {
+                siteResults = App_Code.HydrometCommands.GetSiteInfo(id);
+            }
+            return siteResults;
         }
 
         public bool InsertSite(IDbConnection db, SiteModel.HdbSite site)

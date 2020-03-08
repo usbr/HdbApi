@@ -14,7 +14,7 @@ namespace HdbApi.DataAccessLayer
     /// </summary>
     internal interface IDataTypeRepository
     {
-        List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, int[] id);
+        List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, string[] id);
 
         bool InsertDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype);
 
@@ -28,22 +28,31 @@ namespace HdbApi.DataAccessLayer
     {
         //private System.Data.IDbConnection db = HdbApi.App_Code.DbConnect.Connect();
         
-        public List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, int[] id)
+        public List<DatatypeModel.HdbDatatype> GetDataTypes(IDbConnection db, string[] id)
         {
-            string sqlString = "select * " +
-                "from HDB_DATATYPE A, HDB_UNIT B where A.UNIT_ID = B.UNIT_ID ";
-            if (id != null)
+            List<Models.DatatypeModel.HdbDatatype> pcodeResults = new List<DatatypeModel.HdbDatatype>();
+            if (db != null)
             {
-                string ids = "";
-                foreach (int ithId in id)
+                string sqlString = "select * " +
+                    "from HDB_DATATYPE A, HDB_UNIT B where A.UNIT_ID = B.UNIT_ID ";
+                if (id != null)
                 {
-                    ids += ithId + ",";
+                    string ids = "";
+                    foreach (string ithId in id)
+                    {
+                        ids += ithId + ",";
+                    }
+                    sqlString += "and A.DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
                 }
-                sqlString += "and A.DATATYPE_ID in (" + ids.TrimEnd(',') + ") ";
+                sqlString += "order by A.DATATYPE_ID";
+                pcodeResults = (List<Models.DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString);
             }
-            sqlString += "order by A.DATATYPE_ID";
-            
-            return (List<Models.DatatypeModel.HdbDatatype>)db.Query<DatatypeModel.HdbDatatype>(sqlString);
+            else
+            {
+                pcodeResults = App_Code.HydrometCommands.GetPcodeInfo(id);
+            }
+
+            return pcodeResults;
         }
 
         public bool InsertDataType(IDbConnection db, DatatypeModel.HdbDatatype dtype)

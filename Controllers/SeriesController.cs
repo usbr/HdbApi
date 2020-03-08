@@ -181,11 +181,11 @@ namespace HdbApi.Controllers
                 {
                     site_metadata = new Models.SiteModel.HdbSite
                     {
-                        site_id = 919,
+                        site_id = "919",
                         site_name = "LAKE POWELL",
                         site_common_name = "LAKE POWELL",
                         description = DBNull.Value.ToString(),
-                        elevation = 3700,
+                        elevation = "3700",
                         lat = "37.05778",
                         longi = "-111.30332",
                         db_site_code = "UC",
@@ -206,7 +206,7 @@ namespace HdbApi.Controllers
                     },
                     datatype_metadata = new Models.DatatypeModel.HdbDatatype
                     {
-                        datatype_id = 1393,
+                        datatype_id = "1393",
                         datatype_name = "average reservoir elevation",
                         datatype_common_name = "ave reservoir elevation",
                         physical_quantity_name = "water surface elevation",

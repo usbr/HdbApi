@@ -6,6 +6,8 @@ using System.Data.OleDb;
 using System.IO;
 using System.Globalization;
 using System.Net;
+using System.Linq;
+using HdbApi.Models;
 
 namespace HdbApi.App_Code
 {
@@ -22,6 +24,9 @@ namespace HdbApi.App_Code
         private static string pnInstantURL = "https://www.usbr.gov/pn-bin/instant.pl?list=$CBTTPCODE$&start=$T1$&end=$T2$&format=csv&flags=false&description=false";
         private static string gpDailyURL = "";
         private static string gpInstantURL = "";
+        private static DataTable pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
+        private static DataTable siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
+
 
         public DataTable[] get_hdyromet_data(string region, string tstep, string cbttPcode, DateTime t1, DateTime t2)
         {
@@ -72,23 +77,42 @@ namespace HdbApi.App_Code
 
             return new DataTable[] { dataTable, infoTable };
         }
+                       
 
-        private static DataTable GetInfoTable(string[] sitePcodeArray)
+        private static List<string[]> GetSitePcodeList(string[] sitePcodeArray, bool parseBothCodes = true)
         {
-            var pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
-            var siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
-
             var sitePcodeList = new List<string[]>();
+            if (sitePcodeArray == null)
+            {                
+                return null;
+            }
             foreach (var item in sitePcodeArray)
             {
                 var sitePcodeArrayItems = item.Trim().Split(' ');
-                if (sitePcodeArrayItems.Length != 2)
+                if (parseBothCodes)
                 {
-                    throw new Exception("Invalid site-pcode combination '" + item.ToString().Trim().ToLower() + "'");
+                    if (sitePcodeArrayItems.Length != 2)
+                    {
+                        throw new Exception("Invalid site-pcode combination '" + item.ToString().Trim().ToLower() + "'");
+                    }
+                    string[] items = new string[] { sitePcodeArrayItems[0].ToString().ToLower(), sitePcodeArrayItems[1].ToString().ToLower() };
+                    sitePcodeList.Add(items);
                 }
-                string[] items = new string[] { sitePcodeArrayItems[0].ToString().ToLower(), sitePcodeArrayItems[1].ToString().ToLower() };
-                sitePcodeList.Add(items);
+                else
+                {
+                    sitePcodeList.Add(new string[] { sitePcodeArrayItems[0].ToString().ToLower() });
+                }                    
             }
+            return sitePcodeList;
+        }
+
+
+        private static DataTable GetInfoTable(string[] sitePcodeArray)
+        {
+            //var pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
+            //var siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
+
+            var sitePcodeList = GetSitePcodeList(sitePcodeArray);
 
             // infoTable Columns { SDI, SITENAME, DATATYPENAME, UNITNAME, LAT, LON, ELEV, DBSITECODE}            
             DataTable infoTable = new DataTable();
@@ -123,6 +147,112 @@ namespace HdbApi.App_Code
             }
 
             return infoTable;
+        }
+
+
+        public static List<SiteModel.HdbSite> GetSiteInfo(string[] sitePcodeArray)
+        {
+            /*
+            {
+              "site_id": 919,
+              "site_name": "LAKE POWELL",
+              "site_common_name": "LAKE POWELL",
+              "description": "",
+              "elevation": 3700,
+              "lat": "37.05778",
+              "longi": "-111.30332",
+              "db_site_code": "UC",
+              "objecttype_id": 7,
+              "objecttype_name": "reservoir",
+              "basin_id": 2029,
+              "river_mile": "NaN",
+              "segment_no": 0,
+              "state_id": 3,
+              "state_code": "UT",
+              "usgs_id": "",
+              "nws_code": "",
+              "shef_code": "",
+              "scs_id": "",
+              "parent_objecttype_id": 0,
+              "parent_site_id": 0
+            }
+            */
+            List<Models.SiteModel.HdbSite> siteReults = new List<SiteModel.HdbSite>();
+            var sitePcodeList = GetSitePcodeList(sitePcodeArray, false);
+            if (sitePcodeList == null)
+            {
+                List<string[]> allSites = new List<string[]>();
+                for (int i = 0; i < siteTable.Rows.Count; i++)
+                {
+                    allSites.Add(new string[] { siteTable.Rows[i]["siteid"].ToString() });
+                }
+                sitePcodeList = allSites;
+            }
+            foreach (string[] siteCode in sitePcodeList)
+            {
+                DataRow[] siteRow = siteTable.Select("siteid = '" + siteCode[0].ToString().ToLower() + "'");
+                if (siteRow.Length < 1)
+                {
+                    throw new Exception("site not found '" + siteCode[0].ToString().ToLower() + "'");
+                }
+                var ithSite = new SiteModel.HdbSite();
+                ithSite.site_id = siteRow[0]["siteid"].ToString().ToUpper();
+                ithSite.lat = siteRow[0]["latitude"].ToString();
+                ithSite.longi = siteRow[0]["longitude"].ToString();
+                ithSite.elevation = siteRow[0]["elevation"].ToString();
+                ithSite.state_code = siteRow[0]["state"].ToString();
+                ithSite.site_name = siteRow[0]["description"].ToString();
+                ithSite.site_common_name = siteRow[0]["description"].ToString();
+                ithSite.db_site_code = "pnhyd";
+                siteReults.Add(ithSite);
+            }
+            return siteReults;
+        }
+
+
+        public static List<DatatypeModel.HdbDatatype> GetPcodeInfo(string[] sitePcodeArray)
+        {
+            /*
+            {
+              "datatype_id": 1393,
+              "datatype_name": "average reservoir elevation",
+              "datatype_common_name": "ave reservoir elevation",
+              "physical_quantity_name": "water surface elevation",
+              "unit_id": 4,
+              "unit_name": "feet",
+              "unit_common_name": "feet",
+              "allowable_intervals": "non-instant",
+              "agen_id": 0,
+              "cmmnt": ""
+            }
+            */
+            List<Models.DatatypeModel.HdbDatatype> pCodeResults = new List<DatatypeModel.HdbDatatype>();
+            var sitePcodeList = GetSitePcodeList(sitePcodeArray, false);
+            if (sitePcodeList == null)
+            {
+                List<string[]> allSites = new List<string[]>();
+                for (int i = 0; i < pcodeTable.Rows.Count; i++)
+                {
+                    allSites.Add(new string[] { pcodeTable.Rows[i]["pcode"].ToString() });
+                }
+                sitePcodeList = allSites;
+            }
+            foreach (string[] pCode in sitePcodeList)
+            {
+                DataRow[] pCodeRow = pcodeTable.Select("pcode = '" + pCode[0].ToString().ToLower() + "'");
+                if (pCodeRow.Length < 1)
+                {
+                    throw new Exception("pcode not found '" + pCode[0].ToString().ToLower() + "'");
+                }
+                var ithPCode = new DatatypeModel.HdbDatatype();
+                ithPCode.datatype_id = pCodeRow[0]["pcode"].ToString().ToUpper();
+                ithPCode.datatype_name = pCodeRow[0]["name"].ToString();
+                ithPCode.datatype_common_name = pCodeRow[0]["name"].ToString();
+                ithPCode.unit_name = pCodeRow[0]["units"].ToString();
+                ithPCode.unit_common_name = pCodeRow[0]["units"].ToString();
+                pCodeResults.Add(ithPCode);
+            }
+            return pCodeResults;
         }
 
 

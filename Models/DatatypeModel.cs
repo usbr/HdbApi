@@ -15,7 +15,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Unique Datatype ID
             /// </summary>
-            public int datatype_id { get; set; }
+            public string datatype_id { get; set; }
 
             /// <summary>
             /// Datatype name

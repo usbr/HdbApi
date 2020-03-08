@@ -18,7 +18,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Unique site ID
             /// </summary>
-            public int site_id { get; set; }
+            public string site_id { get; set; }
 
             /// <summary>
             /// Site name
@@ -38,7 +38,7 @@ namespace HdbApi.Models
             /// <summary>
             /// Site geographic elevation (if applicable)
             /// </summary>
-            public float elevation { get; set; }
+            public string elevation { get; set; }
 
             /// <summary>
             /// Site geographic latitude (if applicable)
