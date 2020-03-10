@@ -18,11 +18,13 @@ namespace HdbApi.App_Code
     
     public class HydrometCommands : IHydrometCommands
     {
-        //https://www.usbr.gov/pn-bin/daily.pl?list=sco%20fb&start=2020-02-23&end=2020-02-26&format=html&flags=false&description=false
+        //https://www.usbr.gov/pn-bin/daily.pl?list=sco%20fb&start=2020-02-23&end=2020-02-26&format=csv&flags=false&description=false
         private static string pnDailyURL = "https://www.usbr.gov/pn-bin/daily.pl?list=$CBTTPCODE$&start=$T1$&end=$T2$&format=csv&flags=false&description=false";
-        //https://www.usbr.gov/pn-bin/instant.pl?list=sco%20fb&start=2020-02-23&end=2020-02-26&format=html&flags=false&description=false
+        //https://www.usbr.gov/pn-bin/instant.pl?list=sco%20fb&start=2020-02-23&end=2020-02-26&format=csv&flags=false&description=false
         private static string pnInstantURL = "https://www.usbr.gov/pn-bin/instant.pl?list=$CBTTPCODE$&start=$T1$&end=$T2$&format=csv&flags=false&description=false";
+        //view-source:https://www.usbr.gov/gp-bin/webarccsv.pl?parameter=PUER%20FB&syer=2018&smnth=1&sdy=1&eyer=2018&emnth=1&edy=24&format=4
         private static string gpDailyURL = "";
+        //https://www.usbr.gov/gp-bin/webdaycsv.pl?parameter=PUER%20FB&syer=2018&smnth=1&sdy=1&eyer=2018&emnth=1&edy=24&format=4
         private static string gpInstantURL = "";
         private static DataTable pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
         private static DataTable siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
@@ -209,6 +211,7 @@ namespace HdbApi.App_Code
                 ithSite.state_code = siteRow[0]["state"].ToString();
                 ithSite.site_name = siteRow[0]["description"].ToString();
                 ithSite.site_common_name = siteRow[0]["description"].ToString();
+                ithSite.hydrologic_unit = siteRow[0]["huc12"].ToString();
                 ithSite.db_site_code = "pnhyd";
                 siteReults.Add(ithSite);
             }
