@@ -23,12 +23,12 @@ namespace HdbApi.App_Code
         //https://www.usbr.gov/pn-bin/instant.pl?list=sco%20fb&start=2020-02-23&end=2020-02-26&format=csv&flags=false&description=false
         private static string pnInstantURL = "https://www.usbr.gov/pn-bin/instant.pl?list=$CBTTPCODE$&start=$T1$&end=$T2$&format=csv&flags=false&description=false";
         //view-source:https://www.usbr.gov/gp-bin/webarccsv.pl?parameter=PUER%20FB&syer=2018&smnth=1&sdy=1&eyer=2018&emnth=1&edy=24&format=4
-        private static string gpDailyURL = "";
+        private static string gpDailyURL = "https://www.usbr.gov/gp-bin/webarccsv.pl?parameter=$CBTTPCODE$&syer=$Y1$&smnth=$M1$&sdy=$D1$&eyer=$Y2$&emnth=$M2$&edy=$D2$&format=4";
         //https://www.usbr.gov/gp-bin/webdaycsv.pl?parameter=PUER%20FB&syer=2018&smnth=1&sdy=1&eyer=2018&emnth=1&edy=24&format=4
-        private static string gpInstantURL = "";
-        private static DataTable pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometParameterCatalog.csv"), true);
-        private static DataTable siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSiteCatalog.csv"), true);
-        private static DataTable seriesTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "pnHydrometSeriesCatalog.csv"), true);
+        private static string gpInstantURL = "https://www.usbr.gov/gp-bin/webdaycsv.pl?parameter=$CBTTPCODE$&syer=$Y1$&smnth=$M1$&sdy=$D1$&eyer=$Y2$&emnth=$M2$&edy=$D2$&format=4";
+        private static DataTable pcodeTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "hydrometParameterCatalog.csv"), true);
+        private static DataTable siteTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "hydrometSiteCatalog.csv"), true);
+        private static DataTable seriesTable = GetDataTableFromCsv(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "hydrometSeriesCatalog.csv"), true);
 
 
         public DataTable[] get_hdyromet_data(string region, string tstep, string cbttPcode, DateTime t1, DateTime t2)

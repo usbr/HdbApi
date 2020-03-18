@@ -201,13 +201,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="pnHydrometParameterCatalog.csv">
+    <Content Include="hydrometParameterCatalog.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="pnHydrometSiteCatalog.csv">
+    <Content Include="hydrometSeriesCatalog.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="pnHydrometSeriesCatalog.csv">
+    <Content Include="hydrometSiteCatalog.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\SRV02-Output.pubxml" />
