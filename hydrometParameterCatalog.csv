@@ -83,6 +83,7 @@ hqy,Irregular,ft/sec,Inst,Water Velocity Y Component
 id,Daily,cfs,Avg,Computed Average Reservoir Inflow
 im,Monthly,1000 af,Avg,Reservoir Inflow
 ima,Monthly,1000 af,Avg,Average Reservoir Inflow
+in,Daily,cfs,Avg,Daily Mean Computed Inflow
 lec,Monthly,feet,Inst,Lower Limit Energy Content Curve
 ls,Irregular,acre-ft,Inst,Lake Water Storage
 lw,Irregular,kOhms,Inst,Leaf Wetness
@@ -120,8 +121,10 @@ qa,Monthly,1000 af,Avg,Stream Flow Adjusted for Storage
 qc,Irregular,cfs,Inst,Canal Discharge
 qc,Monthly,1000 af,Avg,Canal Flow
 qd,Daily,cfs,Avg,Average Stream Discharge
+qdx,Daily,cfs,Avg,WATSTORE Daily Mean Discharge
 qe,Irregular,cfs,Inst,Power Discharge
 qe,Daily,cfs,Avg,Power Discharge
+qehd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge
 qj,Daily,cfs,Avg,Average Canal Discharge
 ql,Monthly,1000 af,Avg,Local Inflow
 qm,Monthly,1000 af,Avg,Recorded Stream Flow
