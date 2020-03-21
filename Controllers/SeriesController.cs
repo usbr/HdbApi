@@ -269,7 +269,7 @@ namespace HdbApi.Controllers
             var cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
 
             IDbConnection db;
-            if (svr.ToLower() == "pnhyd")
+            if (svr.ToLower() == "pnhyd" || svr.ToLower() == "gphyd")
             {
                 db = null;
             }

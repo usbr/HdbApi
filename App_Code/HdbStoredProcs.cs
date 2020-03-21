@@ -27,6 +27,8 @@ namespace HdbApi.App_Code
 
         DataTable get_hdb_cgi_info(IDbConnection db, string sdiString);
 
+        DataTable get_hdb_cgi_info_sql(IDbConnection db, string sdiString);
+
         string get_sdis_from_mrid(IDbConnection db, string mridString, string interval);
     }
 
@@ -356,6 +358,28 @@ namespace HdbApi.App_Code
             //var result = db.Query<dynamic>("GET_HDB_CGI_INFO", param: p, commandType: CommandType.StoredProcedure);
 
             var dr = db.ExecuteReader("GET_HDB_CGI_INFO", param: p, commandType: CommandType.StoredProcedure);
+            var dTab = new DataTable();
+            dTab.Load(dr);
+
+            return dTab;
+        }
+
+
+        public DataTable get_hdb_cgi_info_sql(IDbConnection db, string sdiString)
+        {
+            string sql = "SELECT HDB_SITE_DATATYPE.SITE_DATATYPE_ID, " +
+                "HDB_SITE.SITE_NAME, HDB_DATATYPE.DATATYPE_NAME, HDB_UNIT.UNIT_COMMON_NAME, " +
+                "HDB_SITE.LAT, HDB_SITE.LONGI, HDB_SITE.ELEVATION, " +
+                "HDB_SITE.DB_SITE_CODE " +
+                "FROM HDB_SITE " +
+                "INNER JOIN HDB_SITE_DATATYPE " +
+                "ON HDB_SITE.SITE_ID=HDB_SITE_DATATYPE.SITE_ID " +
+                "INNER JOIN HDB_DATATYPE " +
+                "ON HDB_SITE_DATATYPE.DATATYPE_ID=HDB_DATATYPE.DATATYPE_ID " +
+                "INNER JOIN HDB_UNIT " +
+                "ON HDB_DATATYPE.UNIT_ID=HDB_UNIT.UNIT_ID " +
+                "WHERE HDB_SITE_DATATYPE.SITE_DATATYPE_ID IN (" + sdiString + ") ";
+            var dr = db.ExecuteReader(sql, commandType: CommandType.Text);
             var dTab = new DataTable();
             dTab.Load(dr);
 

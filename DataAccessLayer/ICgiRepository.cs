@@ -176,7 +176,7 @@ namespace HdbApi.DataAccessLayer
                     dataTable = hdbProcessor.get_hdb_cgi_data_sql(hDB, sdiString, sourceTstep, t1, t2, sourceTable, mridString);
                 }
                 // SDI info query
-                infoTable = hdbProcessor.get_hdb_cgi_info(hDB, sdiString);
+                infoTable = hdbProcessor.get_hdb_cgi_info_sql(hDB, sdiString);
             }
             else
             {
@@ -287,6 +287,29 @@ namespace HdbApi.DataAccessLayer
         private static List<string> buildOutputText(DataTable sdiInfo, DataTable downloadTable,
             string srchStr, string outFormat)
         {
+            // enforce same row-column order on both the Info and Data tables
+            DataTable sdiInfoSorted = sdiInfo.Clone();
+            string firstColName = sdiInfo.Columns[0].ColumnName;
+            int firstDataIdx = 1;
+            if (downloadTable.Columns[1].ColumnName == "MODEL_RUN_ID")
+            {
+                firstDataIdx = 2;
+                DataRow dr = sdiInfoSorted.NewRow();
+                dr[0] = -1;
+                dr[1] = "MODEL_RUN_ID";
+                dr[2] = "NA";
+                dr[3] = "NA";
+                dr[7] = "NA";
+                sdiInfoSorted.Rows.Add(dr);
+            }
+            for (int i = firstDataIdx; i < downloadTable.Columns.Count; i++)
+            {
+                var ithColName = downloadTable.Columns[i].ColumnName.ToString().Replace("SDI_", "");
+                DataRow[] result = sdiInfo.Select(firstColName + " = '" + ithColName + "'");
+                sdiInfoSorted.Rows.Add(result[0].ItemArray);
+            }
+
+
             var outText = new List<string>();
 
             // Generate header
@@ -303,10 +326,10 @@ namespace HdbApi.DataAccessLayer
             txt.Add("liability whatsoever to any individual or group entity by reason of any use made ");
             txt.Add("thereof. ");
             txt.Add(" ");
-            for (int i = 0; i < sdiInfo.Rows.Count; i++)
+            for (int i = 0; i < sdiInfoSorted.Rows.Count; i++)
             {
-                txt.Add("SDI " + sdiInfo.Rows[i][0] + ": " + sdiInfo.Rows[i][1].ToString().ToUpper() + " - " +
-                    sdiInfo.Rows[i][2].ToString().ToUpper() + " in " + sdiInfo.Rows[i][3].ToString().ToUpper());
+                txt.Add("SDI " + sdiInfoSorted.Rows[i][0] + ": " + sdiInfoSorted.Rows[i][1].ToString().ToUpper() + " - " +
+                    sdiInfoSorted.Rows[i][2].ToString().ToUpper() + " in " + sdiInfoSorted.Rows[i][3].ToString().ToUpper());
             }
             txt.Add("BEGIN DATA");
             string headLine = "";
