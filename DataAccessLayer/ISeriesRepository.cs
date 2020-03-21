@@ -109,7 +109,7 @@ namespace HdbApi.DataAccessLayer
                 // GET QUERY VARS
                 var tsQuery = new Models.SeriesModel.TimeSeriesQuery
                 {
-                    hdb = "pnhyd",
+                    hdb = "hydromet",
                     sdi = id,
                     t1 = startDate,
                     t2 = endDate,

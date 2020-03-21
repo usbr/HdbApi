@@ -32,7 +32,8 @@ namespace HdbApi.Controllers
                 "YAOHDB - YAO Production HDB",
                 "ECOHDB - ECAO Production HDB",
                 "LBOHDB - LBAO Production HDB",
-                "PNHYD - PN Production Hydromet"
+                "PNHYD - PN Production Hydromet",
+                "GPHYD - GP Production Hydromet"
             });
         }
 
@@ -77,7 +78,7 @@ namespace HdbApi.Controllers
 
             // Log-in
             System.Data.IDbConnection db;
-            if (hdbKey.ToLower() == "pnhyd")
+            if (hdbKey.ToLower() == "pnhyd" || hdbKey.ToLower() == "gphyd")
             {
                 db = null;
             }
