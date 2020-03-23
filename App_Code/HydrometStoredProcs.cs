@@ -208,6 +208,7 @@ namespace HdbApi.App_Code
             string urlData = sr.ReadToEnd();
             sr.Close();
 
+            urlData = urlData.Replace("NO RECORD", ",NaN");
             string[] tableData = urlData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             // define datatable columns
             dataTable.Columns.Add("HDB_DATETIME", typeof(string));
@@ -232,7 +233,7 @@ namespace HdbApi.App_Code
                 var newDataRow = dataTable.NewRow();
                 for (int j = 0; j < tableDataRowVals.Length; j++)
                 {
-                    newDataRow[j] = tableDataRowVals[j].ToString();
+                    newDataRow[j] = tableDataRowVals[j].ToString().Trim();
                 }
                 dataTable.Rows.Add(newDataRow);
             }
