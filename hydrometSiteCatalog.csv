@@ -1,4 +1,75 @@
 siteid,description,state,latitude,longitude,elevation,timezone,install,horizontal_datum,vertical_datum,vertical_accuracy,elevation_method,tz_offset,active_flag,type,responsibility,agency_region,huc12
+agr,"Angostura Reservoir (Cheyenne River Blw Dam), Sd",SD,43.34333,-103.43833,3200,MST,,,,,,,,,,GP,101201060509
+alcr,"Alcova Reservoir, Wyoming",WY,42.54889,-106.72056,5500,MST,,,,,,,,,,GP,101800070202
+ancr,"Anchor Reservoir, South Fork Owl Creek, Wyoming",WY,43.66389,-108.82417,6370,MST,,,,,,,,,,GP,100800070108
+arne,"Lake Alice Reservoir Elevation, Nebraska",NE,41.98667,-103.63222,4190,MST,,,,,,,,,,GP,101800090705
+audl,"Audubon Lake, North Dakota",ND,47.61139,-101.26556,1862,MST,,,,,,,,,,GP,101101013604
+bbne,"Box Butte Dam, Nebraska",NE,42.45833,-103.06667,4007,MST,,,,,,,,,,GP,101500031003
+bbr,"Buffalo Bill Reservoir On Shoshone River, Wyoming",WY,44.50139,-109.18333,5360,MST,,,,,,,,,,GP,100800140106
+bbrsfd,"Buffalo Bill Reservoir - South Fork Dike, Wyoming",WY,44.4425,-109.2125,5401,MST,,,,,,,,,,GP,100800130303
+bfr,"Belle Fourche Reservoir Nr Belle Fourche, S. Dakota",SD,44.73667,-103.67417,2900,MST,,,,,,,,,,GP,101202020204
+bhr,"Bighorn Lake, Montana",MT,45.30722,-107.95694,3200,MST,,,,,,,,,,GP,100800100904
+bhsx,"Bighorn River And Bia Canal Near St. Xavier, Montana",MT,45.31667,-107.91806,3100,MST,,,,,,,,,,GP,100800150302
+blr,"Bull Lake Reservoir On Bull Lake Creek, Wyoming",WY,43.20972,-109.04167,5814,MST,,,,,,,,,,GP,100800010604
+boyr,"Boysen Reservoir, Thermopolis, Wyoming",WY,43.4,-108.17694,4628,MST,,,,,,,,,,GP,100800050607
+cane,"Calamus Reservoir (Virginia Smith Dam), Nebraska",NE,41.82722,-99.21972,2255,CST,,,,,,,,,,GP,102100080604
+carterco,"Carter Lake Reservoir Near Loveland, Co",CO,40.32417,-105.21194,6745,MST,,,,,,,,,,GP,101900060501
+ccdt,"Choke Canyon Reservoir Near Three Rivers, Texas",TX,28.46667,-98.16667,1994,CST,,,,,,,,,,GP,
+ccks,"Cawker City Dike, Kansas",KS,39.49889,-98.44056,1482,CST,,,,,,,,,,GP,102600150101
+ccr,"Clark Canyon Reservoir, Beaverhead Rvr Nr Dillon, Mt",MT,45.00167,-112.8575,5580,MST,,,,,,,,,,GP,100200020402
+cfrsat,"Canyon Ferry Lake Near Helena, Montana",MT,46.64917,-111.7275,3673,MST,,,,,,,,,,GP,100301011205
+dane,"Davis Creek Dam, Nebraska",NE,41.40472,-98.70778,2094,CST,,,,,,,,,,GP,102100070502
+dfr,"Deerfield Reservoir, South Dakota",SD,44.02806,-103.78583,5958,MST,,,,,,,,,,GP,101201100106
+eapr,"E.A. Patterson Lake (Dickinson), North Dakota",ND,46.86972,-102.82694,2430,MST,,,,,,,,,,GP,101302020305
+flaresco,"Flatiron Reservoir, Loveland, Co",CO,40.365,-105.23611,5580,MST,,,,,,,,,,GP,101900060602
+frr,"Fresno Reservoir Near Havre, Montana",MT,48.60833,-109.94583,2535,MST,,,,,,,,,,GP,100500021210
+gdwy,"Gray Reef Dam, Wyoming",WY,42.56556,-106.69889,5335,MST,,,,,,,,,,GP,101800070202
+gibr,"Gibson Reservoir, Montana",MT,47.60083,-112.76167,4550,MST,,,,,,,,,,GP,100301040401
+glaresco,"Grand Lake, Colorado",CO,40.24167,-105.80222,8366,MST,,,,,,,,,,GP,140100010308
+gler,"Glendo Reservoir, Wyoming",WY,42.47722,-104.95056,4520,MST,,,,,,,,,,GP,101800081102
+graresco,"Lake Granby Near Granby, Colorado",CO,40.18194,-105.87111,8290,MST,,,,,,,,,,GP,140100010308
+greresco,"Green Mountain Reservoir, Summit County, Co",CO,39.87889,-106.31333,7960,MST,,,,,,,,,,GP,140100020504
+guwy,"Guernsey Reservoir, Wyoming",WY,42.28861,-104.7625,4480,MST,,,,,,,,,,GP,101800081106
+htoothr,"Horsetooth Reservoir Near Fort Collins, Co",CO,40.59944,-105.17111,5300,MST,,,,,,,,,,GP,101900070805
+jamr,"Jamestown Reservoir, North Dakota",ND,46.93056,-98.70639,1430,CST,,,,,,,,,,GP,101600010611
+keyr,"Keyhole Reservoir, Wyoming",WY,44.38194,-104.77917,4134,MST,,,,,,,,,,GP,101202010805
+ksks,"Keith Sebelius Lake (Norton Dam), Kansas",KS,39.8075,-99.93417,2347,CST,,,,,,,,,,GP,102500150208
+kwks,"Kirwin Reservoir At Kirwin, Kansas",KS,39.66361,-99.12472,1730,CST,,,,,,,,,,GP,102600120201
+lane,"Little Lake Alice Reservoir El-Outflow, Nebraska",NE,41.9625,-103.57222,4138,MST,,,,,,,,,,GP,101800090805
+ler,"Lake Elwell Spillway Transducer, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,100302032103
+lerm,"Lake Elwell Auxiliary Outlet Bubbler, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,100302032103
+lfrm,"Lake Frances Reservoir, Montana",MT,48.26667,-112.2,3820,MST,,,,,,,,,,GP,100302030605
+limr,"Lima Res Upstream Of Clark Canyon Res, Montana",MT,44.65611,-112.37056,6530,MST,,,,,,,,,,GP,100200011401
+lmne,"Lake Minatare Reservoir, Nebraska",NE,41.91833,-103.48861,4140,MST,,,,,,,,,,GP,101800090804
+ltr,"Lake Tschida (Heart Butte), North Dakota",ND,46.59667,-101.80944,2124,MST,,,,,,,,,,GP,101302020610
+lvks,"Lovewell Dam, Kansas",KS,39.88444,-98.02806,1595,CST,,,,,,,,,,GP,102500160708
+marysr,"Marys Lake, Colorado",CO,40.57806,-105.89528,8050,MST,,,,,,,,,,GP,101900070204
+mcdh,"Mcgee Creek Dam, Oklahoma",OK,34.31444,-95.875,576,CST,,,,,,,,,,GP,111401030505
+mrne,"Merritt Dam, Nebraska",NE,42.635,-100.87222,2956,CST,,,,,,,,,,GP,101500050505
+mtelfbco,"Mount Elbert Forebay, Co",CO,39.10222,-106.35333,9650,MST,,,,,,,,,,GP,110200010103
+nasty,"Lake Nasworthy Near San Angelo, Texas",TX,31.38861,-100.47806,1872.2,CST,,,,,,,,,,GP,
+nelr,"Nelson Reservoir At Dam 10 Miles Nw Of Saco, Mt",MT,48.52972,-107.51861,2200,MST,,,,,,,,,,GP,100500140702
+olydamco,"Olympus Dam Near Estes Park, Colorado",CO,40.37306,-105.48778,7481,MST,,,,,,,,,,GP,101900060207
+patr,"Pathfinder Reservoir, Wyoming",WY,42.46806,-106.85361,5678,MST,,,,,,,,,,GP,101800030411
+pbr,"Pilot Butte Offstream, 22 Miles Nw Of Riverton, Wy",WY,43.2,-108.75,5400,MST,,,,,,,,,,GP,100800050102
+pinresco,"Pinewood Reservoir, Loveland, Co",CO,40.36806,-105.28639,6552,MST,,,,,,,,,,GP,101900060602
+pshr,"Pishkun Reservoir Near Augusta, Montana",MT,47.67667,-112.49667,4300,MST,,,,,,,,,,GP,100301040406
+ptr,"Pactola Reservoir Near Rapid City, South Dakota",SD,44.07222,-103.48806,4660,MST,,,,,,,,,,GP,101201100110
+puer,"Pueblo Reservoir,Arkansas River Nr Pueblo, Colorado",CO,38.25972,-104.71806,4850,MST,,,,,,,,,,GP,110200020905
+rueresco,"Ruedi Reservoir Nr Basalt, Colorado",CO,39.36389,-106.81806,7766,MST,,,,,,,,,,GP,140100040505
+semr,"Seminoe Reservoir, Wyoming",WY,42.15583,-106.90806,6361,MST,,,,,,,,,,GP,101800030208
+sharesco,"Shadow Mountain Reservoir, Grand County, Co",CO,40.20722,-105.84167,8365,MST,,,,,,,,,,GP,140100010308
+sher,"Lake Sherburne, Swift Current Creek Near Babb, Mt",MT,48.82833,-113.52111,4803,MST,,,,,,,,,,GP,
+shr,"Shadehill Reservoir On The Grand River, South Dakota",SD,45.75333,-102.20333,2320,MST,,,,,,,,,,GP,101303020907
+srdm,"Sun River Diversion Dam, Montana",MT,47.62083,-112.70667,4370,MST,,,,,,,,,,GP,100301040404
+swtr,"Swift Reservoir, Birch Creek, Montana",MT,48.15,-112.86667,4780,MST,,,,,,,,,,GP,100302010603
+turq,"Turquoise Lake (Sugarloaf Dam), Colorado",CO,39.25278,-106.37417,9750,MST,,,,,,,,,,GP,110200010206
+twiresco,"Twin Lakes Reservoir, Colorado",CO,39.08028,-106.31389,9200,MST,,,,,,,,,,GP,110200010103
+waks,"Waconda Lake (Glen Elder Dam), Kansas",KS,39.49611,-98.31333,1467,CST,,,,,,,,,,GP,102600150109
+wbks,"Webster Reservoir Near Stockton, Kansas",KS,39.39139,-99.42583,1924,CST,,,,,,,,,,GP,102600130504
+wcne,"Winters Creek Reservoir (Surface Elev-Inflow), Ne",NE,41.9575,-103.53222,4125,MST,,,,,,,,,,GP,101800090804
+wcr,"Willow Creek Reservoir, 6 Miles Nw Augusta, Montana",MT,47.54667,-112.42917,4153,MST,,,,,,,,,,GP,100301040304
+wilresco,"Willow Creek Reservoir, Colorado",CO,40.14778,-105.94194,8130,MST,,,,,,,,,,GP,140100010104
 abei,"Aberdeen, Idaho Weather Station",ID,42.953333,-112.82667,1341,US/Mountain,3/20/1991,,m,0,agrimet_map,,,agrimet,noaa,PN,1.70E+11
 acao,"Ashland Creek Mouth, near Ashland",OR,42.195,-122.6686111,1820,US/Pacific,48:15.3,14354100,ft,0,,,,hydromet,OWRD,PN,1.71E+11
 acho,"A Canal Headworks, Oregon",OR,42.23861111,-121.8019444,4140,US/Pacific,23:37.7,OFF,ft,0,,,,hydromet,Klamath,PN,1.80E+11
@@ -11,11 +82,9 @@ afty,"Afton, Wyoming AgriMet Weather Station",WY,42.73333,-110.93583,1892.81,US/
 aga,"Agate Dam and Reservoir near Medford, OR",OR,42.415,-122.77222,1520,US/Pacific,58:14.9,,ft,0,cma_google,,,hydromet,,PN,1.71E+11
 agko,"Agency Lake Ranch, Oregon AgriMet Weather Station",OR,42.56527,-121.9825,1264.92,US/Pacific,5/3/2000,,m,0,agrimet_map,,,agrimet,pnro,PN,1.80E+11
 agno,ROGUE NR AGNESS,OR,42.580387,-124.059533,114,US/Pacific,00:00.0,14372300,ft,0,,,,hydromet,usgs,PN,1.71E+11
-agr,"Angostura Reservoir (Cheyenne River Blw Dam), Sd",SD,43.34333,-103.43833,3200,MST,,,,,,,,,,GP,
 agtest,Test ID - 300 Baud HDR Transmitter,ID,43.61472222,-116.2519444,2715,US/Mountain,.......................,0,ft,0,,,,hydromet,pnro/AgriMet,PN,1.71E+11
 agwa,warm springs + beulah,or,0,0,0,US/Mountain,,0,,0,,,,hydromet,,PN,
 ahti,"Ashton, Idaho AgriMet Weather Station",ID,44.025,-111.46666,1615.44,US/Mountain,6/1/1987,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
-alcr,"Alcova Reservoir, Wyoming",WY,42.54889,-106.72056,5500,MST,,,,,,,,,,GP,
 alf,ALBENI FALLS DAM ON PEND OREILLE RIV BL LAKE,ID,48.18333333,-117.0333333,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Corps,PN,1.70E+11
 almw,"Almira Hydromet Station, WA",WA,47.79097346,-118.9163667,2350,US/Pacific,48:30.2,,ft,0,cma_google_1,,,hydromet,pnro,PN,1.70E+11
 alno,"Allen Canal at Echo, OR",OR,45.73361111,-119.2041667,630,US/Pacific,18:12.3,14030000,ft,0,,,,hydromet,owrd,PN,1.71E+11
@@ -27,7 +96,6 @@ amfi,"Snake River at Neeley, ID",ID,42.767518,-112.879474,4242,US/Mountain,.....
 amrw,"American River near Nile, WA",WA,46.977616,-121.168696,2700,US/Pacific,00:00.0,12488500,ft,0,,,,hydromet,usgs,PN,1.70E+11
 anaw,"SNAKE RIVER NR ANATONE, WASHINGTON",WA,46.09722222,-116.9766667,807,US/Pacific,00:00.0,13334300,ft,0,,,,hydromet,usgs,PN,1.71E+11
 anci,Anderson Canal,ID,43.62222222,-111.6694444,5030,US/Mountain,00:00.0,13037505,ft,0,,,,hydromet,IDWR,PN,1.70E+11
-ancr,"Anchor Reservoir, South Fork Owl Creek, Wyoming",WY,43.66389,-108.82417,6370,MST,,,,,,,,,,GP,
 and,Anderson Ranch Dam and Reservoir,ID,43.35918945,-115.449191,3880,US/Mountain,00:00.0,,ft,0,cma_google,,,hydromet,pnro,PN,1.71E+11
 andi,South Fork Boise River at Anderson Ranch Dam,ID,43.343588,-115.477435,3830,US/Mountain,00:00.0,13190500,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
 anno,"Annie Creek near Fort Klamath, OR",OR,42.76916667,-122.0597222,4399,US/Pacific,38:25.3,0,ft,0,,,,hydromet,Klamath,PN,1.80E+11
@@ -45,7 +113,6 @@ arci,BIG LOST RIVER NEAR ARCO,ID,43.582222,-113.270556,0,US/Mountain,00:00.0,131
 ardb,ARROW LAKES,BC,49.33333333,-117.7666667,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,,PN,1.70E+11
 ark,Arrowrock Dam and Reservoir,ID,43.59550122,-115.9226344,3216,US/Mountain,00:00.0,,ft,0,cma_google,,,hydromet,pnro,PN,1.71E+11
 arki,Middle Fork Boise River at Arrowrock Dam,ID,43.59444444,-115.9219444,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,,PN,1.71E+11
-arne,"Lake Alice Reservoir Elevation, Nebraska",NE,41.98667,-103.63222,4190,MST,,,,,,,,,,GP,
 arno,Arnold Canal,OR,43.99444444,-121.3777778,3810,US/Pacific,27:58.1,14065500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 asci,Aberdeen-Springfield Canal,ID,43.28055556,-112.2569444,4537,US/Mountain,00:00.0,13061610,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 aslo,"Ashland Lateral near Ashland, OR",OR,42.12361111,-122.5486111,0,US/Pacific,44:16.9,0,ft,0,,,,hydromet,BFO (T)/OWRD,PN,1.71E+11
@@ -53,7 +120,6 @@ asnw,"ASOTIN CREEK AT ASOTIN, WA (USGS)",WA,46.34072,-117.05599,742.57,US/Pacifi
 atai,ATLANTA SUMMIT,ID,43.75,-115.2333333,241.3333333,0,.......................,306,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 atli,Atlanta 3 Weather Station,ID,43.804338,-115.126912,5400,US/Mountain,00:00.0,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
 auci,St. Anthony Union Canal,ID,43.975,-111.65,4995,US/Mountain,00:00.0,13049725,ft,0,,,,hydromet,IDWR,PN,1.70E+11
-audl,"Audubon Lake, North Dakota",ND,47.61139,-101.26556,1862,MST,,,,,,,,,,GP,
 augw,Ahtanum Creek at Union Gap,WA,46.53527778,-120.4716667,0,US/Pacific,.......................,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 auso,"Austin 3S, OR (monthly)",OR,0,0,0,US/Pacific,.......................,0,ft,0,,,,hydromet,,PN,
 badm,BADGER PASS,MT,48.11666667,-113.0166667,228,0,.......................,307,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -65,9 +131,6 @@ basi,BANNER SUMMIT,ID,44.3,-115.2333333,232.3333333,0,.......................,31
 baso,"Bear Creek below Ashland Cr. at Ashland, OR",OR,42.215964,-122.722255,1675,US/Pacific,36:10.1,14354200,ft,0,,,,hydromet,usgs,PN,1.71E+11
 bato,"Beatty, Oregon AgriMet Weather Station",OR,42.47805,-121.27388,1316.74,US/Pacific,10/19/2004,,m,0,agrimet_map,,,agrimet,pnro,PN,1.80E+11
 bbbo,"Big Butte Ck below Butte Falls,OR",OR,42.55964714,-122.5788361,0,US/Mountain,,14337000,,0,,,,hydromet,BFO,PN,1.71E+11
-bbne,"Box Butte Dam, Nebraska",NE,42.45833,-103.06667,4007,MST,,,,,,,,,,GP,
-bbr,"Buffalo Bill Reservoir On Shoshone River, Wyoming",WY,44.50139,-109.18333,5360,MST,,,,,,,,,,GP,
-bbrsfd,"Buffalo Bill Reservoir - South Fork Dike, Wyoming",WY,44.4425,-109.2125,5401,MST,,,,,,,,,,GP,
 bbsy,BLIND BULL SUM,WY,42.95,-110.6,254.1666667,0,.......................,353,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.40E+11
 bbyi,"BLACKFOOT RIV BYPASS NR BLACKFOOT, ID",ID,43.17111111,-112.3869444,4469,US/Mountain,00:00.0,13068495,ft,0,,,,hydromet,usgs,PN,1.70E+11
 bcao,"Bear Creek above Ashland, OR",OR,42.195,-122.6686111,1820,US/Pacific,48:15.3,14352001,ft,0,,,,hydromet,OWRD,PN,1.71E+11
@@ -93,13 +156,10 @@ bfam,"Blackfeet-Seville Colony, MT (BFAM)",MT,48.67539978,-112.5886993,0,US/Moun
 bfci,Blackfoot Canal,ID,43.32083333,-112.1719444,4574,US/Mountain,00:00.0,13061430,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 bfgi,Boise Fairgrounds Weather Station,ID,43.65303,-116.27417,800,US/Mountain,8/15/2013,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 bfky,"Buffalo Fork above Lava Creek near Moran, WY",WY,43.83805,-110.44111,6773,US/Mountain,00:00.0,13011900,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
-bfr,"Belle Fourche Reservoir Nr Belle Fourche, S. Dakota",SD,44.73667,-103.67417,2900,MST,,,,,,,,,,GP,
 bfti,"Snake River near Blackfoot, ID",ID,43.12513846,-112.518792,4400,US/Mountain,00:00.0,13069500,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 bftm,"Big Flat - Turner, MT (BFTM)",MT,48.83568192,-108.5636673,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.01E+11
 bgco,BIGELOW CAMP,OR,42.06666667,-123.3333333,208.5,0,.......................,343,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 bgmw,BUNCHGRASS MDW,WA,48.68333333,-117.1666667,200.3333333,0,.......................,376,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
-bhr,"Bighorn Lake, Montana",MT,45.30722,-107.95694,3200,MST,,,,,,,,,,GP,
-bhsx,"Bighorn River And Bia Canal Near St. Xavier, Montana",MT,45.31667,-107.91806,3100,MST,,,,,,,,,,GP,
 bicw,Moxee Drain at Birchfield Road,WA,46.54611111,-120.4369444,977,US/Pacific,.......................,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 bigi,Boise River at Glenwood Bridge,ID,43.660509,-116.27916,2610,US/Mountain,00:00.0,13206000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
 bign,BIG BEND,NV,41.75,-115.6833333,226.6666667,0,.......................,336,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
@@ -120,7 +180,6 @@ bloi,BIG LOST RIVER BELOW DIVERSION,ID,43.515833,-113.081944,0,US/Mountain,00:00
 blom,BLOODY DICK,MT,45.15,-113.5,239.6666667,0,.......................,355,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 blou,"UCC - BearLake, Utah Weather Station",UT,41.933628,-111.420137,1979.9808,US/Mountain,,,ft,0,,,,agrimet,ucc,PN,1.60E+11
 blpo,BLUE MOUNTAIN SPRING,OR,44.23333333,-118.5166667,215.8333333,0,.......................,357,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-blr,"Bull Lake Reservoir On Bull Lake Creek, Wyoming",WY,43.20972,-109.04167,5814,MST,,,,,,,,,,GP,
 blui,Blue Ridge,id,0,0,0,,,,,0,,,T,,,PN,
 bmci,Butte and Market Lake Canal,ID,43.74583333,-112.1027778,4775,US/Mountain,00:00.0,13057025,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 bmpw,BUMPING RIDGE,WA,46.81666667,-121.3333333,4600,US/Pacific,.......................,21C38S,ft,0,,,,hydromet,,PN,1.70E+11
@@ -141,7 +200,6 @@ bony,Bondurant 3NW,WY,43.21583333,-110.4236111,6504,US/Mountain,00:00.0,0,ft,0,,
 booi,Rudy Canal,ID,43.65416667,-111.7775,4955,US/Mountain,00:00.0,13038085,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 boro,BOURNE,OR,44.81666667,-118.1833333,215.5,0,.......................,361,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 bouy,Bondurant 4NW (NWS),WY,43.19884174,-110.4027233,6550,US/Mountain,.......................,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.70E+11
-boyr,"Boysen Reservoir, Thermopolis, Wyoming",WY,43.4,-108.17694,4628,MST,,,,,,,,,,GP,
 bozm,"Bozeman, MT (BOZM)",MT,45.67301559,-111.1546249,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.00E+11
 bpaw,BLEWETT PASS,WA,47.35,-120.6666667,190.6666667,0,.......................,352,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 bpnw,Bumping Lake,wa,0,0,0,,,,,0,,,T,,,PN,
@@ -179,20 +237,15 @@ bvpc,"DRI - Bridgeport Valley, Nevada Weather Station",NV,38.223056,-119.252222,
 bvro,BEAVER RESERVOIR,OR,45.13333333,-118.2166667,203.8333333,0,.......................,331,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 caco,Cascade Canal near Fish Lake,OR,42.40555556,-122.2680556,5235,US/Pacific,05:58.9,0,ft,0,,,,hydromet,BFO,PN,1.80E+11
 cami,WEISER R NR CAMBRIDGE,ID,44.579444,-116.643333,0,US/Mountain,00:00.0,13258500,ft,0,,,,hydromet,usgs,PN,1.71E+11
-cane,"Calamus Reservoir (Virginia Smith Dam), Nebraska",NE,41.82722,-99.21972,2255,CST,,,,,,,,,,GP,
 capo,Crooked River at Prineville,OR,44.30085,-120.85925,2854,US/Pacific,4/17/2015,0,ft,0,,,,hydromet,BFO,PN,1.71E+11
-carterco,"Carter Lake Reservoir Near Loveland, Co",CO,40.32417,-105.21194,6745,MST,,,,,,,,,,GP,
 cash,CASH PRAIRIE STARTUP VERIFICATION,WA,46.71527778,-121.1488889,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 cayw,"Cayuse Pass, WA",WA,46.86666667,-121.5333333,208.3333333,0,.......................,1085,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 cbci,Corbett Canal,ID,43.25333333,-112.2716667,4524,US/Mountain,00:00.0,13061650,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 cbgi,"CAMBRIDGE, ID",ID,0,0,0,US/Mountain,.......................,0,ft,0,,,,hydromet,,PN,
 cbl01,"Carbondale, Colorado CoAgMet Weather Station",CO,39.3623,-107.208,1918,US/Mountain,9/5/2017,0,0,0,ccc,,T,agrimet,ccc,PN,1.40E+11
 ccdi,CAMAS CREEK DIVIDE,ID,43.25,-115.3333333,210.1666667,0,.......................,382,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
-ccdt,"Choke Canyon Reservoir Near Three Rivers, Texas",TX,28.46667,-98.16667,1994,CST,,,,,,,,,,GP,
-ccks,"Cawker City Dike, Kansas",KS,39.49889,-98.44056,1482,CST,,,,,,,,,,GP,
 ccl,"Salmon Lake Dam and Conconully Lake nr Conconully,WA",WA,48.5585374,-119.745,2325,US/Pacific,51:33.3,,ft,0,cma_google,,,hydromet,pnro,PN,1.70E+11
 ccpi,Canyon Creek Lateral Pump,ID,43.90333333,-111.5380556,5340,US/Mountain,40:12.0,13054801,ft,0,,,,hydromet,IDWR,PN,1.70E+11
-ccr,"Clark Canyon Reservoir, Beaverhead Rvr Nr Dillon, Mt",MT,45.00167,-112.8575,5580,MST,,,,,,,,,,GP,
 ccr,"Conconully Dam and Reservoir near Conconully, WA",WA,48.53806,-119.74722,2290,US/Pacific,32:48.5,,ft,0,cma_google,,,hydromet,pnro,PN,1.70E+11
 ccro,"Middle Fork John Day River at Camp Creek, OR",OR,44.69277778,-118.7941667,3960,US/Pacific,04:27.7,0,ft,0,,,,hydromet,CSRO,PN,1.71E+11
 cdai,"Coeur d'Alene Fairgrounds, Idaho Weather Station",ID,47.71797,-116.78418,620,US/Pacific,11/19/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
@@ -202,7 +255,6 @@ cedu,"UCC - Cedar City, Utah Weather Station",UT,37.67296667,-113.1371667,1685.2
 ceno,Central Oregon Canal,OR,44.03027778,-121.2947222,3770,US/Pacific,28:17.5,14066500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 cfci,Consolidated Farmers Canal,ID,43.94,-111.7275,4900,US/Mountain,.......................,13050545,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 cfmm,"Flathead River at Columbia Falls, MT",MT,48.36194444,-114.1838889,2978,US/Mountain,00:00.0,12363000,ft,0,,,,hydromet,usgs,PN,1.70E+11
-cfrsat,"Canyon Ferry Lake Near Helena, Montana",MT,46.64917,-111.7275,3673,MST,,,,,,,,,,GP,
 cfsw,Chandler Fish Screen Weather Station,WA,46.21666667,-119.7577778,620,US/Pacific,.......................,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 cgww,COWICHE CREEK AB. MOUTH,WA,47.19,-120.8222222,1950,US/Pacific,50:59.1,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 chaw,"Chamokane, Washington AgriMet Weather Station",WA,48.03138,-117.73916,594.36,US/Pacific,11/27/2007,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
@@ -284,7 +336,6 @@ cxci,Crosscut Canal at Head,ID,44.01666667,-111.5833333,5040,US/Mountain,00:00.0
 cxmi,Crosscut Canal at Middle,ID,43.97611111,-111.6041667,5020,US/Mountain,.......................,13050016,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 cypw,Cayuse Pass,wa,0,0,0,,,,,0,,,T,,,PN,
 dalo,DALY LAKE,OR,44.51666667,-122.0833333,183.5,0,.......................,434,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-dane,"Davis Creek Dam, Nebraska",NE,41.40472,-98.70778,2094,CST,,,,,,,,,,GP,
 dano,"Danner, OR",OR,42.94030682,-117.3403657,4225,US/Mountain,00:00.0,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
 davw,"Davenport Hydromet Station, WA",WA,47.65607682,-118.1319282,2400,US/Pacific,48:30.2,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.70E+11
 dcdb,DUNCAN RES,BC,50.25,-116.95,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,,PN,1.70E+11
@@ -301,7 +352,6 @@ defo,"Dee Flat, Oregon AgriMet Weather Station",OR,45.58638,-121.64055,350.52,US
 deni,"Dworshak - Dent Acres, Idaho AgriMet Weather Station",ID,46.62333,-116.22055,499.87,US/Mountain,4/19/2002,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 depw,DEEP CREEK BELOW COPPER CREEK,WA,46.8325,-121.3177778,3600,US/Pacific,08:09.5,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 dero,DERR.,OR,44.43333333,-119.9166667,216.5,0,.......................,440,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-dfr,"Deerfield Reservoir, South Dakota",SD,44.02806,-103.78583,5958,MST,,,,,,,,,,GP,
 dfwi,Deer Flat Upper Embankment Warning System,ID,43.56111111,-116.6591667,2520,US/Mountain,19:42.3,0,ft,0,,,,hydromet,PNRO,PN,1.71E+11
 dggi,Teton River above S. Leigh Creek,ID,43.781389,-111.209167,5960,US/Mountain,00:00.0,13052200,ft,0,,,,hydromet,usgs,PN,1.70E+11
 dhdi,DOLLARHIDE SUMMIT,ID,43.6,-114.6666667,254.3333333,0,.......................,450,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -333,7 +383,6 @@ dtro,"Detroit Lake, Oregon AgriMet Weather Station",OR,44.73,-122.17916,510.54,U
 ducu,"Duchesne, Utah AgriMet Weather Station",UT,40.18068,-110.36013,1675,US/Mountain,,,m,0,agrimet_map,,,agrimet,pnro,PN,1.41E+11
 dwni,"Downey, Idaho Weather Station",ID,42.43355,-112.12929,1483,US/Mountain,11/5/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 dwr,DWORSHAK RESERVOIR,ID,46.51666667,-116.2916667,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,Corps,PN,1.71E+11
-eapr,"E.A. Patterson Lake (Dickinson), North Dakota",ND,46.86972,-102.82694,2430,MST,,,,,,,,,,GP,
 easw,YAKIMA RIVER AT EASTON WA.,WA,47.23888889,-121.1777778,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 ebco,"East Birch Creek at Pilot Rock, OR",OR,45.48416667,-118.8344444,1617,US/Pacific,.......................,0,ft,0,,,,hydromet,OWRD,PN,1.71E+11
 ebri,"INL - Material Fuels Complex, Idaho",ID,43.594133,-112.651733,1687.335958,US/Mountain,,,ft,0,,,,agrimet,noaa,PN,1.70E+11
@@ -394,7 +443,6 @@ fhpi,Fort Hall Michaud Pump,ID,43.92833333,-112.5666667,4450,US/Mountain,.......
 fis,"Fish Lake near Ashland, OR",OR,42.37813811,-122.3479876,4648,US/Pacific,07:50.5,,ft,0,cma_google,,,hydromet,,PN,1.71E+11
 fiso,FISH LK.,OR,42.36666667,-122.3333333,199.6666667,0,.......................,479,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 fisw,FISH LAKE,WA,47.53333333,-121.0833333,178.1666667,0,.......................,478,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
-flaresco,"Flatiron Reservoir, Loveland, Co",CO,40.365,-105.23611,5580,MST,,,,,,,,,,GP,
 flgy,"Snake River near Flagg Ranch, WY",WY,44.09914518,-110.667458,0,US/Mountain,00:00.0,13010065,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 flou,"UCC - Flowell, Utah Weather Station",UT,38.9571,-112.0004,1443.228,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
 fmci,Fall River Middle Branch Canal,ID,43.97611111,-111.6041667,5020,US/Mountain,.......................,13050016,ft,0,,,,hydromet,IDWR,PN,1.70E+11
@@ -406,7 +454,6 @@ frai,"FALLS RIVER NEAR ASHTON,ID",ID,44.056111,-111.358611,5380,US/Mountain,50:1
 frci,Fall River Canal,ID,43.99916667,-111.5280556,5120,US/Mountain,00:00.0,13048560,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 frmo,Tualatin River at Farmington (OWRD),OR,45.44944444,-122.9505556,0,US/Pacific,00:00.0,14206500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 frnu,"Ferron, Utah Weather Station",UT,39.075554,-111.15426,1830,US/Mountain,12/2/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.41E+11
-frr,"Fresno Reservoir Near Havre, Montana",MT,48.60833,-109.94583,2535,MST,,,,,,,,,,GP,
 frt02,"Fruita CSU Expt Station, Colorado CoAgMet Weather Station",CO,39.18,-108.7,1377,US/Mountain,6/16/1992,,,0,CoAgMet,,,agrimet,ccc,PN,1.40E+11
 fryn,FRY Canyon,NV,0,0,0,,,,,0,,,T,,,PN,
 fsho,NF Little Butte Cr below Fish Lake,OR,42.376245,-122.356691,4561,US/Pacific,08:14.4,14342500,ft,0,,,,hydromet,owrd,PN,1.71E+11
@@ -426,18 +473,14 @@ gcky,Glade Creek,WY,44.09981847,-110.7369008,7040,US/Mountain,00:00.0,,ft,0,cma_
 gcl,"Grand Coulee Dam, WA",WA,47.95,-118.9833333,1290,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Corps,PN,1.70E+11
 gdmm,Gibson Dam Weather Station,MT,47.60166667,-112.7616667,4590,US/Mountain,00:00.0,0,ft,0,,,,hydromet,Flathead,PN,1.00E+11
 gdvi,"Grand View, Idaho AgriMet Weather Station",ID,42.9125,-116.05611,786.38,US/Mountain,2/10/1993,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
-gdwy,"Gray Reef Dam, Wyoming",WY,42.56556,-106.69889,5335,MST,,,,,,,,,,GP,
 ger,Gerber Reservoir,OR,42.20111111,-121.1302778,4835,US/Pacific,23:37.7,0,ft,0,,,,hydromet,Klamath,PN,1.80E+11
 gerw,"George, Washington AgriMet Weather Station",WA,47.04388,-119.64222,350.52,US/Pacific,5/15/1986,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 gfmt,"Greenfields-Fairfield, MT (GFMT)",MT,47.65853119,-111.8190994,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.00E+11
 gfri,"Glenns Ferry, Idaho AgriMet Weather Station",ID,42.86666,-115.35694,922.02,US/Mountain,4/13/1993,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 ggsi,GRAHAM GUARD STA.,ID,43.95,-115.2666667,209.8333333,0,.......................,496,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-gibr,"Gibson Reservoir, Montana",MT,47.60083,-112.76167,4550,MST,,,,,,,,,,GP,
 gilo,"South Fork Little Butte Creek at Gilkey, OR",OR,42.35861111,-122.5086111,2165,US/Pacific,29:51.5,14340800,ft,0,,,,hydromet,owrd,PN,1.71E+11
 givi,GIVEOUT,ID,42.4,-111.15,226.5,0,.......................,493,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.60E+11
-glaresco,"Grand Lake, Colorado",CO,40.24167,-105.80222,8366,MST,,,,,,,,,,GP,
 gldo,GOLD CENTER,OR,44.75,-118.3,208.1666667,0,.......................,494,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-gler,"Glendo Reservoir, Wyoming",WY,42.47722,-104.95056,4520,MST,,,,,,,,,,GP,
 glgm,"Glasgow, MT (GLGM)",MT,48.14320374,-106.6093292,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.01E+11
 gli,Glines Canyon Dam and Lake Mills,WA,48.00181638,-123.6004512,605,US/Pacific,25:17.7,,ft,0,cma_google,,,hydromet,,PN,1.71E+11
 glni,GALENA,ID,43.86666667,-114.6666667,238.5,0,.......................,489,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -447,12 +490,10 @@ golw,"Goldendale, Washington AgriMet Weather Station",WA,45.81194,-120.82444,512
 gosi,Goose Creek above Trapper Creek near Oakley,ID,42.126111,-113.935556,0,US/Mountain,.......................,13082500,ft,0,,,,hydromet,usgs,PN,1.70E+11
 gplo,Grand Ronde River @ Pierce Rd.,OR,45.34277778,-118.0833333,3143,US/Pacific,00:00.0,0,ft,0,,,,hydromet,CSRO,PN,1.71E+11
 grao,ROGUE AT GRANTS PASS,OR,42.430396,-123.317836,0,US/Pacific,00:00.0,14361500,ft,0,,,,hydromet,usgs,PN,1.71E+11
-graresco,"Lake Granby Near Granby, Colorado",CO,40.18194,-105.87111,8290,MST,,,,,,,,,,GP,
 grcm,GRAVE CREEK,MT,48.9,-114.75,185.6666667,0,.......................,500,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 grcw,GROUSE CAMP,WA,47.26666667,-120.4833333,209.8333333,0,.......................,507,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 grcy,GRANITE CREEK,WY,43.33333333,-110.4333333,222.8333333,0,.......................,497,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 grei,"Grace, Idaho AgriMet Weather Station",ID,42.51496,-111.73606,1661,US/Mountain,3/13/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.60E+11
-greresco,"Green Mountain Reservoir, Summit County, Co",CO,39.87889,-106.31333,7960,MST,,,,,,,,,,GP,
 grey,"Greys River above Reservoir near Alpine, WY",WY,43.14296552,-110.9767506,5720,US/Mountain,00:00.0,13023000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 grfu,"UCC - Greenville Farm, Utah Weather Station",UT,41.76648,-111.8105,1413,US/Mountain,1/30/2014,0,0,0,ucc,,T,agrimet,ucc,PN,1.60E+11
 grlw,GREEN LAKE,WA,46.53333333,-121.1666667,219.6666667,0,.......................,502,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -470,7 +511,6 @@ gspy,"Gunsight Pass, WY",WY,43.36666667,-109.8666667,272.6666667,0,.............
 gsto,"Tualatin River at Gaston, Oregon",OR,45.43888889,-123.1397222,170,US/Pacific,44:40.7,14202510,ft,0,,,,hydromet,owrd,PN,1.71E+11
 gthy,Grand Targhee Snotel Site,WY,43.76666667,-110.9166667,264.3333333,0,.......................,1082,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 gun01,"Gunnison, Colorado CoAgMet Weather Station",CO,38.61,-106.9,2406,US/Mountain,2/25/2015,,,0,CoAgMet,,,agrimet,ccc,PN,1.40E+11
-guwy,"Guernsey Reservoir, Wyoming",WY,42.28861,-104.7625,4480,MST,,,,,,,,,,GP,
 gvii,GrandView Irr. Canal nr Grand View ID (Idaho Power),ID,42.94194444,-115.9905556,0,US/Mountain,42:23.7,13171200,ft,0,,,,hydromet,IDWR,PN,1.71E+11
 gvmi,"GrandView Mutual Cnl nr Grand View,ID (Idaho Power)",ID,42.94194444,-115.9905556,0,US/Mountain,42:23.7,13171300,ft,0,,,,hydromet,IDWR,PN,1.71E+11
 gvrm,Garver Creek,MT,48.96666667,-115.8166667,185.8333333,0,.......................,918,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -522,7 +562,6 @@ hrmo,"Hermiston R & E Center, Oregon AgriMet Weather Station",OR,45.81944,-119.2
 hrpo,Lost River at Harpold Dam,OR,42.16916667,-121.4533333,4100,US/Pacific,23:37.7,0,ft,0,,,,hydromet,Klamath,PN,1.80E+11
 hrpw,HARTS PASS,WA,48.71666667,-120.65,228.1666667,0,.......................,515,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 hrsi,"Payette River near Horseshoe Bend, ID",ID,43.94314033,-116.1968747,2626,US/Mountain,00:00.0,13247500,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
-htoothr,"Horsetooth Reservoir Near Fort Collins, Co",CO,40.59944,-105.17111,5300,MST,,,,,,,,,,GP,
 htsm,"Hot Springs, Montana AgriMet Weather Station",MT,47.61614,-114.64252,2785,US/Mountain,9/5/2019,,,0,,,,,,PN,1.70E+11
 huan,"DRI - Hualapai Flat, Nevada Weather Station",NV,40.901111,-119.333056,1235.964,US/Pacific,10/12/2012,,m,0,agrimet_map,,,agrimet,dri,PN,1.60E+11
 hugi,HUMBOLDT GULCH,ID,47.51666667,-115.7666667,185.8333333,0,.......................,535,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -551,7 +590,6 @@ isl,"Island Park Dam and Reservoir, ID",ID,44.41893154,-111.3984276,6302,US/Moun
 isli,"Henrys Fork near Island Park, ID",ID,44.41639,-111.39472,6225,US/Mountain,00:00.0,13042500,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 ispi,ISLAND PARK,ID,44.41666667,-111.3833333,215.8333333,0,.......................,546,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 iyci,"Idaho Youth Challenge Academy - Pierce, ID AgriMet Weather Station",ID,46.497301,-115.797961,980,US/Pacific,4/20/2019,,,0,google earth,,,agrimet,pnro,PN,1.71E+11
-jamr,"Jamestown Reservoir, North Dakota",ND,46.93056,-98.70639,1430,CST,,,,,,,,,,GP,
 japn,JACKS PEAK,NV,41.51666667,-116,256.3333333,0,.......................,549,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 jbgn,"Jarbidge River Below Jarbidge, NV",NV,41.890461,-115.428682,6050,US/Pacific,.......................,13162225,ft,0,,,,hydromet,USGS,PN,1.71E+11
 jcco,Jackson Creek at Central Point,OR,42.41277778,-122.9422222,0,US/Pacific,48:15.3,14358750,ft,0,,,,hydromet,owrd,PN,1.71E+11
@@ -586,7 +624,6 @@ ker,"KERR DAM , FLATHEAD LAKE",MT,47.68333333,-114.25,0,US/Mountain,00:00.0,0,ft
 kerm,Flathead River below Kerr Dam near Polson,MT,47.68333333,-114.25,0,US/Mountain,00:00.0,12371550,ft,0,,,,hydromet,Flathead,PN,1.70E+11
 kesw,KRD 1146 Wasteway Drop,WA,44.55,0,0,,,,,0,,,T,,,PN,
 keti,Ketchum Ranger Station,ID,43.68450676,-114.3604741,5890,US/Mountain,00:00.0,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.70E+11
-keyr,"Keyhole Reservoir, Wyoming",WY,44.38194,-104.77917,4134,MST,,,,,,,,,,GP,
 kflo,"Klamath Falls, Oregon AgriMet Weather Station",OR,42.16472,-121.755,1249.68,US/Pacific,3/30/1999,,m,0,agrimet_map,,,agrimet,pnro,PN,1.80E+11
 kflw,"Kettle Falls, Washington AgriMet Weather Station",WA,48.595,-118.12416,408.43,US/Pacific,4/17/2002,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 kimo,KING MOUNTAIN,OR,42.71666667,-123.2,195.3333333,0,.......................,558,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
@@ -594,17 +631,14 @@ kiow,"YAKIMA RIVER AT KIONA, WA",WA,46.253467,-119.478079,350,US/Pacific,00:00.0
 kncw,KENNEWICK CANAL,WA,46.26527778,-119.5694444,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 krcm,KRAFT CREEK,MT,47.41666667,-113.7666667,192.1666667,0,.......................,562,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 krsi,South Fork Salmon River near Krassel RS,ID,44.986944,-115.725,3750,US/Mountain,.......................,13310700,ft,0,,,,hydromet,usgs,PN,1.71E+11
-ksks,"Keith Sebelius Lake (Norton Dam), Kansas",KS,39.8075,-99.93417,2347,CST,,,,,,,,,,GP,
 ktbi,"Kettle Butte, Idaho Weather Station",ID,43.54861111,-112.3258333,1565,US/Mountain,10/15/1995,,m,0,agrimet_map,,,agrimet,noaa,PN,1.70E+11
 ktcw,KITTITAS CANAL,WA,47.23888889,-121.1833333,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 kusw,SKOOKUM CREEK,WA,47.68333333,-121.6,176.1666667,0,.......................,912,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-kwks,"Kirwin Reservoir At Kirwin, Kansas",KS,39.66361,-99.12472,1730,CST,,,,,,,,,,GP,
 labi,West Labelle and Long Island Canal,ID,43.69055556,-111.8555556,4895,US/Mountain,00:00.0,13038225,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 laci,East Labelle Canal,ID,43.67333333,-111.8041667,4930,US/Mountain,.......................,13038150,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 ladn,LAUREL DRAW,NV,41.76666667,-116.0166667,227.6166667,0,.......................,573,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 lako,"Lakeview, Oregon AgriMet Weather Station",OR,42.12222,-120.52305,1453.9,US/Pacific,4/19/1988,,m,0,agrimet_map,,,agrimet,pnro,PN,1.80E+11
 laku,"UCC - Laketown , Utah Weather Station",UT,41.8379,-111.3343833,1816.3032,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
-lane,"Little Lake Alice Reservoir El-Outflow, Nebraska",NE,41.9625,-103.57222,4138,MST,,,,,,,,,,GP,
 lapo,"Little Deschutes River near La Pine, OR",OR,43.68901,-121.502803,4192,US/Pacific,35:34.1,14063000,ft,0,,,,hydromet,owrd,PN,1.71E+11
 lbco,"Little Butte Creek at Lakecreek, OR",OR,42.42222222,-122.6222222,1625,US/Pacific,41:58.5,14346700,ft,0,,,,hydromet,owrd,PN,1.71E+11
 lbeo,"Little Butte Creek below Eagle Point, OR",OR,42.46277778,-122.8152778,1280,US/Pacific,04:16.2,14348000,ft,0,,,,hydromet,owrd,PN,1.71E+11
@@ -613,19 +647,15 @@ lbrw,"Lake Bryan - Rice Bar, Washington AgriMet Weather Station",WA,46.6975,-117
 lefo,"Tualatin River below Lee Falls nr Cherry Grove, OR",OR,45.50583333,-123.2183333,370,US/Pacific,56:45.8,14202450,ft,0,,,,hydromet,OWRD,PN,1.71E+11
 legw,"Legrow, Washington AgriMet Weather Station",WA,46.20527,-118.93611,176.78,US/Pacific,7/17/1986,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 lemi,"Lemhi River below L5 Diversion, ID",ID,45.132778,-113.798889,0,US/Mountain,.......................,13305310,ft,0,,,,hydromet,usgs,PN,1.71E+11
-ler,"Lake Elwell Spillway Transducer, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,
-lerm,"Lake Elwell Auxiliary Outlet Bubbler, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,
 lewu,"UCC - Lewiston, Utah Weather Station",UT,41.95213333,-111.8690333,1375.8672,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
 lfki,Lake Fork,id,0,0,0,,,,,0,,,T,,,PN,
 lfpi,LAKE FORK PAYETTE RIVER AB JUMBO CR NR MCCALL ID,ID,44.913611,-115.997222,6950,US/Mountain,.......................,13240000,ft,0,,,,hydromet,usgs,PN,1.71E+11
-lfrm,"Lake Frances Reservoir, Montana",MT,48.26667,-112.2,3820,MST,,,,,,,,,,GP,
 lgd,"LA GRANDE, OR (monthly)",OR,0,0,0,US/Pacific,.......................,0,ft,0,,,,hydromet,,PN,
 lggu,"UCC - Logan Golf, Utah Weather Station",UT,41.73868333,-111.8035333,1465.4784,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
 lgiu,"Logan Island Backyard, Utah Weather Station",UT,41.73861111,-111.8036111,4629,US/Mountain,.......................,,ft,0,,,,agrimet,ucc,PN,1.60E+11
 lib,LIBBY RESERVOIR,MT,48.41666667,-115.3166667,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,Corps,PN,1.70E+11
 libw,"Liberty Lake, Washington Weather Station",WA,47.66533,-117.087208,632,US/Pacific,11/18/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 lidw,"Lind, Washington AgriMet Weather Station",WA,46.86722,-118.73944,449.58,US/Pacific,5/18/1983,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
-limr,"Lima Res Upstream Of Clark Canyon Res, Montana",MT,44.65611,-112.37056,6530,MST,,,,,,,,,,GP,
 lini,BIG LOST RIVER AT UPPER LINCOLN AVE BRIDGE NR ARCO,ID,43.573889,-112.943333,0,US/Mountain,00:00.0,13132535,ft,0,,,,hydromet,usgs,PN,1.70E+11
 lipi,Linderman Pump,ID,0,0,0,US/Mountain,,13054575,,0,,,,hydromet,IDWR,PN,
 lkco,LAKE CREEK R.S.,OR,44.2,-118.6333333,205.3333333,0,.......................,563,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
@@ -635,7 +665,6 @@ lmdo,LITTLE MEADOWS,OR,44.6,-122.2166667,189,0,.......................,584,ft,0,
 lmhi,"Lemhi River near Lemhi, ID",ID,44.94,-113.639167,4960,US/Mountain,25:52.2,13305000,ft,0,,,,hydromet,usgs,PN,1.71E+11
 lmhm,LEMHI RIDGE,MT,44.98333333,-113.4333333,248,0,.......................,576,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 lmmm,"Lower Musselshell-Melstone, MT (LMMM)",MT,46.5627327,-108.0057526,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.00E+11
-lmne,"Lake Minatare Reservoir, Nebraska",NE,41.91833,-103.48861,4140,MST,,,,,,,,,,GP,
 lndn,"Lund, Nevada AgriMet Weather Station",NV,38.86684722,-115.0381111,1687.68,US/Pacific,8/4/2015,,,0,google_earth,,,agrimet,pnro,PN,1.50E+11
 lnrw,"LITTLE NACHES RIVER NEAR NILE, WA",WA,46.9875,-121.0986111,2576,US/Pacific,.......................,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
 loau,"Loa, UT AgriMet  Weather Station ",UT,38.383349,-111.635725,7116,US/Mountain,4/20/2016,,,0,,,,agrimet,pnro,PN,1.41E+11
@@ -659,11 +688,9 @@ lrvo,LRDC at Tingley Lane,OR,42.16777778,-121.7763889,4850,US/Pacific,..........
 lshi,CHOCOLATE GULCH,ID,43.76666667,-114.4166667,221.3333333,0,.......................,895,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 lsli,LOST LAKE,ID,47.06666667,-115.95,216.8333333,0,.......................,600,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 lsto,LOSTINE RIVER NEAR LOSTINE,OR,45.438758,-117.427406,3670,US/Pacific,43:07.5,13330000,ft,0,,,,hydromet,owrd,PN,1.71E+11
-ltr,"Lake Tschida (Heart Butte), North Dakota",ND,46.59667,-101.80944,2124,MST,,,,,,,,,,GP,
 luc,"Lucky Peak Lake near Boise, ID",ID,43.52791003,-116.0530184,3060,US/Mountain,00:00.0,,ft,0,cma_google,,,hydromet,pnro,PN,1.71E+11
 lucfb,"Lucky Peak Lake near Boise, ID",ID,0,0,0,US/Mountain,,0,,0,,,,hydromet,PNRO,PN,
 luko,LUCKY STRIKE,OR,45.26666667,-118.8333333,200.8333333,0,.......................,605,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-lvks,"Lovewell Dam, Kansas",KS,39.88444,-98.02806,1595,CST,,,,,,,,,,GP,
 lvno,Langell Valley North Canal,or,0,0,0,,,,,0,,,,hydromet,,PN,
 lvrm,LAKEVIEW RIDGE,MT,44.58333333,-111.8166667,234.3333333,0,.......................,568,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 lwdi,LOST-WOOD DIVIDE,ID,43.81666667,-114.25,245.6666667,0,.......................,601,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -683,7 +710,6 @@ malo,"Malheur River at 36th St. Bridge near Ontario, OR",OR,44.040268,-117.02035
 man,"Mann Creek Dam and Reservoir nr Weiser, ID",ID,44.39139,-116.89444,2774,US/Mountain,00:00.0,,ft,0,cma_google,,,hydromet,pnro,PN,1.71E+11
 manm,MANY GLACIER,MT,48.78333333,-113.6666667,194.6666667,0,.......................,613,ft,0,Config_Data_ SS,,,snotel,snotel,PN,
 mapm,Maris Pass Snow Course,MT,48.32,-113.36,5250,,,,,0,,,T,,,PN,1.00E+11
-marysr,"Marys Lake, Colorado",CO,40.57806,-105.89528,8050,MST,,,,,,,,,,GP,
 masw,"Manson, Washington AgriMet Weather Station",WA,47.91694,-120.12444,601.07,US/Pacific,11/9/1993,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 matm,"Malta, MT (MATM)",MT,48.37401199,-107.7764969,0,US/Mountain,,,,0,usbr_map.json,,,agrimet,great_plains,PN,1.01E+11
 mavo,"MALHUER RIVER AT VINES CANYON NEAR VALE, OR",OR,43.95888889,-117.4633333,0,US/Mountain,.......................,13221000,ft,0,,,,hydromet,IDPWR,PN,1.71E+11
@@ -691,7 +717,6 @@ mawo,"Maxwell Canal at Maxwell Fish Screen, OR",OR,45.80222222,-119.3555556,0,US
 maxo,"Maxwell Canal near Hermiston, OR",OR,45.80472222,-119.3577778,530,US/Pacific,28:17.7,14031500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 mcco,"McCullugh Ranch, OR",OR,44.12861111,-120.4216667,3480,US/Pacific,55:37.8,0,ft,0,,,,hydromet,BFO,PN,1.71E+11
 mcdb,MICA RESERVOIR,BC,52.06666667,-118.5666667,0,US/Mountain,00:00.0,0,ft,0,,,,hydromet,,PN,1.70E+11
-mcdh,"Mcgee Creek Dam, Oklahoma",OK,34.31444,-95.875,576,CST,,,,,,,,,,GP,
 mcdo,"McDermitt, OR 26N",OR,42.41056,-117.86278,4464,US/Pacific,00:00.0,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
 mcfi,burley I.D.  first lift,id,0,0,0,US/Mountain,,0,,0,,,,hydromet,,PN,
 mcfo,McKay Ck. Adult Fish Barrier,OR,0,0,0,US/Pacific,,0,,0,,,,hydromet,Umatilla,PN,
@@ -764,7 +789,6 @@ mrei,"Moore, ID AgriMet Weather Station",ID,47.761774,-113.371618,5541,US/Mounta
 mrfo,MARION FORKS,OR,44.58333333,-121.9666667,164.1666667,0,.......................,614,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 mrgi,MORGAN CREEK,ID,44.83333333,-114.2666667,240.6666667,0,.......................,639,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 mrki,MOORES CREEK SUMMIT,ID,43.91666667,-115.65,216.6666667,0,.......................,637,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-mrne,"Merritt Dam, Nebraska",NE,42.635,-100.87222,2956,CST,,,,,,,,,,GP,
 mrso,"Madras, Oregon AgriMet Weather Station",OR,44.68,-121.14861,743.71,US/Pacific,5/1/1984,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 mrsw,MORSE LAKE,WA,46.9,-121.4833333,5400,US/Pacific,.......................,21C17S,ft,0,,,,hydromet,,PN,1.70E+11
 mryi,Marysville Canal,ID,44.06166667,-111.3283333,5540,US/Mountain,00:00.0,13047475,ft,0,,,,hydromet,IDWR,PN,1.70E+11
@@ -773,7 +797,6 @@ mspm,MOSS PEAK,MT,47.68333333,-113.95,226,0,.......................,646,ft,0,Con
 mssi,Middle Fork Salmon River at Mouth nr Shoup,ID,45.293611,-114.596389,3040,US/Mountain,.......................,13310199,ft,0,,,,hydromet,usgs,PN,1.71E+11
 msvn,"DRI - Mason Valley WMA, Nevada Weather Station",NV,39.106667,-119.147222,1318.8696,US/Pacific,4/10/2011,,m,0,agrimet_map,,,agrimet,dri,PN,1.61E+11
 mtcw,MOUNT CRAG,WA,47.75,-123.0166667,189,0,.......................,648,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-mtelfbco,"Mount Elbert Forebay, Co",CO,39.10222,-106.35333,9650,MST,,,,,,,,,,GP,
 mtho,MT HOOD TEST SITE,OR,45.31666667,-121.7,210.5,0,.......................,651,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 mtkm,MOUNT LOCKHART,MT,47.91666667,-112.8166667,218.6666667,0,.......................,649,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 mtmi,MOUNTAIN MEADOWS,ID,45.68333333,-115.2166667,221,0,.......................,650,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
@@ -788,12 +811,10 @@ mxci,North Side X-Cut Diversion from Milner-Gooding Canal,ID,42.55861111,-114.05
 myko,"Mckay Creek near Pilot Rock, OR",OR,45.549019,-118.774427,1343,US/Pacific,00:00.0,14022500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 myli,"MCCALL, ID (DARDC-IDMY) (monthly)",ID,0,0,0,US/Mountain,.......................,0,ft,0,,,,hydromet,,PN,
 nacw,"NACHES RIVER NEAR NACHES,WA.",WA,46.74555556,-120.7680556,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
-nasty,"Lake Nasworthy Near San Angelo, Texas",TX,31.38861,-100.47806,1872.2,CST,,,,,,,,,,GP,
 ncao,"North Canal near Bend, OR",OR,44.07722222,-121.3019444,3560,US/Pacific,29:16.4,14069500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 ncdo,"Neil Creek mouth at Dead Indian rd nr Ashland, OR",OR,42.18555556,-122.6544444,1910,US/Pacific,10:57.0,14352000,ft,0,,,,hydromet,OWRD/OWRD,PN,1.71E+11
 ncfo,NEIL CR AB DUNN CR NR ASHLAND,OR,42.13277778,-122.6366667,0,US/Pacific,54:49.5,14350900,ft,0,,,,hydromet,owrd,PN,1.71E+11
 nclo,NEW CRESCENT LAKE,OR,43.5,-121.9666667,202.8333333,0,.......................,660,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-nelr,"Nelson Reservoir At Dam 10 Miles Nw Of Saco, Mt",MT,48.52972,-107.51861,2200,MST,,,,,,,,,,GP,
 nepu,"UCC - Nephi, Utah Weather Station",UT,39.68941667,-111.8767833,1524.6096,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
 nfbo,"North Fork Little Butte Creek Canal nr Lakecreek, OR",OR,42.42444444,-122.6038889,0,US/Pacific,13:49.2,14345000,ft,0,,,,hydromet,BFO (M),PN,1.71E+11
 nffo,"N. Fork Big Butte Crk nr Butte Falls,OR",OR,42.55404,-122.547038,0,US/Pacific,,14336700,,0,,,,hydromet,BFO,PN,1.71E+11
@@ -823,7 +844,6 @@ ocro,"Ochoco Cr. above Reservoir nr Prineville, OR",OR,44.33333333,-120.5827778,
 ocwo,"Ochoco Ranger Station, OR",OR,44.39666667,-120.4266667,3975,US/Pacific,57:00.9,0,ft,0,,,,hydromet,BFO,PN,1.71E+11
 odsw,"Odessa, Washington AgriMet Weather Station",WA,47.30888,-118.87861,502.92,US/Pacific,4/24/1984,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 ohaw,"RAINIER OHANAPECOSH, WA (DARDC-WARO) (monthly)",WA,0,0,0,US/Pacific,.......................,0,ft,0,,,,hydromet,,PN,
-olydamco,"Olympus Dam Near Estes Park, Colorado",CO,40.37306,-105.48778,7481,MST,,,,,,,,,,GP,
 omaw,"Omak, Washington AgriMet Weather Station",WA,48.4025,-119.57611,376.43,US/Pacific,1/25/1989,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 omww,OLALLIE MEADOWS,WA,47.36666667,-121.4333333,188.1666667,0,.......................,672,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 onto,"Ontario, Oregon AgriMet Weather Station",OR,43.97777,-117.01527,688.85,US/Mountain,4/30/1992,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
@@ -852,11 +872,9 @@ pari,"Boise River near Parma, ID",ID,43.781667,-116.972778,2196,US/Mountain,00:0
 paro,"Parkdale, Oregon AgriMet Weather Station",OR,45.54444,-121.61666,451.1,US/Pacific,10/20/1989,,m,0,agrimet_map,,,agrimet,pnro,PN,1.71E+11
 paru,"UCC - Parowan, Utah Weather Station",UT,37.86226667,-112.8810667,1758.696,US/Mountain,,,m,0,agrimet_map,,,agrimet,ucc,PN,1.60E+11
 parw,"YAKIMA RIVER NEAR PARKER, WA.",WA,46.496771,-120.441444,0,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,1.70E+11
-patr,"Pathfinder Reservoir, Wyoming",WY,42.46806,-106.85361,5678,MST,,,,,,,,,,GP,
 pay,"Payette Lake at McCall, Idaho",ID,44.91220175,-116.119299,4983,US/Mountain,00:00.0,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
 payi,"North Fork Payette River at McCall, Idaho",ID,44.90733271,-116.1189546,4970,US/Mountain,00:00.0,13239000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
 paysys,csc + ded,id,0,0,0,US/Mountain,,0,,0,,,,hydromet,,PN,
-pbr,"Pilot Butte Offstream, 22 Miles Nw Of Riverton, Wy",WY,43.2,-108.75,5400,MST,,,,,,,,,,GP,
 pcky,"Pacific Creek at Moran, WY",WY,43.85045464,-110.5174205,6720,US/Mountain,00:00.0,13011500,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 pcpi,PINE CREEK PASS,ID,43.56666667,-111.2,223,0,.......................,695,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 pcrw,PARK CREEK RIDGE,WA,48.43333333,-120.9,196.6666667,0,.......................,681,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
@@ -874,7 +892,6 @@ pici,"Picabo, Idaho AgriMet Weather Station",ID,43.31166,-114.16583,1493.52,US/M
 picm,PIKE CREEK,MT,48.3,-113.3166667,211.8333333,0,.......................,693,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 pihi,"PORTNEUF RIVER AT POCATELLO, IDAHO",ID,42.871667,-112.468056,4418,US/Mountain,00:00.0,13075500,ft,0,,,,hydromet,usgs,PN,1.70E+11
 pilo,"Pilot Rock 11E, OR",OR,45.50194444,-118.6205556,1920,US/Pacific,00:00.0,0,ft,0,,,,hydromet,PNRO,PN,1.71E+11
-pinresco,"Pinewood Reservoir, Loveland, Co",CO,40.36806,-105.28639,6552,MST,,,,,,,,,,GP,
 plci,Palisades Canal,ID,43.74583333,-112.1027778,4775,US/Mountain,00:00.0,13033010,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 plei,"Payette River near Letha, ID",ID,43.89624224,-116.6276089,2280,US/Mountain,09:24.9,13250000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
 plto,"PILOT ROCK 1SE, OR  (monthly)",OR,0,0,0,US/Pacific,.......................,0,ft,0,,,,hydromet,,PN,
@@ -964,12 +981,9 @@ prti,"Priest River nr. Priest River, ID",ID,48.20852,-116.914643,0,US/Pacific,..
 prv,"Prineville Reservoir nr Prineville, OR",OR,44.11126218,-120.7861531,3264,US/Pacific,57:27.1,14080400,ft,0,cma_google,,,hydromet,BFO,PN,1.71E+11
 prvo,"Crooked River near Prineville, OR",OR,44.113182,-120.79557,3071,US/Pacific,57:46.2,14080500,ft,0,,,,hydromet,owrd,PN,1.71E+11
 psfi,"Post Falls, Idaho Weather Station",ID,47.713664,-116.970096,665,US/Pacific,11/18/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
-pshr,"Pishkun Reservoir Near Augusta, Montana",MT,47.67667,-112.49667,4300,MST,,,,,,,,,,GP,
 psti,"Preston, Idaho Weather Station",ID,42.10715,-111.89363,1335,,11/5/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.60E+11
 pthw,POTATO HILL,WA,46.33333333,-121.5,196.1666667,0,.......................,702,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-ptr,"Pactola Reservoir Near Rapid City, South Dakota",SD,44.07222,-103.48806,4660,MST,,,,,,,,,,GP,
 ptyi,"Portneuf River at Tyhee, ID",ID,42.944722,-112.544444,4370,US/Mountain,.......................,13075910,ft,0,,,,hydromet,usgs,PN,1.70E+11
-puer,"Pueblo Reservoir,Arkansas River Nr Pueblo, Colorado",CO,38.25972,-104.71806,4850,MST,,,,,,,,,,GP,
 pvan,"DRI - Paradise Valley, Nevada Weather Station",NV,41.185556,-117.660278,1341.12,US/Pacific,11/10/2010,,m,0,agrimet_map,,,agrimet,dri,PN,1.60E+11
 pvro,PEAVINE RIDGE,OR,45.03333333,-121.9166667,178,0,.......................,687,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 pwdo,"Powder River at Baker, OR",OR,44.76803675,-117.8314934,3450,US/Pacific,00:00.0,13277000,ft,0,Bill_KML,,,hydromet,owrd/pnro,PN,1.71E+11
@@ -1022,7 +1036,6 @@ rscw,NEW RESERVATION CANAL,WA,46.51944444,-120.4777778,0,US/Pacific,00:00.0,0,ft
 rsdi,Reservation Canal at Drop,ID,43.24444444,-112.1844444,4570,US/Mountain,44:37.5,13065500,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 rthi,"Rathdrum Prairie, Idaho AgriMet Weather Station",ID,47.8,-116.83333,673.61,US/Pacific,4/22/2008,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 rue,Rocky Fork Creek (Ruedi),CO,39.36277778,-106.8205556,0,US/Mountain,.......................,0,ft,0,,,,hydromet,,PN,1.40E+11
-rueresco,"Ruedi Reservoir Nr Basalt, Colorado",CO,39.36389,-106.81806,7766,MST,,,,,,,,,,GP,
 rvdo,"RIVERSIDE 2E, OR (monthly)",OR,0,0,0,US/Pacific,.......................,0,ft,0,,,,hydromet,,PN,
 rxgi,"Rexburg, Idaho AgriMet Weather Station ",ID,43.85,-111.76666,1485.9,US/Mountain,6/3/1987,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 rxri,Rexburg Irrigation Canal,ID,43.83638889,-111.7638889,4800,US/Mountain,00:00.0,13055334,ft,0,,,,hydromet,IDWR,PN,1.70E+11
@@ -1057,7 +1070,6 @@ sdmo,SADDLE MOUNTAIN,OR,45.53333333,-123.3666667,174.8333333,0,.................
 seco,SEINE CREEK,OR,45.51666667,-123.2833333,157.3333333,0,.......................,743,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 seli,"SELWAY RIVER NR LOWELL, IDAHO",ID,46.086667,-115.513889,1540,US/Pacific,00:00.0,13336500,ft,0,,,,hydromet,usgs,PN,1.71E+11
 selm,Seeley Lake Ranger Station,MT,47.21361111,-113.5197222,4100,US/Mountain,00:00.0,0,ft,0,,,,hydromet,Flathead,PN,1.70E+11
-semr,"Seminoe Reservoir, Wyoming",WY,42.15583,-106.90806,6361,MST,,,,,,,,,,GP,
 sepi,SEDGWICK PEAK,ID,42.51666667,-111.95,241.8333333,0,.......................,741,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.60E+11
 sero,JOHN DAY RIVER AT SERVICE CREEK,OR,44.8,-120,0,US/Pacific,52:54.7,0,ft,0,,,,hydromet,USGS,PN,1.71E+11
 sevw,"FDR Lake at Seven Bays Marina, WA",WA,47.85305556,-118.3411111,1300,US/Pacific,33:03.1,0,ft,0,,,,hydromet,,PN,1.70E+11
@@ -1071,12 +1083,9 @@ sfpi,SF Coeur d Alene River nr Pinehurst,ID,47.551944,-116.236389,0,US/Pacific,.
 sfsi,EF of SF Salmon River at Stibnite ID,ID,44.90583333,-115.3283333,6460,US/Pacific,00:00.0,13311000,ft,0,,,,hydromet,usgs,PN,1.71E+11
 sgwi,STEWART GULCH WEST RIDGE,ID,43.70222222,-116.1205556,5240,US/Mountain,24:40.7,0,ft,0,,,,hydromet,,PN,1.71E+11
 shai,SHANGHI SUMMIT,ID,46.55,-115.7333333,191.1666667,0,.......................,747,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-sharesco,"Shadow Mountain Reservoir, Grand County, Co",CO,40.20722,-105.84167,8365,MST,,,,,,,,,,GP,
 sheo,"Baltzor Ranch near Sheaville, Oregon",OR,0,0,0,US/Pacific,,0,,0,,,,hydromet,PNRO,PN,
-sher,"Lake Sherburne, Swift Current Creek Near Babb, Mt",MT,48.82833,-113.52111,4803,MST,,,,,,,,,,GP,
 shli,"Shelley, Idaho Weather Station",ID,43.43452,-112.14273,1417,US/Mountain,3/13/2014,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
 shpw,SHEEP CANYON,WA,46.18333333,-122.25,188.5,0,.......................,748,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
-shr,"Shadehill Reservoir On The Grand River, South Dakota",SD,45.75333,-102.20333,2320,MST,,,,,,,,,,GP,
 shwi,SHERWIN,ID,46.95,-116.3333333,169.3333333,0,.......................,752,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 shyi,"Snake River near Shelley, ID",ID,43.41305556,-112.135,4599,US/Mountain,00:00.0,13060000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 sifi,"Snake River near Idaho Falls, ID",ID,43.604722,-112.058611,4740,US/Mountain,00:00.0,13057155,ft,0,,,,hydromet,usgs,PN,1.70E+11
@@ -1244,7 +1253,6 @@ sqpm,SQUAW PEAK,MT,47.16666667,-114.3333333,216.5,0,.......................,783,
 sqso,"Whychus Creek at Sisters, OR",OR,44.28777778,-121.5433333,3170,US/Pacific,30:17.1,14076050,ft,0,,,,hydromet,owrd,PN,1.71E+11
 sqwi,"Squaw Creek at Sweet, ID",ID,43.96666667,-116.3313889,2520,US/Mountain,.......................,,ft,0,,,,hydromet,idpwr,PN,1.71E+11
 srao,USBR Snake River Area Office West - LRGS,ID,43.61638889,-116.1880556,0,US/Mountain,.......................,0,ft,0,,,,hydromet,,PN,1.71E+11
-srdm,"Sun River Diversion Dam, Montana",MT,47.62083,-112.70667,4370,MST,,,,,,,,,,GP,
 srki,"Snake River at Kimberly, ID",ID,43.1975,-112.3691667,4490,US/Mountain,00:00.0,13090000,ft,0,,,,hydromet,USFO,PN,1.70E+11
 sscn,SEVENTYSIX CREEK,NV,41.73333333,-115.4666667,233.3333333,0,.......................,746,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 ssvn,"DRI - Sand Spring Valley, Nevada Weather Station",NV,37.646667,-115.7975,1466.088,US/Pacific,12/10/2010,,m,0,agrimet_map,,,agrimet,dri,PN,1.61E+11
@@ -1281,7 +1289,6 @@ swlw,SWAMP LAKE CR. NR CRYSTAL SPRINGS CAMPGROUND,WA,47.30666667,-121.3094444,0,
 swmn,"DRI - Steptoe Valley WMA, Nevada Weather Station",NV,39.195556,-114.810278,1965.96,US/Pacific,3/11/2011,,m,0,agrimet_map,,,agrimet,dri,PN,1.61E+11
 swpi,SWEDE PEAK,ID,43.61666667,-113.9666667,240.3333333,0,.......................,805,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 swti,"Sweetwater Creek at Mouth at Sweetwater, ID",ID,46.369167,-116.795556,1110,US/Pacific,49:53.6,13342340,ft,0,,,,hydromet,usgs,PN,1.71E+11
-swtr,"Swift Reservoir, Birch Creek, Montana",MT,48.15,-112.86667,4780,MST,,,,,,,,,,GP,
 system,Hydromet Computer System,ID,0,0,0,0,,,,0,,,T,system,,PN,
 tabi,"INL - Taber,  Idaho Weather Station",ID,43.318683,-112.6918,1441.704,US/Mountain,,,m,0,agrimet_map,,,agrimet,noaa,PN,1.70E+11
 tacn,TAYLOR CANYON,NV,41.21666667,-116.0166667,219.3333333,0,.......................,811,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.60E+11
@@ -1342,10 +1349,8 @@ ttxi,"S FK TETON RIVER AT REXBURG, IDAHO",ID,43.835,-111.777778,4770,US/Mountain
 tulc,"Tule Lake Sump 1A, California",CA,41.87361111,-121.5436111,4040,US/Pacific,23:37.7,0,ft,0,,,,hydromet,Klamath,PN,1.80E+11
 tumo,"Tumalo Creek blw Tumalo Feed Canal nr Bend, OR",OR,44.08777778,-121.3716667,3567,US/Pacific,31:20.1,14073520,ft,0,,,,hydromet,owrd,PN,1.71E+11
 tunw,Tunnel Avenue,WA,0,0,0,,,,,0,,,T,,,PN,
-turq,"Turquoise Lake (Sugarloaf Dam), Colorado",CO,39.25278,-106.37417,9750,MST,,,,,,,,,,GP,
 twc01,"Towaoc, Colorado CoAgMet Weather Station",CO,37.1891,-108.935,1621,US/Mountain,6/30/1998,0,0,0,ccc,,T,agrimet,ccc,PN,1.41E+11
 twfi,Twin Falls (Kimberly) Idaho AgriMet Weather Station  7E,ID,42.54611,-114.34527,1194.82,US/Mountain,5/4/1990,,m,0,agrimet_map,,,agrimet,pnro,PN,1.70E+11
-twiresco,"Twin Lakes Reservoir, Colorado",CO,39.08028,-106.31389,9200,MST,,,,,,,,,,GP,
 twlm,TWIN LAKES,MT,46.13333333,-114.5,220.6666667,0,.......................,836,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 tybo,TAYLOR BUTTE,OR,42.68333333,-121.4166667,204.8333333,0,.......................,810,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.80E+11
 tylo,TAYLOR GREEN,OR,45.06666667,-117.55,212.6666667,0,.......................,812,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
@@ -1374,7 +1379,6 @@ vspi,Val Schwiendiman Pump,ID,43.91444444,-111.4652778,5550,US/Mountain,12:48.1,
 waci,Watson Canal,ID,43.19583333,-112.4,4465,US/Mountain,00:00.0,13062506,ft,0,,,,hydromet,IDWR,PN,1.70E+11
 wafi,"Lake Waha Feeder Canal, ID",ID,46.20617576,-116.8296309,3645,US/Pacific,44:29.6,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
 wah,"Lake Waha, ID",ID,46.21265616,-116.8378725,3400,US/Pacific,05:53.2,,ft,0,Bill_KML,,,hydromet,pnro,PN,1.71E+11
-waks,"Waconda Lake (Glen Elder Dam), Kansas",KS,39.49611,-98.31333,1467,CST,,,,,,,,,,GP,
 walm,WALDRON,MT,47.91666667,-112.7833333,205.3333333,0,.......................,847,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.00E+11
 war,"Warm Springs Dam and Reservoir nr Riverside, OR",OR,43.58522696,-118.2093803,3305,US/Mountain,00:00.0,,ft,0,cma_google,,,hydromet,pnro,PN,1.71E+11
 waro,"Malheur River bel Warm Springs Res nr Riverside, OR",OR,43.57457171,-118.2097743,3305,US/Mountain,00:00.0,13215000,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.71E+11
@@ -1382,7 +1386,6 @@ was,"Clear Lake nr Government Camp (Wasco Dam), OR",OR,45.17638889,-121.6944444,
 wbci,"Webb Creek near Sweetwater, ID",ID,46.326667,-116.832222,1440,US/Pacific,59:20.2,13342295,ft,0,,,,hydromet,usgs,PN,1.71E+11
 wbco,"West Birch Creek at Pilot Rock, OR",OR,45.48388889,-118.8355556,1626,US/Pacific,.......................,14024100,ft,0,,,,hydromet,owrd,PN,1.71E+11
 wbfi,"Willow Creek Below Floodway Channel nr. Ucon, ID",ID,43.57583333,-111.9119444,4840,US/Mountain,00:00.0,13058530,ft,0,,,,hydromet,usgs,PN,1.70E+11
-wbks,"Webster Reservoir Near Stockton, Kansas",KS,39.39139,-99.42583,1924,CST,,,,,,,,,,GP,
 wbri,WEST BRANCH,ID,45.06666667,-116.45,208.6666667,0,.......................,855,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 wcao,"Willow Creek above Willow Lake near Butte Falls, OR",OR,42.46416667,-122.4380556,3040,US/Pacific,.......................,14335230,ft,0,,,,hydromet,owrd,PN,1.71E+11
 wcbi,Webb Creek bel Diversion,ID,46.23333333,-116.7511111,3600,US/Pacific,59:20.2,0,ft,0,,,,hydromet,PNRO,PN,1.71E+11
@@ -1391,8 +1394,6 @@ wcci,Webb Creek canal,ID,46.43361111,-117.2958333,3435,US/Pacific,..............
 wcco,"WALLOWA RIV ABV CROSS CNTRY CANAL NR ENTERPRISE, OR",OR,45.488203,-117.40379,3670,US/Pacific,43:07.5,13329770,ft,0,,,,hydromet,USGS,PN,1.71E+11
 wcdo,"Willow Creek Dam Outlet near Butte Falls, OR",OR,42.47944444,-122.4483333,3000,US/Pacific,.......................,14335250,ft,0,,,,hydromet,owrd,PN,1.71E+11
 wcgo,WAGNER CR BL GOOSE CR NR TALENT,OR,42.16861111,-122.7855556,0,US/Pacific,54:49.5,14354950,ft,0,,,,hydromet,owrd,PN,1.71E+11
-wcne,"Winters Creek Reservoir (Surface Elev-Inflow), Ne",NE,41.9575,-103.53222,4125,MST,,,,,,,,,,GP,
-wcr,"Willow Creek Reservoir, 6 Miles Nw Augusta, Montana",MT,47.54667,-112.42917,4153,MST,,,,,,,,,,GP,
 wcro,"Wildhorse Creek at Pendleton, OR (OWRD)",OR,45.68611111,-118.7455556,1060,US/Pacific,00:58.8,14020990,ft,0,,,,hydromet,owrd,PN,1.71E+11
 wcsw,WELLS CREEK,WA,48.85,-121.7833333,188.1666667,0,.......................,909,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.71E+11
 wcto,"Wagner Creek Mouth at Talent, OR",OR,42.24583333,-122.78,1584,US/Pacific,41:55.5,14355875,ft,0,,,,hydromet,OWRD/OWRD,PN,1.71E+11
@@ -1421,7 +1422,6 @@ wicowq,Water Quality Deschutes River below Wic,OR,43.68389,-121.68889,4347,US/Pa
 wifi,"Sand Creek above Willow Creek Diversion nr Ukon, ID",ID,43.5762247,-111.9119467,4850,US/Mountain,00:00.0,13058510,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
 wilc,Willow Creek,CA,41.89861111,-121.0519444,4500,US/Pacific,02:56.8,0,ft,0,,,,hydromet,Klamath,PN,1.80E+11
 wili,"Willow Creek Floodway Channel nr Ukon, ID",ID,43.57453061,-111.8947972,4840,US/Mountain,00:00.0,13058520,ft,0,Bill_KML,,,hydromet,usgs/pnro,PN,1.70E+11
-wilresco,"Willow Creek Reservoir, Colorado",CO,40.14778,-105.94194,8130,MST,,,,,,,,,,GP,
 wily,WILLOW CREEK,WY,42.8,-110.8333333,249.6666667,0,.......................,868,ft,0,Config_Data_ SS,,,snotel,snotel,PN,1.70E+11
 wiwo,"Wickiup Weather Station, OR",OR,43.68361111,-121.6888889,4358,US/Pacific,52:44.4,0,ft,0,,,,hydromet,BFO,PN,1.71E+11
 wlbo,"Willow Lake nr Butte Falls, OR",OR,42.47916667,-122.4483333,3016,US/Pacific,.......................,14335240,ft,0,,,,hydromet,OWRD,PN,1.71E+11
