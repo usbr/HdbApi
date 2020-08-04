@@ -29,6 +29,7 @@ namespace HdbApi.Controllers
                 "LCHDEV - LC Test HDB",
                 "LCHDB - LC Oracle 12c Test HDB",
                 "UCHDB2 - UC Production HDB",
+                "UCHDBT - UC Test HDB",
                 "YAOHDB - YAO Production HDB",
                 "ECOHDB - ECAO Production HDB",
                 "LBOHDB - LBAO Production HDB",
