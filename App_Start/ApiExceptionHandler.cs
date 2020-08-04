@@ -22,7 +22,8 @@ namespace HdbApi.App_Start
 
             var metadata = new ErrorInfoModel
             {
-                Message = context.Exception.Message + ". Contact the developer for more information.",// "An unexpected error occurred! Please use the Error ID to contact support",
+                Message = context.Exception.Message +  ". " + context.Exception.InnerException + ". "
+                    + context.Exception.StackTrace + ". Contact the developer for more information.",// "An unexpected error occurred! Please use the Error ID to contact support",
                 TimeStamp = DateTime.UtcNow,
                 RequestUri = context.Request.RequestUri,
                 ErrorId = correlationId,                
