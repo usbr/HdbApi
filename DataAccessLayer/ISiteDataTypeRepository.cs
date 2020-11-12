@@ -98,9 +98,9 @@ namespace HdbApi.DataAccessLayer
             if (db != null)
             {
                 string sqlString = "select * " +
-                    "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
-                    "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID and " +
-                    "A.SITE_DATATYPE_ID = " + id;
+                    "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C, HDB_UNIT D where " +
+                    "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID and C.UNIT_ID = D.UNIT_ID and " +
+                    "rownum = 1 and A.SITE_DATATYPE_ID = " + id;
 
                 // MULTIMAP 
                 result = (List<SiteDatatypeModel.SiteDataTypeMetadata>)db.Query<
