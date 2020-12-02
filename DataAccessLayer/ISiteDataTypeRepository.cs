@@ -34,8 +34,8 @@ namespace HdbApi.DataAccessLayer
             if (db != null)
             {
                 string sqlString = "select * " +
-                "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C where " +
-                "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID ";
+                "from HDB_SITE_DATATYPE A, HDB_SITE B, HDB_DATATYPE C, HDB_UNIT D where " +
+                "A.SITE_ID = B.SITE_ID and A.DATATYPE_ID = C.DATATYPE_ID and C.UNIT_ID = D.UNIT_ID ";
                 if (sdid != null && sdid.Count() != 0)
                 {
                     string ids = "";
