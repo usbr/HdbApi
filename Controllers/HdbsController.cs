@@ -25,9 +25,9 @@ namespace HdbApi.Controllers
         {
             return Ok(new List<string>
             {
-                "LCHDB2 - LC Production HDB",
+                "LCHDB - LC Production HDB",
+                "LCHDB2 - LC Old Production HDB",
                 "LCHDEV - LC Test HDB",
-                "LCHDB - LC Oracle 12c Test HDB",
                 "UCHDB2 - UC Production HDB",
                 "UCHDBT - UC Test HDB",
                 "YAOHDB - YAO Production HDB",
