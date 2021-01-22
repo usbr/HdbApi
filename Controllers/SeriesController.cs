@@ -322,18 +322,22 @@ namespace HdbApi.Controllers
                     tstpString = "DY";
                     break;
             }
+            tstp = tstpString;
 
             int t1Int, t2Int;
             DateTime t1Input, t2Input;
 
             if (DateTime.TryParse(t1, out t1Input) && DateTime.TryParse(t2, out t2Input))
             {
-                t1Input = t1Input;
-                t2Input = t2Input;
-
                 // Snap date-times to the time-step-specific date format
                 switch (tstp.ToString().ToLower())
-                {   case "dy":
+                {
+                    case "in":
+                    case "hr":
+                        t1Input = t1Input;
+                        t2Input = t2Input;
+                        break;
+                    case "dy":
                         t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, 0, 0, 0);
                         t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, 0, 0, 0);
                         break;
