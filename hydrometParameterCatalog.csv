@@ -12,11 +12,11 @@ ap4,Monthly,feet,Inst,Fourth Year AOP Rule Curve
 arc,Monthly,feet,Inst,Assured Refill Curve
 au,Irregular,degF,Inst,Crop Canopy Temperature
 bga,Irregular,ug/L,Inst,Blue Green Algale
-bh,Irregular,mmHg,Inst,Barometric Pressure (Sea Level)
 bh,Daily,mmHg,Inst,Average Barometric Pressure (Sea Level)
+bh,Irregular,mmHg,Inst,Barometric Pressure (Sea Level)
 bn,Daily,inHG,Min,Minimum Barometric Pressure (Sea Level)
-bp,Irregular,inHg,Inst,Barometric Pressure (Sea Level)
 bp,Daily,inHG,Avg,Average Barometric Pressure (Sea Level)
+bp,Irregular,inHg,Inst,Barometric Pressure (Sea Level)
 bv,Irregular,V,Inst,Battery Voltage
 bx,Daily,inHG,Max,Maximum Barometric Pressure (Sea Level)
 cc,Monthly,cfs,Avg,Canal Flow
@@ -45,9 +45,9 @@ eto,Irregular,mm/hr,Sum,Evapotranspiration (ASCE Grass Reference)
 etos,Daily,inches,Sum,Evapotranspiration (ASCE Grass Reference)
 etr,Irregular,mm/hr,Sum,Evapotranspiration (ASCE Alfalfa Reference)
 etrs,Daily,inches,Sum,Evapotranspiration (ASCE Alfalfa Reference)
+fb,Daily,feet,Inst,Reservoir Water Surface Elevation
 fb,Irregular,feet,Inst,Reservoir Water Surface Elevation
 fb,Monthly,feet,Inst,End of Month Reservoir Water Surface Elevation
-fb,Daily,feet,Inst,Reservoir Water Surface Elevation
 fb2,Irregular,feet,Inst,Reservoir Water Surface Elevation (secondary)
 fc,Monthly,1000 af,Inst,First of Month Residual Operating Forecast
 fch,Monthly,1000 af,Inst,150% First of Month Residual Operating Forecast
@@ -87,15 +87,15 @@ in,Daily,cfs,Avg,Daily Mean Computed Inflow
 lec,Monthly,feet,Inst,Lower Limit Energy Content Curve
 ls,Irregular,acre-ft,Inst,Lake Water Storage
 lw,Irregular,kOhms,Inst,Leaf Wetness
-mm,Monthly,degF,Avg,Average Air Temperature
 mm,Daily,degF,Avg,Average Air Temperature
-mn,Monthly,degF,Min,Minimum Air Temperature
+mm,Monthly,degF,Avg,Average Air Temperature
 mn,Daily,degF,Min,Minimum Air Temperature
+mn,Monthly,degF,Min,Minimum Air Temperature
 mrc,Monthly,degF,Inst,Mandatory Rule Curve
-mx,Monthly,degF,Max,Maximum Air Temperature
 mx,Daily,degF,Max,Maximum Air Temperature
-nt,Irregular,mmHG,Inst,Water Total Dissolved Gas
+mx,Monthly,degF,Max,Maximum Air Temperature
 nt,Daily,mmHg,Inst,Water Total Dissolved Gas
+nt,Irregular,mmHG,Inst,Water Total Dissolved Gas
 ob,Irregular,degF,Inst,Instantaneous Air Temperature
 obm,Irregular,degF,Avg,Average Air Temperature
 obn,Irregular,degF,Min,Minimum Air Temperature
@@ -103,16 +103,16 @@ obx,Irregular,degF,Max,Maximum Air Temperature
 olk,Monthly,,Inst,"Weather Outlook: N=0, SN=-1, AN=+1"
 om,Monthly,1000 af,Sum,Reservoir Outflow
 oma,Monthly,1000 af,Avg,Average Reservoir Outflow
-pc,Irregular,inches,Inst,Cummulative Precipitation
 pc,Daily,inches,Inst,Cummulative Precipitation
+pc,Irregular,inches,Inst,Cummulative Precipitation
 pca,Monthly,1000 af,Inst,Principle Components First of Month Forecast
 pdr,Monthly,cfs,Inst,Power Discharge Requirements
 pe,Daily,inches,Sum,Total Pan Evaporation
 pi,Irregular,inches,Sum,Incremental Precipitation
 pm,Monthly,inches,Sum,Precipitation
 pma,Monthly,inches,Avg,Average Precipitation
-pp,Monthly,inches,Sum,Precipitation from Telemetry
 pp,Daily,inches,Sum,Daily Total Precipitation
+pp,Monthly,inches,Sum,Precipitation from Telemetry
 pu,Daily,inches,Sum,Cummulative Water Year Precipitation
 pv,Monthly,inches,Sum,Pan Evaporation
 px,Daily,inches,Sum,Mannually Observed Daily Total Precipitation
@@ -122,25 +122,33 @@ qc,Irregular,cfs,Inst,Canal Discharge
 qc,Monthly,1000 af,Avg,Canal Flow
 qd,Daily,cfs,Avg,Average Stream Discharge
 qdx,Daily,cfs,Avg,WATSTORE Daily Mean Discharge
-qe,Irregular,cfs,Inst,Power Discharge
 qe,Daily,cfs,Avg,Power Discharge
+qe,Irregular,cfs,Inst,Power Discharge
+qebbd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Buffalo Bill 
 qehd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge
+qesd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Shoshone 
+qespd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Spirit Mtn 
 qj,Daily,cfs,Avg,Average Canal Discharge
+qjd,Daily,cfs,Avg,Daily Mean Deaver Canal Discharge 
+qjg,Daily,cfs,Avg,Daily Mean Garland Canal Discharge 
+qjw,Daily,cfs,Avg,Daily Mean West Canal Discharge 
 ql,Monthly,1000 af,Avg,Local Inflow
 qm,Monthly,1000 af,Avg,Recorded Stream Flow
 qp,Daily,cfs,Avg,Average Pump Discharge
 qr,Irregular,cfs,Inst,Regulating Gate Discharge
 qrd,Daily,cfs,Avg,Average Stream Discharge Duplicate
+qrivs,Daily,cfs,Avg,Daily Mean Release to Shoshone w/o Springs 
 qs,Irregular,cfs,Inst,Spillway Discharge
 qsd,Daily,cfs,Avg,Average Spillway Discharge
-qt,Irregular,cfs,Inst,Total Powerplant Flow
 qt,Daily,cfs,Inst,Totalled Average Discharge
-qu,Monthly,1000 af,Avg,Unregulated Stream Flow
+qt,Irregular,cfs,Inst,Total Powerplant Flow
 qu,Daily,cfs,Avg,Estimated Average Unregulated Flow
+qu,Monthly,1000 af,Avg,Unregulated Stream Flow
 qua,Monthly,1000 af,Avg,Average Unregulated Stream Flow
 qv,Daily,cfs,Avg,Power Discharge
 qx,Daily,cfs,Max,Maximum Discharge
 qz,Irregular,cfs,Inst,Secondary Discharge
+qzd,Daily,cfs,Avg,Mean Daily Municipal Use Discharge 
 rad,Daily,feet,Avg,Gate 1 Opening
 rbd,Daily,feet,Avg,Gate 2 Opening
 rcd,Daily,feet,Avg,Gate 3 Opening
@@ -148,9 +156,9 @@ rf,Monthly,1000 af,Avg,Return Flow
 rhn,Daily,percent,Min,Minimum Relative Humidity
 sd,Irregular,inches,Inst,Snow Depth
 sd,Monthly,inches,Inst,First of Month Snow Depth
+se,Daily,inches,Inst,Snow Water Content
 se,Irregular,inches,Inst,Snow Water Content
 se,Monthly,inches,Inst,First of Month Snow Water Content (Snotel)
-se,Daily,inches,Inst,Snow Water Content
 sem,Monthly,inches,Inst,Mid-Month Snow Water Content (Snotel)
 sg,Monthly,inches,Inst,First of Month Snow Water Content (Snotel Ground-Truth)
 sgm,Monthly,inches,Inst,Mid-Month Snow Water Content (Snotel Ground-Truth)
@@ -160,8 +168,8 @@ sl,Irregular,degF,Inst,Soil Temperature (1in)
 sm,Monthly,inches,Inst,First of Month Soil Moisture
 sma,Monthly,inches,Avg,Average Snow Moisture Accumulation
 so,Daily,inches,Sum,Cummulative Water Year Snow Water Equivalent
-sp,Irregular,inches,Inst,Snow Water Equivalent
 sp,Daily,inches,Inst,Snow Water Equivalent
+sp,Irregular,inches,Inst,Snow Water Equivalent
 sp,Monthly,inches,Inst,First of Month Snow Water Content (Hydromet Snow Pillow)
 spm,Monthly,inches,Inst,Mid-Month Snow Water Content (Hydromet Snow Pillow)
 sq,Irregular,langleys,Sum,Cummulative Solar Radiation
@@ -211,6 +219,10 @@ vmf,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (FEB Forecast)
 vmj,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (JAN Forecast)
 vmm,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (MAR Forecast)
 vmy,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (MAY Forecast)
+vt_bb,Daily,mwh,Sum,Total Buffalo Bill Powerplant Daily Energy Generation 
+vt_hm,Daily,mwh,Sum,Total Heart Mountain Powerplant Daily Energy Generation 
+vt_sh,Daily,mwh,Sum,Total Shoshone Powerplant Daily Energy Generation 
+vt_sp,Daily,mwh,Sum,Total Spirit Mountain Powerplant Daily Energy Generation 
 vv,Irregular,MW,Inst,Power Generation
 wa,Monthly,miles,Sum,Cummulative Wind Travel
 wc,Irregular,degC,Inst,Water Temperature
