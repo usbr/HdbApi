@@ -330,6 +330,25 @@ namespace HdbApi.Controllers
             {
                 t1Input = t1Input;
                 t2Input = t2Input;
+
+                // Snap date-times to the time-step-specific date format
+                switch (tstp.ToString().ToLower())
+                {   case "dy":
+                        t1Input = new DateTime(t1Input.Year, t1Input.Month, t1Input.Day, 0, 0, 0);
+                        t2Input = new DateTime(t2Input.Year, t2Input.Month, t2Input.Day, 0, 0, 0);
+                        break;
+                    case "mn":
+                        t1Input = new DateTime(t1Input.Year, t1Input.Month, 1, 0, 0, 0);
+                        t2Input = new DateTime(t2Input.Year, t2Input.Month, 1, 0, 0, 0);
+                        break;
+                    case "yr":
+                    case "wy":
+                        t1Input = new DateTime(t1Input.Year, 1, 1, 0, 0, 0);
+                        t2Input = new DateTime(t2Input.Year, 1, 1, 0, 0, 0);
+                        break;
+                    default:
+                        throw new Exception("Error: Invalid Query Time-Step.");
+                }
             }
             // Special case for T1 and T2 - If integers, query last X-timestep's worth of data and snap dates
             else if (int.TryParse(t1, out t1Int) && int.TryParse(t2, out t2Int))
