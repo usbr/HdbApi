@@ -1,75 +1,75 @@
 siteid,description,state,latitude,longitude,elevation,timezone,install,horizontal_datum,vertical_datum,vertical_accuracy,elevation_method,tz_offset,active_flag,type,responsibility,agency_region,huc12
-agr,"Angostura Reservoir (Cheyenne River Blw Dam), Sd",SD,43.34333,-103.43833,3200,MST,,,,,,,,,,GP,101201060509
-alcr,"Alcova Reservoir, Wyoming",WY,42.54889,-106.72056,5500,MST,,,,,,,,,,GP,101800070202
-ancr,"Anchor Reservoir, South Fork Owl Creek, Wyoming",WY,43.66389,-108.82417,6370,MST,,,,,,,,,,GP,100800070108
-arne,"Lake Alice Reservoir Elevation, Nebraska",NE,41.98667,-103.63222,4190,MST,,,,,,,,,,GP,101800090705
-audl,"Audubon Lake, North Dakota",ND,47.61139,-101.26556,1862,MST,,,,,,,,,,GP,101101013604
-bbne,"Box Butte Dam, Nebraska",NE,42.45833,-103.06667,4007,MST,,,,,,,,,,GP,101500031003
-bbr,"Buffalo Bill Reservoir On Shoshone River, Wyoming",WY,44.50139,-109.18333,5360,MST,,,,,,,,,,GP,100800140106
-bbrsfd,"Buffalo Bill Reservoir - South Fork Dike, Wyoming",WY,44.4425,-109.2125,5401,MST,,,,,,,,,,GP,100800130303
-bfr,"Belle Fourche Reservoir Nr Belle Fourche, S. Dakota",SD,44.73667,-103.67417,2900,MST,,,,,,,,,,GP,101202020204
-bhr,"Bighorn Lake, Montana",MT,45.30722,-107.95694,3200,MST,,,,,,,,,,GP,100800100904
-bhsx,"Bighorn River And Bia Canal Near St. Xavier, Montana",MT,45.31667,-107.91806,3100,MST,,,,,,,,,,GP,100800150302
-blr,"Bull Lake Reservoir On Bull Lake Creek, Wyoming",WY,43.20972,-109.04167,5814,MST,,,,,,,,,,GP,100800010604
-boyr,"Boysen Reservoir, Thermopolis, Wyoming",WY,43.4,-108.17694,4628,MST,,,,,,,,,,GP,100800050607
-cane,"Calamus Reservoir (Virginia Smith Dam), Nebraska",NE,41.82722,-99.21972,2255,CST,,,,,,,,,,GP,102100080604
-carterco,"Carter Lake Reservoir Near Loveland, Co",CO,40.32417,-105.21194,6745,MST,,,,,,,,,,GP,101900060501
+agr,"Angostura Reservoir (Cheyenne River Blw Dam), Sd",SD,43.34333,-103.43833,3200,MST,,,,,,,,,,GP,1.01201E+11
+alcr,"Alcova Reservoir, Wyoming",WY,42.54889,-106.72056,5500,MST,,,,,,,,,,GP,1.018E+11
+ancr,"Anchor Reservoir, South Fork Owl Creek, Wyoming",WY,43.66389,-108.82417,6370,MST,,,,,,,,,,GP,1.008E+11
+arne,"Lake Alice Reservoir Elevation, Nebraska",NE,41.98667,-103.63222,4190,MST,,,,,,,,,,GP,1.018E+11
+audl,"Audubon Lake, North Dakota",ND,47.61139,-101.26556,1862,MST,,,,,,,,,,GP,1.01101E+11
+bbne,"Box Butte Dam, Nebraska",NE,42.45833,-103.06667,4007,MST,,,,,,,,,,GP,1.015E+11
+bbr,"Buffalo Bill Reservoir On Shoshone River, Wyoming",WY,44.50139,-109.18333,5360,MST,,,,,,,,,,GP,1.008E+11
+bbrsfd,"Buffalo Bill Reservoir - South Fork Dike, Wyoming",WY,44.4425,-109.2125,5401,MST,,,,,,,,,,GP,1.008E+11
+bfr,"Belle Fourche Reservoir Nr Belle Fourche, S. Dakota",SD,44.73667,-103.67417,2900,MST,,,,,,,,,,GP,1.01202E+11
+bhr,"Bighorn Lake, Montana",MT,45.30722,-107.95694,3200,MST,,,,,,,,,,GP,1.008E+11
+bhsx,"Bighorn River And Bia Canal Near St. Xavier, Montana",MT,45.31667,-107.91806,3100,MST,,,,,,,,,,GP,1.008E+11
+blr,"Bull Lake Reservoir On Bull Lake Creek, Wyoming",WY,43.20972,-109.04167,5814,MST,,,,,,,,,,GP,1.008E+11
+boyr,"Boysen Reservoir, Thermopolis, Wyoming",WY,43.4,-108.17694,4628,MST,,,,,,,,,,GP,1.008E+11
+cane,"Calamus Reservoir (Virginia Smith Dam), Nebraska",NE,41.82722,-99.21972,2255,CST,,,,,,,,,,GP,1.021E+11
+carterco,"Carter Lake Reservoir Near Loveland, Co",CO,40.32417,-105.21194,6745,MST,,,,,,,,,,GP,1.019E+11
 ccdt,"Choke Canyon Reservoir Near Three Rivers, Texas",TX,28.46667,-98.16667,1994,CST,,,,,,,,,,GP,
-ccks,"Cawker City Dike, Kansas",KS,39.49889,-98.44056,1482,CST,,,,,,,,,,GP,102600150101
-ccr,"Clark Canyon Reservoir, Beaverhead Rvr Nr Dillon, Mt",MT,45.00167,-112.8575,5580,MST,,,,,,,,,,GP,100200020402
-cfrsat,"Canyon Ferry Lake Near Helena, Montana",MT,46.64917,-111.7275,3673,MST,,,,,,,,,,GP,100301011205
-dane,"Davis Creek Dam, Nebraska",NE,41.40472,-98.70778,2094,CST,,,,,,,,,,GP,102100070502
-dfr,"Deerfield Reservoir, South Dakota",SD,44.02806,-103.78583,5958,MST,,,,,,,,,,GP,101201100106
-eapr,"E.A. Patterson Lake (Dickinson), North Dakota",ND,46.86972,-102.82694,2430,MST,,,,,,,,,,GP,101302020305
-flaresco,"Flatiron Reservoir, Loveland, Co",CO,40.365,-105.23611,5580,MST,,,,,,,,,,GP,101900060602
-frr,"Fresno Reservoir Near Havre, Montana",MT,48.60833,-109.94583,2535,MST,,,,,,,,,,GP,100500021210
-gdwy,"Gray Reef Dam, Wyoming",WY,42.56556,-106.69889,5335,MST,,,,,,,,,,GP,101800070202
-gibr,"Gibson Reservoir, Montana",MT,47.60083,-112.76167,4550,MST,,,,,,,,,,GP,100301040401
-glaresco,"Grand Lake, Colorado",CO,40.24167,-105.80222,8366,MST,,,,,,,,,,GP,140100010308
-gler,"Glendo Reservoir, Wyoming",WY,42.47722,-104.95056,4520,MST,,,,,,,,,,GP,101800081102
-graresco,"Lake Granby Near Granby, Colorado",CO,40.18194,-105.87111,8290,MST,,,,,,,,,,GP,140100010308
-greresco,"Green Mountain Reservoir, Summit County, Co",CO,39.87889,-106.31333,7960,MST,,,,,,,,,,GP,140100020504
-guwy,"Guernsey Reservoir, Wyoming",WY,42.28861,-104.7625,4480,MST,,,,,,,,,,GP,101800081106
-htoothr,"Horsetooth Reservoir Near Fort Collins, Co",CO,40.59944,-105.17111,5300,MST,,,,,,,,,,GP,101900070805
-jamr,"Jamestown Reservoir, North Dakota",ND,46.93056,-98.70639,1430,CST,,,,,,,,,,GP,101600010611
-keyr,"Keyhole Reservoir, Wyoming",WY,44.38194,-104.77917,4134,MST,,,,,,,,,,GP,101202010805
-ksks,"Keith Sebelius Lake (Norton Dam), Kansas",KS,39.8075,-99.93417,2347,CST,,,,,,,,,,GP,102500150208
-kwks,"Kirwin Reservoir At Kirwin, Kansas",KS,39.66361,-99.12472,1730,CST,,,,,,,,,,GP,102600120201
-lane,"Little Lake Alice Reservoir El-Outflow, Nebraska",NE,41.9625,-103.57222,4138,MST,,,,,,,,,,GP,101800090805
-ler,"Lake Elwell Spillway Transducer, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,100302032103
-lerm,"Lake Elwell Auxiliary Outlet Bubbler, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,100302032103
-lfrm,"Lake Frances Reservoir, Montana",MT,48.26667,-112.2,3820,MST,,,,,,,,,,GP,100302030605
-limr,"Lima Res Upstream Of Clark Canyon Res, Montana",MT,44.65611,-112.37056,6530,MST,,,,,,,,,,GP,100200011401
-lmne,"Lake Minatare Reservoir, Nebraska",NE,41.91833,-103.48861,4140,MST,,,,,,,,,,GP,101800090804
-ltr,"Lake Tschida (Heart Butte), North Dakota",ND,46.59667,-101.80944,2124,MST,,,,,,,,,,GP,101302020610
-lvks,"Lovewell Dam, Kansas",KS,39.88444,-98.02806,1595,CST,,,,,,,,,,GP,102500160708
-marysr,"Marys Lake, Colorado",CO,40.57806,-105.89528,8050,MST,,,,,,,,,,GP,101900070204
-mcdh,"Mcgee Creek Dam, Oklahoma",OK,34.31444,-95.875,576,CST,,,,,,,,,,GP,111401030505
-mrne,"Merritt Dam, Nebraska",NE,42.635,-100.87222,2956,CST,,,,,,,,,,GP,101500050505
-mtelfbco,"Mount Elbert Forebay, Co",CO,39.10222,-106.35333,9650,MST,,,,,,,,,,GP,110200010103
+ccks,"Cawker City Dike, Kansas",KS,39.49889,-98.44056,1482,CST,,,,,,,,,,GP,1.026E+11
+ccr,"Clark Canyon Reservoir, Beaverhead Rvr Nr Dillon, Mt",MT,45.00167,-112.8575,5580,MST,,,,,,,,,,GP,1.002E+11
+cfrsat,"Canyon Ferry Lake Near Helena, Montana",MT,46.64917,-111.7275,3673,MST,,,,,,,,,,GP,1.00301E+11
+dane,"Davis Creek Dam, Nebraska",NE,41.40472,-98.70778,2094,CST,,,,,,,,,,GP,1.021E+11
+dfr,"Deerfield Reservoir, South Dakota",SD,44.02806,-103.78583,5958,MST,,,,,,,,,,GP,1.01201E+11
+eapr,"E.A. Patterson Lake (Dickinson), North Dakota",ND,46.86972,-102.82694,2430,MST,,,,,,,,,,GP,1.01302E+11
+flaresco,"Flatiron Reservoir, Loveland, Co",CO,40.365,-105.23611,5580,MST,,,,,,,,,,GP,1.019E+11
+frr,"Fresno Reservoir Near Havre, Montana",MT,48.60833,-109.94583,2535,MST,,,,,,,,,,GP,1.005E+11
+gdwy,"Gray Reef Dam, Wyoming",WY,42.56556,-106.69889,5335,MST,,,,,,,,,,GP,1.018E+11
+gibr,"Gibson Reservoir, Montana",MT,47.60083,-112.76167,4550,MST,,,,,,,,,,GP,1.00301E+11
+glaresco,"Grand Lake, Colorado",CO,40.24167,-105.80222,8366,MST,,,,,,,,,,GP,1.401E+11
+gler,"Glendo Reservoir, Wyoming",WY,42.47722,-104.95056,4520,MST,,,,,,,,,,GP,1.018E+11
+graresco,"Lake Granby Near Granby, Colorado",CO,40.18194,-105.87111,8290,MST,,,,,,,,,,GP,1.401E+11
+greresco,"Green Mountain Reservoir, Summit County, Co",CO,39.87889,-106.31333,7960,MST,,,,,,,,,,GP,1.401E+11
+guwy,"Guernsey Reservoir, Wyoming",WY,42.28861,-104.7625,4480,MST,,,,,,,,,,GP,1.018E+11
+htoothr,"Horsetooth Reservoir Near Fort Collins, Co",CO,40.59944,-105.17111,5300,MST,,,,,,,,,,GP,1.019E+11
+jamr,"Jamestown Reservoir, North Dakota",ND,46.93056,-98.70639,1430,CST,,,,,,,,,,GP,1.016E+11
+keyr,"Keyhole Reservoir, Wyoming",WY,44.38194,-104.77917,4134,MST,,,,,,,,,,GP,1.01202E+11
+ksks,"Keith Sebelius Lake (Norton Dam), Kansas",KS,39.8075,-99.93417,2347,CST,,,,,,,,,,GP,1.025E+11
+kwks,"Kirwin Reservoir At Kirwin, Kansas",KS,39.66361,-99.12472,1730,CST,,,,,,,,,,GP,1.026E+11
+lane,"Little Lake Alice Reservoir El-Outflow, Nebraska",NE,41.9625,-103.57222,4138,MST,,,,,,,,,,GP,1.018E+11
+ler,"Lake Elwell Spillway Transducer, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,1.00302E+11
+lerm,"Lake Elwell Auxiliary Outlet Bubbler, Montana",MT,48.31833,-111.09083,2840,MST,,,,,,,,,,GP,1.00302E+11
+lfrm,"Lake Frances Reservoir, Montana",MT,48.26667,-112.2,3820,MST,,,,,,,,,,GP,1.00302E+11
+limr,"Lima Res Upstream Of Clark Canyon Res, Montana",MT,44.65611,-112.37056,6530,MST,,,,,,,,,,GP,1.002E+11
+lmne,"Lake Minatare Reservoir, Nebraska",NE,41.91833,-103.48861,4140,MST,,,,,,,,,,GP,1.018E+11
+ltr,"Lake Tschida (Heart Butte), North Dakota",ND,46.59667,-101.80944,2124,MST,,,,,,,,,,GP,1.01302E+11
+lvks,"Lovewell Dam, Kansas",KS,39.88444,-98.02806,1595,CST,,,,,,,,,,GP,1.025E+11
+marysr,"Marys Lake, Colorado",CO,40.57806,-105.89528,8050,MST,,,,,,,,,,GP,1.019E+11
+mcdh,"Mcgee Creek Dam, Oklahoma",OK,34.31444,-95.875,576,CST,,,,,,,,,,GP,1.11401E+11
+mrne,"Merritt Dam, Nebraska",NE,42.635,-100.87222,2956,CST,,,,,,,,,,GP,1.015E+11
+mtelfbco,"Mount Elbert Forebay, Co",CO,39.10222,-106.35333,9650,MST,,,,,,,,,,GP,1.102E+11
 nasty,"Lake Nasworthy Near San Angelo, Texas",TX,31.38861,-100.47806,1872.2,CST,,,,,,,,,,GP,
-nelr,"Nelson Reservoir At Dam 10 Miles Nw Of Saco, Mt",MT,48.52972,-107.51861,2200,MST,,,,,,,,,,GP,100500140702
-olydamco,"Olympus Dam Near Estes Park, Colorado",CO,40.37306,-105.48778,7481,MST,,,,,,,,,,GP,101900060207
-patr,"Pathfinder Reservoir, Wyoming",WY,42.46806,-106.85361,5678,MST,,,,,,,,,,GP,101800030411
-pbr,"Pilot Butte Offstream, 22 Miles Nw Of Riverton, Wy",WY,43.2,-108.75,5400,MST,,,,,,,,,,GP,100800050102
-pinresco,"Pinewood Reservoir, Loveland, Co",CO,40.36806,-105.28639,6552,MST,,,,,,,,,,GP,101900060602
-pshr,"Pishkun Reservoir Near Augusta, Montana",MT,47.67667,-112.49667,4300,MST,,,,,,,,,,GP,100301040406
-ptr,"Pactola Reservoir Near Rapid City, South Dakota",SD,44.07222,-103.48806,4660,MST,,,,,,,,,,GP,101201100110
-puer,"Pueblo Reservoir,Arkansas River Nr Pueblo, Colorado",CO,38.25972,-104.71806,4850,MST,,,,,,,,,,GP,110200020905
-rueresco,"Ruedi Reservoir Nr Basalt, Colorado",CO,39.36389,-106.81806,7766,MST,,,,,,,,,,GP,140100040505
-semr,"Seminoe Reservoir, Wyoming",WY,42.15583,-106.90806,6361,MST,,,,,,,,,,GP,101800030208
-sharesco,"Shadow Mountain Reservoir, Grand County, Co",CO,40.20722,-105.84167,8365,MST,,,,,,,,,,GP,140100010308
+nelr,"Nelson Reservoir At Dam 10 Miles Nw Of Saco, Mt",MT,48.52972,-107.51861,2200,MST,,,,,,,,,,GP,1.005E+11
+olydamco,"Olympus Dam Near Estes Park, Colorado",CO,40.37306,-105.48778,7481,MST,,,,,,,,,,GP,1.019E+11
+patr,"Pathfinder Reservoir, Wyoming",WY,42.46806,-106.85361,5678,MST,,,,,,,,,,GP,1.018E+11
+pbr,"Pilot Butte Offstream, 22 Miles Nw Of Riverton, Wy",WY,43.2,-108.75,5400,MST,,,,,,,,,,GP,1.008E+11
+pinresco,"Pinewood Reservoir, Loveland, Co",CO,40.36806,-105.28639,6552,MST,,,,,,,,,,GP,1.019E+11
+pshr,"Pishkun Reservoir Near Augusta, Montana",MT,47.67667,-112.49667,4300,MST,,,,,,,,,,GP,1.00301E+11
+ptr,"Pactola Reservoir Near Rapid City, South Dakota",SD,44.07222,-103.48806,4660,MST,,,,,,,,,,GP,1.01201E+11
+puer,"Pueblo Reservoir,Arkansas River Nr Pueblo, Colorado",CO,38.25972,-104.71806,4850,MST,,,,,,,,,,GP,1.102E+11
+rueresco,"Ruedi Reservoir Nr Basalt, Colorado",CO,39.36389,-106.81806,7766,MST,,,,,,,,,,GP,1.401E+11
+semr,"Seminoe Reservoir, Wyoming",WY,42.15583,-106.90806,6361,MST,,,,,,,,,,GP,1.018E+11
+sharesco,"Shadow Mountain Reservoir, Grand County, Co",CO,40.20722,-105.84167,8365,MST,,,,,,,,,,GP,1.401E+11
 sher,"Lake Sherburne, Swift Current Creek Near Babb, Mt",MT,48.82833,-113.52111,4803,MST,,,,,,,,,,GP,
-shr,"Shadehill Reservoir On The Grand River, South Dakota",SD,45.75333,-102.20333,2320,MST,,,,,,,,,,GP,101303020907
-srdm,"Sun River Diversion Dam, Montana",MT,47.62083,-112.70667,4370,MST,,,,,,,,,,GP,100301040404
-swtr,"Swift Reservoir, Birch Creek, Montana",MT,48.15,-112.86667,4780,MST,,,,,,,,,,GP,100302010603
-turq,"Turquoise Lake (Sugarloaf Dam), Colorado",CO,39.25278,-106.37417,9750,MST,,,,,,,,,,GP,110200010206
-twiresco,"Twin Lakes Reservoir, Colorado",CO,39.08028,-106.31389,9200,MST,,,,,,,,,,GP,110200010103
-waks,"Waconda Lake (Glen Elder Dam), Kansas",KS,39.49611,-98.31333,1467,CST,,,,,,,,,,GP,102600150109
-wbks,"Webster Reservoir Near Stockton, Kansas",KS,39.39139,-99.42583,1924,CST,,,,,,,,,,GP,102600130504
-wcne,"Winters Creek Reservoir (Surface Elev-Inflow), Ne",NE,41.9575,-103.53222,4125,MST,,,,,,,,,,GP,101800090804
-wcr,"Willow Creek Reservoir, 6 Miles Nw Augusta, Montana",MT,47.54667,-112.42917,4153,MST,,,,,,,,,,GP,100301040304
-wilresco,"Willow Creek Reservoir, Colorado",CO,40.14778,-105.94194,8130,MST,,,,,,,,,,GP,140100010104
+shr,"Shadehill Reservoir On The Grand River, South Dakota",SD,45.75333,-102.20333,2320,MST,,,,,,,,,,GP,1.01303E+11
+srdm,"Sun River Diversion Dam, Montana",MT,47.62083,-112.70667,4370,MST,,,,,,,,,,GP,1.00301E+11
+swtr,"Swift Reservoir, Birch Creek, Montana",MT,48.15,-112.86667,4780,MST,,,,,,,,,,GP,1.00302E+11
+turq,"Turquoise Lake (Sugarloaf Dam), Colorado",CO,39.25278,-106.37417,9750,MST,,,,,,,,,,GP,1.102E+11
+twiresco,"Twin Lakes Reservoir, Colorado",CO,39.08028,-106.31389,9200,MST,,,,,,,,,,GP,1.102E+11
+waks,"Waconda Lake (Glen Elder Dam), Kansas",KS,39.49611,-98.31333,1467,CST,,,,,,,,,,GP,1.026E+11
+wbks,"Webster Reservoir Near Stockton, Kansas",KS,39.39139,-99.42583,1924,CST,,,,,,,,,,GP,1.026E+11
+wcne,"Winters Creek Reservoir (Surface Elev-Inflow), Ne",NE,41.9575,-103.53222,4125,MST,,,,,,,,,,GP,1.018E+11
+wcr,"Willow Creek Reservoir, 6 Miles Nw Augusta, Montana",MT,47.54667,-112.42917,4153,MST,,,,,,,,,,GP,1.00301E+11
+wilresco,"Willow Creek Reservoir, Colorado",CO,40.14778,-105.94194,8130,MST,,,,,,,,,,GP,1.401E+11
 abei,"Aberdeen, Idaho Weather Station",ID,42.953333,-112.82667,1341,US/Mountain,3/20/1991,,m,0,agrimet_map,,,agrimet,noaa,PN,1.70E+11
 acao,"Ashland Creek Mouth, near Ashland",OR,42.195,-122.6686111,1820,US/Pacific,48:15.3,14354100,ft,0,,,,hydromet,OWRD,PN,1.71E+11
 acho,"A Canal Headworks, Oregon",OR,42.23861111,-121.8019444,4140,US/Pacific,23:37.7,OFF,ft,0,,,,hydromet,Klamath,PN,1.80E+11
@@ -1455,3 +1455,33 @@ yrtw,YAKIMA RIVER AT TERRACE HEIGHTS BRIDGE,WA,46.60583333,-120.4741667,0,US/Pac
 yrww,"YAKIMA RIVER NEAR HORLICK ,WA.",WA,47.12416667,-120.7391667,1740,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,
 yumw,"YAKIMA RIVER AT CLE ELUM , WA.",WA,47.19194444,-120.9455556,1918,US/Pacific,00:00.0,0,ft,0,,,,hydromet,Yakima,PN,
 yunw,"Yakima River above Ahtanum Creek at Union Gap, WA",WA,46.3204,-121.2758,0,US/Pacific,,12500450,ft,0,,,,hydromet,usgs,PN,
+TSNE,"Tristate Dam, NE",NE,41.98444444,-104.0311111,4022.06,US/Mountain,,,,,,,,,,GP,1.018E+11
+MGNE,"Mitchell-Gering Canal, NE",NE,41.98277778,-104.0577778,4032.84,US/Mountain,,,,,,,,,,GP,1.018E+11
+LPWY,"Lucerne Pumps, WY",WY,43.69722222,-108.1797222,4348.74,US/Mountain,,,,,,,,,,GP,1.008E+11
+LKVY,"Lake View Canal South Fork Shoshone, WY",WY,43.23166667,-108.8944444,5625.08,US/Mountain,,,,,,,,,,GP,1.008E+11
+LHWY,"Lower Hanover Canal, WY",WY,43.975,-107.9919444,4075.35,US/Mountain,,,,,,,,,,GP,1.008E+11
+LHDY,"Lefthand Ditch at Headworks, Near Riverton, WY",WY,43.02611111,-108.52,5062.55,US/Mountain,,,,,,,,,,GP,1.008E+11
+LCCY,"LeClair Diversion Canal, WY",WY,43.10583333,-108.5561111,5387.92,US/Mountain,,,,,,,,,,GP,1.008E+11
+KCWY,"Kirby Canal, WY",WY,43.68,-108.1825,4300.91,US/Mountain,,,,,,,,,,GP,1.008E+11
+JHNY,"Johnstown Ditch at Headworks, near Kinnear, WY",WY,43.15083333,-108.7283333,5303.35,US/Mountain,,,,,,,,,,GP,1.008E+11
+ICWY,"Interstate Canal at Milepost 1.0, WY",WY,42.24305556,-104.6125,4270.1,US/Mountain,,,,,,,,,,GP,1.018E+11
+TFWY,"Tie Down Flats Canal, WY",WY,43.85944444,-108.1327778,4207.28,US/Mountain,,,,,,,,,,GP,1.008E+11
+RVCY,"Riverton Valley Diversion Canal, WY",WY,43.02638889,-108.5058333,5041.73,US/Mountain,,,,,,,,,,GP,1.008E+11
+PCPB,"Pilot canal below Pilot Butte, Reservoir, WY",WY,43.19222222,-108.7441667,5438.26,US/Mountain,,,,,,,,,,GP,1.008E+11
+OLWY,"Ocean Drain at Ocean Lake Outlet nr Pavillion, WY",WY,43.19888889,-108.5688889,5262.19,US/Mountain,,,,,,,,,,GP,1.008E+11
+WYCY,"Wyoming Canal, 1/4 Mile below Diversion Dam, WY",WY,43.23166667,-108.9483333,5664.87,US/Mountain,,,,,,,,,,GP,1.008E+11
+WDWY,"Winchester Ditch, WY",WY,43.23166667,-109.0255556,5700.9,US/Mountain,,,,,,,,,,GP,1.008E+11
+UWAY,"Upper Wind River, A Canal, at Headworks, WY",WY,43.40833333,-109.3125,6141.4,US/Mountain,,,,,,,,,,GP,1.008E+11
+UHWY,"Upper Hanover Canal, WY",WY,43.85333333,-108.175,4203.02,US/Mountain,,,,,,,,,,GP,1.008E+11
+UBWY,"Upper Bluff Canal, WY",WY,43.94194444,-108.0505556,4163.55,US/Mountain,,,,,,,,,,GP,1.008E+11
+BHWY,"Big Horn Canal, WY",WY,43.94527778,-108.0169444,4104.96,US/Mountain,,,,,,,,,,GP,1.008E+11
+BCWY,"Bluff Canal, WY",WY,43.87277778,-108.1344444,4185.96,US/Mountain,,,,,,,,,,GP,1.008E+11
+ARGY,"Aragon Ditch, WY",WY,43.19166667,-108.7838889,5382.17,US/Mountain,,,,,,,,,,GP,1.008E+11
+HHWY,"Highland Hanover Canal, WY",WY,43.93277778,-107.9647222,4264.66,US/Mountain,,,,,,,,,,GP,1.008E+11
+FCWY,"Ft. Laramie Canal at Milepost 0.8, WY",WY,42.24305556,-104.63,4263.09,US/Mountain,,,,,,,,,,GP,1.018E+11
+DCCY,"Dry Creek Canal, near Burris, WY",WY,43.34305556,-109.2911111,6381.22,US/Mountain,,,,,,,,,,GP,1.008E+11
+CODYWY,"Cody, WY (archive data repository for Shoshone canals)",WY,44.50138889,-109.1833333,5380.76,US/Mountain,,,,,,,,,,GP,1.008E+11
+CDCY,"Cody Canal South Fork Shoshone, WY",WY,43.23166667,-108.8944444,5625.08,US/Mountain,,,,,,,,,,GP,1.008E+11
+CCWY,"Cherry Creek Drain, WY",WY,42.03944444,-104.1686111,4075.38,US/Mountain,,,,,,,,,,GP,1.018E+11
+CAWY,"Casper Canal, WY",WY,42.73333333,-106.6441667,5468.35,US/Mountain,,,,,,,,,,GP,1.018E+11
+BHSX,"Bighorn River near St. Xavier, MT",MT,45.31666667,-107.9180556,3164.14,US/Mountain,,,,,,,,,,GP,1.008E+11
