@@ -57,17 +57,19 @@ namespace HdbApi.Controllers
             IDbConnection db = HdbController.Connect(this.Request.Headers);
 
             var sprocProcessor = new HdbApi.DataAccessLayer.SprocRepository();
-            var retVal = sprocProcessor.RunSqlSelect(db, sqlStatement);
-            db.Dispose();
+            var result = sprocProcessor.RunSqlSelect(db, sqlStatement);
+
             try
             {
                 db.Close();
+                db.Dispose();
             }
             catch
             {
 
             }
-            return Ok(retVal);
+
+            return Ok(result);
         }
 
     }

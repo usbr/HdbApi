@@ -27,7 +27,19 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var modelRunProcessor = new HdbApi.DataAccessLayer.ModelRunRepository();
-            return Ok(modelRunProcessor.GetModelRun(db, idtype.ToString(), id, modelrunname));
+            var result = modelRunProcessor.GetModelRun(db, idtype.ToString(), id, modelrunname);
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result);
         }
 
 

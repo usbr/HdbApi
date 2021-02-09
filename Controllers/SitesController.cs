@@ -25,7 +25,19 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var siteProcessor = new HdbApi.DataAccessLayer.SiteRepository();
-            return Ok(siteProcessor.GetSites(db, id));
+            var result = siteProcessor.GetSites(db, id);
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result);
         }
 
         /// <summary>

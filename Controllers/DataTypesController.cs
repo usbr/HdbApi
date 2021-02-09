@@ -24,7 +24,19 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var dtypeProcessor = new HdbApi.DataAccessLayer.DataTypeRepository();
-            return Ok(dtypeProcessor.GetDataTypes(db, id));
+            var result = dtypeProcessor.GetDataTypes(db, id);
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result);
         }
 
         /// <summary>

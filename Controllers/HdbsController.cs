@@ -112,8 +112,27 @@ namespace HdbApi.Controllers
             {
 
             }
-            // Log-in
-            return new OracleConnection("Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";");
+            // Log-in   
+            string conxString = "Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";";
+            if (user.ToLower() == "app_user" || user.ToLower().Contains("dba"))
+            {
+                conxString = "Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";" +
+                    "Min Pool Size=5;Max Pool Size=100;Connection Lifetime=120;Connection Timeout=15;" +
+                    "Incr Pool Size=5; Decr Pool Size=5";
+            }
+            //return new OracleConnection("Data Source=" + hdb + ";User Id=" + user + ";Password=" + pass + ";");
+            return new OracleConnection(conxString);
+        }
+
+
+        /// <summary>
+        /// Method to close a DB Connection
+        /// </summary>
+        /// <param name="db"></param>
+        public static void Disconnect(IDbConnection db)
+        {
+            db.Close();
+            db.Dispose();
         }
 
         

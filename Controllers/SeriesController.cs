@@ -34,7 +34,19 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var seriesProcessor = new HdbApi.DataAccessLayer.SeriesRepository();
-            return Ok(seriesProcessor.GetSeries(db, sdi, interval.ToString(), t1, t2, table.ToString(), mrid, rbase, instantMinutes)); ;
+            var result = seriesProcessor.GetSeries(db, sdi, interval.ToString(), t1, t2, table.ToString(), mrid, rbase, instantMinutes);
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result); 
         }
 
 
@@ -78,6 +90,16 @@ namespace HdbApi.Controllers
                 var result = hdbProcessor.modify_r_base_raw(db, point.site_datatype_id, point.interval, point.start_date_time, point.value, point.overwrite_flag, point.validation, point.do_update_y_or_n);//, point.loading_application_id);
             }
 
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
             return Ok(input);
         }
 
@@ -102,6 +124,16 @@ namespace HdbApi.Controllers
             foreach (Models.PointModel.ObservedPoint point in input)
             {
                 var result = hdbProcessor.delete_from_hdb(db, point.site_datatype_id, point.start_date_time, point.interval);
+            }
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
             }
 
             return Ok(input);
@@ -130,6 +162,16 @@ namespace HdbApi.Controllers
                 var result = hdbProcessor.modify_m_table_raw(db, point.model_run_id, point.site_datatype_id, point.start_date_time, point.value, point.interval, point.do_update_y_or_n);
             }
 
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
             return Ok(input);
         }
         
@@ -154,6 +196,16 @@ namespace HdbApi.Controllers
             foreach (Models.PointModel.ModeledPoint point in input)
             {
                 var result = hdbProcessor.delete_from_hdb(db, point.site_datatype_id, point.start_date_time, point.interval, point.model_run_id);
+            }
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
             }
 
             return Ok(input);
@@ -407,6 +459,17 @@ namespace HdbApi.Controllers
             var output = String.Join<string>(String.Empty, result);
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(output, System.Text.Encoding.UTF8, "text/html");
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
             return response;
         }
 
