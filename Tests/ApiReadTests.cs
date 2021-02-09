@@ -11,7 +11,7 @@ namespace HdbApi.Tests
     public class ApiReadTests
     {
         private static HdbApi.DataAccessLayer.CgiRepository cgiProcessor = new HdbApi.DataAccessLayer.CgiRepository();
-        private System.Data.IDbConnection conx = cgiProcessor.connect_hdb("lchdb2");
+        private System.Data.IDbConnection conx = cgiProcessor.connect_hdb("lchdb");
 
         [Test()]
         public void SiteEndPointQuery()

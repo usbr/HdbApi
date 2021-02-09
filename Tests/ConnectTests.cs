@@ -22,7 +22,7 @@ namespace HdbApi.Tests
         [Test()]
         public void ConnectLC()
         {
-            var conx = cgiProcessor.connect_hdb("lchdb2");
+            var conx = cgiProcessor.connect_hdb("lchdb");
             Assert.AreEqual("Closed", conx.State.ToString());
         }
 
