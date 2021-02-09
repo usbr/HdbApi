@@ -27,7 +27,19 @@ namespace HdbApi.Controllers
         {
             IDbConnection db = HdbController.Connect(this.Request.Headers);
             var sdiProcessor = new HdbApi.DataAccessLayer.SiteDataTypeRepository();
-            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi, sid, did));
+            var result = sdiProcessor.GetSiteDataTypes(db, sdi, sid, did);
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result);
         }
 
         /// <summary>
@@ -63,7 +75,19 @@ namespace HdbApi.Controllers
                 sid.Add(dType.sid);
                 did.Add(dType.did);
             }
-            return Ok(sdiProcessor.GetSiteDataTypes(db, sdi.ToArray(), sid.ToArray(), did.ToArray()));
+            var result = sdiProcessor.GetSiteDataTypes(db, sdi.ToArray(), sid.ToArray(), did.ToArray());
+
+            try
+            {
+                db.Close();
+                db.Dispose();
+            }
+            catch
+            {
+
+            }
+
+            return Ok(result);
         }
 
         public class dataTypeList
