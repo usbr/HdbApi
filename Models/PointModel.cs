@@ -73,7 +73,7 @@ namespace HdbApi.Models
             ///// <summary>
             ///// Computation ID
             ///// </summary>
-            //public int computation_id { get; set; }
+            public int computation_id { get; set; }
 
             /// <summary>
             /// Switch for inserting or updating data
