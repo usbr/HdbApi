@@ -87,7 +87,15 @@ namespace HdbApi.Controllers
             
             foreach (Models.PointModel.ObservedPoint point in input)
             {
-                var result = hdbProcessor.modify_r_base_raw(db, point.site_datatype_id, point.interval, point.start_date_time, point.value, point.overwrite_flag, point.validation, point.do_update_y_or_n);//, point.loading_application_id);
+                if (point.loading_application_id < 1)
+                {
+                    point.loading_application_id = -99;
+                }
+                if (point.computation_id < 1)
+                {
+                    point.computation_id = -99;
+                }
+                var result = hdbProcessor.modify_r_base_raw(db, point.site_datatype_id, point.interval, point.start_date_time, point.value, point.overwrite_flag, point.validation, point.do_update_y_or_n, point.loading_application_id, point.computation_id);
             }
 
             try
