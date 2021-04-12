@@ -26,13 +26,12 @@ namespace HdbApi.Controllers
             return Ok(new List<string>
             {
                 "LCHDB - LC Production HDB",
-                "LCHDB2 - LC Old Production HDB",
-                "LCHDEV - LC Test HDB",
                 "UCHDB2 - UC Production HDB",
                 "UCHDBT - UC Test HDB",
                 "YAOHDB - YAO Production HDB",
                 "ECOHDB - ECAO Production HDB",
                 "LBOHDB - LBAO Production HDB",
+                "KBOHDB - KBAO Production HDB",
                 "PNHYD - PN Production Hydromet",
                 "GPHYD - GP Production Hydromet"
             });
