@@ -80,6 +80,11 @@ namespace HdbApi.Models
             /// </summary>
             public bool do_update_y_or_n { get; set; }
 
+            /// <summary>
+            /// Data Flags
+            /// </summary>
+            public string data_flags { get; set; }
+
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace HdbApi.App_Code
         IEnumerable<dynamic> modify_r_base_raw(IDbConnection db, decimal sdi,
             string interval, // 'instant', 'other', 'hour', 'day', 'month', 'year', 'wy', 'table interval'
             DateTime t, double val, bool overwrite, //   'O'  'null' 
-            char s_validation, bool isNewEntry, int loadingApplicationId, int computationId);
+            char s_validation, bool isNewEntry, int loadingApplicationId, int computationId, string dataFlags);
 
         IEnumerable<dynamic> modify_m_table_raw(IDbConnection db, decimal mrid, decimal sdi, DateTime t, double val, string interval, bool isNewEntry);
 
@@ -69,7 +69,8 @@ namespace HdbApi.App_Code
         public IEnumerable<dynamic> modify_r_base_raw(IDbConnection db, decimal sdi,
             string interval, // 'instant', 'other', 'hour', 'day', 'month', 'year', 'wy', 'table interval'
             DateTime t, double val, bool overwrite, //   'O'  'null' 
-            char s_validation, bool isNewEntry, int loadingApplicationId = -99, int computationId = -99)
+            char s_validation, bool isNewEntry, int loadingApplicationId = -99, int computationId = -99,
+            string dataFlags = "")
         {
             LookupApplication(db);
 
@@ -101,7 +102,10 @@ namespace HdbApi.App_Code
             { p.Add("DO_UPDATE_Y_OR_N", value: "N", dbType: OracleDbType.Varchar2); }
             else
             { p.Add("DO_UPDATE_Y_OR_N", value: "Y", dbType: OracleDbType.Varchar2); }
-            p.Add("DATA_FLAGS", value: DBNull.Value, dbType: OracleDbType.Varchar2);
+            if (dataFlags == "")
+            { p.Add("DATA_FLAGS", value: DBNull.Value, dbType: OracleDbType.Varchar2); }
+            else
+            { p.Add("DATA_FLAGS", value: dataFlags.Substring(0, Math.Min(dataFlags.Length, 20)), dbType: OracleDbType.Varchar2); }
             p.Add("TIME_ZONE", value: DBNull.Value, dbType: OracleDbType.Varchar2);
 
             return db.Query<dynamic>("MODIFY_R_BASE_RAW", param: p, commandType: CommandType.StoredProcedure);
