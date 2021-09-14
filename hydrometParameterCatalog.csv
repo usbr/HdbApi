@@ -1,8 +1,32 @@
 pcode,timeinterval,units,statistic,name
+abaf,Daily,acre-feet,Inst,Yellowtail Afterbay storage content (acre-feet) (SCADA)
+abaf,Instant,acre-feet,Inst,Yellowtail Afterbay storage content (acre-feet) (SCADA)
+abfb,Instant,feet,Inst,Yellowtail Afterbay forebay elevation (feet) (SCADA)
+abgh,Instant,feet,Inst,Yellowtail Afterbay river gage height (feet) (SCADA)
 ac,Monthly,acres,Inst,End of Month Reservoir Water Surface Area
 af,Daily,acre-feet,Inst,Reservoir Water Storage
 af,Irregular,acre-ft,Inst,Reservoir Water Storage
 af,Monthly,1000 af,Inst,End of Month Reservoir Water Content
+af_act,Daily,acre-feet,Inst,Reservoir Active Storage Content (acre-feet)
+af_act,Instant,acre-feet,Inst,Reservoir Active Storage Content (acre-feet)
+af_avg,Daily,acre-feet,Inst,Reservoir Historic Average Content (acre-feet)
+af_chg,Instant,acre-feet,Inst,Reservoir Content Change from previous value (acre-feet)
+af_i,Instant,acre-feet,Inst,Reservoir Storage Content - imported data (acre-feet)
+af_in,Daily,acre-feet,Inst,Daily Mean Computed Inflow (acre-feet)
+af_low,Instant,AC-FT,Inst,Combined Lower Reservoir Content- Flatiron and Pinewood (AC-FT)
+af_mter,Daily,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af_mter,Instant,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af_opav,Daily,acre-feet,Inst,Operation Model Average Storage Content (acre-feet)
+af_pct,Daily,percent,Inst,Reservoir Storage Percent of Average (percent)
+af_t_m,Daily,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af_t_m,Instant,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af_up,Instant,acre-feet,Inst,Combined Upper Reservoir Content - Estes & Marys Lakes (acre-feet)
+af1,Daily,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af1,Instant,acre-feet,Inst,Reservoir Storage Content (acre-feet)
+af2,Instant,feet,Inst,Alternate Reservoir Storage (feet)
+af22avg,Daily,acre-feet,Inst,Last 22 Years Average Storage (acre-feet)
+af28avg,Daily,acre-feet,Inst,Last 28 Years Average Storage (acre-feet)
+af30avg,Daily,acre-feet,Inst,Last 30 Years Average Storage (acre-feet)
 afa,Monthly,1000 af,Avg,Average End of Month Reservoir Water Surface Area
 afm,Monthly,1000 af,Inst,Mid-Month Reservoir Water Content
 ap1,Monthly,feet,Inst,First Year AOP Rule Curve
@@ -11,44 +35,178 @@ ap3,Monthly,feet,Inst,Third Year AOP Rule Curve
 ap4,Monthly,feet,Inst,Fourth Year AOP Rule Curve
 arc,Monthly,feet,Inst,Assured Refill Curve
 au,Irregular,degF,Inst,Crop Canopy Temperature
+bb4x5n,Daily,feet,Inst,Buffalo Bill North 4x5 Gate (feet) (SCADA)
+bb4x5n,Instant,feet,Inst,Buffalo Bill North 4x5 Gate (feet) (SCADA)
+bb4x5s,Daily,feet,Inst,Buffalo Bill South 4x5 Gate (feet) (SCADA)
+bb4x5s,Instant,feet,Inst,Buffalo Bill South 4x5 Gate (feet) (SCADA)
+bbaf,Instant,acre-feet,Inst,Buffalo Bill Reservoir Content (acre-feet) (SCADA)
+bbfb,Instant,feet,Inst,Buffalo Bill forebay elevation (feet) (SCADA)
+bbgh,Instant,cfs,Inst,Buffalo Bill Powerplant Turbine Release (cfs) (SCADA)
+bbjv,Daily,percent,Inst,Buffalo Bill Jetflow Valve (percent) (SCADA)
+bbjv,Instant,percent,Inst,Buffalo Bill Jetflow Valve (percent) (SCADA)
+bbtw,Instant,feet,Inst,Buffalo Bill Tailwater (feet) (SCADA)
+bg,Instant,degrees,Inst,Bascule Gate Position (degrees)
 bga,Irregular,ug/L,Inst,Blue Green Algale
 bh,Daily,mmHg,Inst,Average Barometric Pressure (Sea Level)
 bh,Irregular,mmHg,Inst,Barometric Pressure (Sea Level)
+bh_a,Daily,mm of Hg,Inst,Barometric Pressure Afterbay (mm of Hg)
+bh_a,Instant,mm of Hg,Inst,Barometric Pressure Afterbay (mm of Hg)
+bh_l,Daily,mm of Hg,Inst,Barometric Pressure Left Bank (mm of Hg)
+bh_l,Instant,mm of Hg,Inst,Barometric Pressure Left Bank (mm of Hg)
+bh_r,Daily,mm of Hg,Inst,Barometric Pressure Right Bank (mm of Hg)
+bh_r,Instant,mm of Hg,Inst,Barometric Pressure Right Bank (mm of Hg)
+bhch,Instant,feet,Inst,Yellowtail Afterbay canal gage height (feet) (SCADA)
+bhfb,Instant,feet,Inst,Yellowtail forebay elevation (feet) (SCADA)
+bhqem,Daily,cfs,Inst,Yellowtail Total Acoustic Turbine Discharge (cfs) (SCADA)
+bhqem,Instant,cfs,Inst,Yellowtail Total Acoustic Turbine Discharge (cfs) (SCADA)
+bhqem1,Daily,cfs,Inst,Yellowtail Acoustic Turbine No. 1 Discharge (cfs) (SCADA) 
+bhqem1,Instant,cfs,Inst,Yellowtail Acoustic Turbine No. 1 Discharge (cfs) (SCADA) 
+bhqem2,Daily,cfs,Inst, Yellowtail Acoustic Turbine No. 2 Discharge (cfs) (SCADA)
+bhqem2,Instant,cfs,Inst, Yellowtail Acoustic Turbine No. 2 Discharge (cfs) (SCADA)
+bhqem3,Daily,cfs,Inst,Yellowtail Acoustic Turbine No. 3 Discharge (cfs) (SCADA)
+bhqem3,Instant,cfs,Inst,Yellowtail Acoustic Turbine No. 3 Discharge (cfs) (SCADA)
+bhqem4,Daily,cfs,Inst,Yellowtail Acoustic Turbine No. 4 Discharge (cfs) (SCADA)
+bhqem4,Instant,cfs,Inst,Yellowtail Acoustic Turbine No. 4 Discharge (cfs) (SCADA)
+bhqr,Instant,Missing,Inst,Missing
+bhqrd,Daily,cfs,Inst,Yellowtail Daily Mean River Discharge (cfs) (SCADA)
+bhtw,Instant,feet,Inst,Yellowtail tailwater elevation (feet) (SCADA)
 bn,Daily,inHG,Min,Minimum Barometric Pressure (Sea Level)
 bp,Daily,inHG,Avg,Average Barometric Pressure (Sea Level)
 bp,Irregular,inHg,Inst,Barometric Pressure (Sea Level)
+brfb,Instant,feet,Inst,Boysen forebay elevation (feet) (SCADA)
+brgh,Instant,feet,Inst,Boysen downstream Gage Height (feet) (SCADA)
+brjv57,Instant,feet,Inst,Boysen Reservoir 57 Jetflow Valve (feet) (SCADA)
+brjv66,Instant,feet,Inst,Boysen Reservoir 66 Jetflow Valve (feet)
+brq,Instant,cfs,Inst,Wind River Below Boysen Dam Flow (cfs)
+brtw,Instant,feet,Inst,Boysen tailwater elevation (feet) (SCADA)
 bv,Irregular,V,Inst,Battery Voltage
 bx,Daily,inHG,Max,Maximum Barometric Pressure (Sea Level)
+by_pass,Daily,cfs,Max,Sun River Diversion Dam Bypass (cfs)
+c1gh,Instant,feet,Max,Yellowtail Afterbay Canal Gate No. 1 (feet)
+c2gh,Instant,feet,Max,Yellowtail Afterbay Canal Gate No. 2 (feet)
 cc,Monthly,cfs,Avg,Canal Flow
 ced,Irregular,feet,Inst,Cell End Distance (ADVM)
+cffb,Instant,feet,Inst,Canyon Ferry forebay elevation (feet) (SCADA)
+cfhve,Daily,cfs,Inst,Helena Valley Turbine Discharge (cfs)
+cfhve,Instant,cfs,Inst,Helena Valley Turbine Discharge (cfs)
+cfhvp,Daily,cfs,Inst,Helena Valley Pump Discharge (cfs)
+cfhvp,Instant,cfs,Inst,Helena Valley Pump Discharge (cfs)
+cfq,Daily,cfs,Inst,Canyon Ferry Total Discharge (cfs)
+cfq,Instant,cfs,Inst,Canyon Ferry Total Discharge (cfs)
+cfqem,Daily,cfs,Inst,Canyon Ferry Total Acoustic Meter Turbine Discharge (cfs)
+cfqem,Instant,cfs,Inst,Canyon Ferry Total Acoustic Meter Turbine Discharge (cfs)
+cfqem1,Daily,cfs,Inst,Canyon Ferry Acoustic Turbine No. 1 Discharge (cfs) (SCADA)
+cfqem1,Instant,cfs,Inst,Canyon Ferry Acoustic Turbine No. 1 Discharge (cfs) (SCADA)
+cfqem2,Daily,cfs,Inst,Canyon Ferry Acoustic Turbine No. 2 Discharge (cfs) (SCADA)
+cfqem2,Instant,cfs,Inst,Canyon Ferry Acoustic Turbine No. 2 Discharge (cfs) (SCADA)
+cfqem3,Daily,cfs,Inst,Canyon Ferry Acoustic Turbine No. 3 Discharge (cfs) (SCADA)
+cfqem3,Instant,cfs,Inst,Canyon Ferry Acoustic Turbine No. 3 Discharge (cfs) (SCADA)
+cfqr,Daily,cfs,Inst,Canyon Ferry River Discharge (cfs)
+cfqr,Instant,cfs,Inst,Canyon Ferry River Discharge (cfs)
+cfrv,Daily,cfs,Inst,Canyon Ferry River Outlet Works Discharge (cfs) (SCADA)
+cfrv,Instant,cfs,Inst,Canyon Ferry River Outlet Works Discharge (cfs) (SCADA)
+cfrv1,Daily,cfs,Inst,Canyon Ferry River Outlet Gate No. 1 Discharge (cfs)
+cfrv1,Instant,cfs,Inst,Canyon Ferry River Outlet Gate No. 1 Discharge (cfs)
+cfrv2,Daily,cfs,Inst,Canyon Ferry River Outlet Gate No. 2 Discharge (cfs)
+cfrv2,Instant,cfs,Inst,Canyon Ferry River Outlet Gate No. 2 Discharge (cfs)
+cfrv3,Daily,cfs,Inst,Canyon Ferry River Outlet Gate No. 3 Discharge (cfs)
+cfrv3,Instant,cfs,Inst,Canyon Ferry River Outlet Gate No. 3 Discharge (cfs)
+cfrv4,Daily,cfs,Inst,Canyon Ferry River Outlet Gate No. 4 Discharge (cfs)
+cfrv4,Instant,cfs,Inst,Canyon Ferry River Outlet Gate No. 4 Discharge (cfs)
+cfrvt,Daily,cfs,Inst,Canyon Ferry River Outlet Total Discharge (cfs)
+cfs_mw,Daily,cfs,Inst,CFS per Megawatt (cfs)
+cfsp1,Daily,cfs,Inst,Canyon Ferry Spillway Gate No. 1 Discharage (cfs)
+cfsp1,Instant,cfs,Inst,Canyon Ferry Spillway Gate No. 1 Discharage (cfs)
+cfsp2,Daily,cfs,Inst,Canyon Ferry Spillway Gate No. 2 Discharage (cfs)
+cfsp2,Instant,cfs,Inst,Canyon Ferry Spillway Gate No. 2 Discharage (cfs)
+cfsp3,Daily,cfs,Inst,Canyon Ferry Spillway Gate No. 3 Discharage (cfs)
+cfsp3,Instant,cfs,Inst,Canyon Ferry Spillway Gate No. 3 Discharage (cfs)
+cfsp4,Daily,cfs,Inst,Canyon Ferry Spillway Gate No. 4 Discharage (cfs)
+cfsp4,Instant,cfs,Inst,Canyon Ferry Spillway Gate No. 4 Discharage (cfs)
+cfspl,Daily,cfs,Inst,Canyon Ferry Total Spillway Discharge (cfs)
+cfspl,Instant,cfs,Inst,Canyon Ferry Total Spillway Discharge (cfs)
+cftw,Instant,feet,Inst,Canyon Ferry tailwater elevation (feet) (SCADA)
 ch,Irregular,feet,Inst,Canal Gauge Height
+ch_b,Instant, Downstream,Inst,Gage Height
+ch_i,Instant,feet,Inst,Canal Gage Height - imported data (feet)
+ch_m,Instant,meters,Inst,Canal Gage Height (meters)
+ch1,Instant, Alternate,Inst,Canal Gage Height
 ch2,Irregular,feet,Inst,Canal Gauge Height (secondary)
 chl,Irregular,ug/L,Inst,Chlorophyll
+chlw,Instant, Lower Lucerne Canal (feet),Inst,Canal Gage Height
+chn,Instant, North Canal (Feet),Inst,Canal Gage Height
+chr,Daily,feet,Inst,Gate Open - Right (feet)
+chr,Instant,feet,Inst,Gate Open - Right (feet)
+chs,Instant, South Canal (Feet),Inst,Canal Gage Height
+chstor,Daily,acre-feet,Inst,Change in Storage (acre-feet)
+cht,Instant,feet,Inst,Canal Gage Height for Turnout (feet)
+chu,Instant, Upper Lucerne Canal (feet),Inst,Canal Gage Height
+chw,Instant, West Canal (Feet),Inst,Canal Gage Height
 ci,Monthly,cfs,Avg,Reservoir Inflow
 cl,Monthly,cfs,Avg,Local Inflow
 cm,Monthly,cfs,Avg,Recorded Inflow
 co,Irregular,degC,Inst,Air Temperature
 co,Monthly,cfs,Avg,Reservoir Outflow
+cp1,Instant,psi,Avg,Hydraulic Cylinder Pressure Gage #1 (psi)
+cp1_avg,Daily,psi,Avg,Daily Mean Cylinder Pressure Gage #1 (psi)
+cp1_max,Daily,psi,Avg,Daily Maximum Cylinder Pressure Gage #1 (psi)
+cp1_min,Daily,psi,Avg,Daily Mimimum Cylinder Pressure Gage #1 (psi)
 cr1,Monthly,feet,Inst,First Year Critical Rule Curve
 cr2,Monthly,feet,Inst,Second Year Critical Rule Curve
 cr3,Monthly,feet,Inst,Third Year Critical Rule Curve
 cr4,Monthly,feet,Inst,Fourth Year Critical Rule Curve
 cs,Monthly,1000 af,Sum,Change in Reservoir Water Storage
 cu,Monthly,cfs,Avg,Unregulated Stream Flow
+dg_a,Daily,mm of Hg,Avg,Total Dissolved Gas (mm of Hg)
+dg_a,Instant,mm of Hg,Avg,Total Dissolved Gas (mm of Hg)
+dg_l,Daily,mm of Hg,Avg,Total Dissolved Gas Left Bank (mm of Hg)
+dg_l,Instant,mm of Hg,Avg,Total Dissolved Gas Left Bank (mm of Hg)
+dg_r,Daily,mm of Hg,Avg,Total Dissolved Gas Right Bank (mm of Hg)
 do,Irregular,ppm,Inst,Water Dissolved Oxygen 
+dop_a,Daily,percent,Inst,Dissolved Oxygen Afterbay (percent)
+dop_a,Instant,percent,Inst,Dissolved Oxygen Afterbay (percent)
+dop_l,Daily,percent,Inst,Dissolved Oxygen Left Bank (percent)
+dop_l,Instant,percent,Inst,Dissolved Oxygen Left Bank (percent)
+dop_r,Daily,percent,Inst,Dissolved Oxygen Right Bank (percent)
+dp_a,Daily,feet,Inst,Water Depth Afterbay (feet)
+dp_a,Instant,feet,Inst,Water Depth Afterbay (feet)
+dp_l,Daily,feet,Inst,Water Depth Left Bank (feet)
+dp_l,Instant,feet,Inst,Water Depth Left Bank (feet)
+dp_r,Daily,feet,Inst,Water Depth Right Bank (feet)
+dv_hm,Daily,cfs,Inst,Diversion from Highline Canal to Lake Minatare (cfs)
+dwfb,Instant,feet,Inst,Buffalo Bill Division Works Forebay Elevation (feet) (SCADA)
 e95,Monthly,1000 af,,95 Percent Confidence Error
 ea,Irregular,kPa,Avg,Actual Vapor Pressure
+ec,Instant,inches,Avg,Daily Evaporation (inches)
 ecc,Monthly,feet,Inst,Energy Content Curve
 ecm,Monthly,feet,Inst,Mid-Month Energy Content Curve
+eh,Daily,inches,Inst,Pan Evaporation (inches)
 et,Daily,inches,Sum,Evapotranspiration (1982 K-P Alfalfa Reference)
 eto,Irregular,mm/hr,Sum,Evapotranspiration (ASCE Grass Reference)
 etos,Daily,inches,Sum,Evapotranspiration (ASCE Grass Reference)
 etr,Irregular,mm/hr,Sum,Evapotranspiration (ASCE Alfalfa Reference)
 etrs,Daily,inches,Sum,Evapotranspiration (ASCE Alfalfa Reference)
+ev,Daily,acre-feet,Sum,Daily Evaporation (acre-feet)
+ev,Instant,acre-feet,Sum,Daily Evaporation (acre-feet)
+evf,Daily,Evaporation Factor,Sum,Daily Evaporation Factor (Evaporation Factor)
 fb,Daily,feet,Inst,Reservoir Water Surface Elevation
 fb,Irregular,feet,Inst,Reservoir Water Surface Elevation
 fb,Monthly,feet,Inst,End of Month Reservoir Water Surface Elevation
+fb_chg,Daily,feet,Inst,Maximum Change in Forebay Elevation (feet)
+fb_i,Instant,feet,Inst,Reservoir Forebay Elevation - imported data (feet)
+fb_m,Daily,meters,Inst,Reservoir Forebay Elevation (meters)
+fb_m,Instant,meters,Inst,Reservoir Forebay Elevation (meters)
+fb_mter,Daily,meters,Inst,Reservoir Elevation (meters)
+fb_mter,Instant,meters,Inst,Reservoir Elevation (meters)
+fb_pn,Instant,ft,Inst,Pool Elevation at Penstocks (ft)
+fb_r,Instant,feet,Inst,Reservoir Forebay Elevation Radar (feet)
+fb_ss,Instant,ft,Inst,Pool Elevation at Siphon Spillway (ft)
+fb_ww,Instant,ft,Inst,Pool Elevation on Canal at Wasteway Gates (ft)
+fb1,Daily,feet,Inst,Reservoir Forebay Elevation (feet)
+fb1,Instant,feet,Inst,Reservoir Forebay Elevation (feet)
 fb2,Irregular,feet,Inst,Reservoir Water Surface Elevation (secondary)
+fb28avg,Daily,feet,Inst,Last 28 Years Average Elevation (feet)
+fb30avg,Daily,feet,Inst,Last 30 Years Average Elevation (feet)
 fc,Monthly,1000 af,Inst,First of Month Residual Operating Forecast
 fch,Monthly,1000 af,Inst,150% First of Month Residual Operating Forecast
 fcl,Monthly,1000 af,Inst,50% First of Month Residual Operating Forecast
@@ -61,29 +219,69 @@ fda,Monthly,1000 af,Inst,DEC-AUG Forecast
 fdj,Monthly,1000 af,Inst,DEC-JUN Forecast
 fjj,Monthly,1000 af,Inst,JAN-JUN Forecast
 fjy,Monthly,1000 af,Inst,JAN-JUL Forecast
+fn,Daily,feet,Inst,Daily Minimum Forebay Elevation (feet)
 fny,Monthly,1000 af,Inst,NOV-JUL Forecast
 foj,Monthly,1000 af,Inst,OCT-JUN Forecast
 fos,Monthly,1000 af,Inst,OCT-SEP Forecast
 foy,Monthly,1000 af,Inst,OCT-JUL Forecast
+fx,Daily,feet,Inst,Daily Maximum Forebay Elevation (feet)
+g230avg,Daily,cfs,Inst,Last 30 years average Gain2 (cfs)
 gain,Daily,cfs,Avg,Average Gain
+gain2,Daily,cfs,Avg,Daily River Basin Gain between BBR/BOYR and BHR (cfs)
 gd,Daily,feet,Avg,Average Stream Stage
+gd1,Daily,feet,Avg,Alternate Daily Average Gage Height (feet)
 gh,Irregular,feet,Inst,River Water Surface Gauge Height
+gh_i,Instant,feet,Inst,Gage Height - imported data (feet)
+gh_m,Instant,meters,Inst,Gage Height (meters)
+gh1,Instant,feet,Inst,Alternate Gage Height (feet)
 gh2,Irregular,feet,Inst,River Water Surface Gauge Height (secondary)
 gj,Daily,feet,Avg,Average Canal Stage
+gj_b,Daily,feet,Avg,Canal Gage Height (feet)
+gj1,Daily,feet,Avg,Alternate Daily Mean Canal Gage Height (feet)
+gjlw,Daily,feet,Avg,Daily Mean Lower Lucerne Canal Gage Height (feet)
+gjn,Daily,feet,Avg,Daily Mean North Canal Gage Height (feet)
+gjs,Daily,feet,Avg,Daily Mean South Canal Gage Height (feet)
+gjt,Daily,feet,Avg,Daily Mean Canal Gage Height for Turnout (feet)
+gju,Daily,Missing,Avg,Missing
+gjw,Daily,cfs,Avg,Daily Mean West Canal Discharge (cfs)
 gro,Monthly,deg/date,Sum,"Growing Season (DegF,MMDD,MMDD)"
 gz,Irregular,feet,Inst,Fish Screen Bypass Gauge Height
+h_diff,Instant, Instantaneous (feet),Inst,CHO Head Differential
+hcgh,Instant,feet,Inst,Heart Mountain Canal Gage Height (feet) (SCADA)
+hd_diff,Daily,feet,Inst,Head Differential (feet)
 hh,Daily,feet,Avg,Canal Daily Average Shift
+hh_i,Instant,feet,Avg,Gage Height Shift - imported data (feet)
+hh_m,Instant,meters,Avg,Gage Height Shift (meters)
+hh1,Daily,feet,Avg,Alternate Gage Height Shift (feet)
+hh1,Instant,feet,Avg,Alternate Gage Height Shift (feet)
 hist,Monthly,1000 af,Inst,Historic Regenerated First of Month Forecast
 hj,Daily,feet,Avg,Stream Daily Average Shift
+hjlw,Instant, Lower Lucerne (feet),Avg,Canal Gage Height Shift
+hju,Instant, Upper Lucerne (feet),Avg,Canal Gage Height Shift
 hk,Irregular,feet,Inst,Diversion Pool Water Surface Elevation
+hmch,Instant,cfs,Inst,Heart Mountain Canal Discharge (cfs) (SCADA)
+hmfb,Instant,feet,Inst,Heart Mountain Powerplant Forebay Elevation (feet) (SCADA)
+hmtw,Instant,feet,Inst,Heart Mountain Powerplant Tailwater Elevation (feet) (SCADA)
 hp,Irregular,hours,Sum,Hours Pumped
 hq,Irregular,ft/sec,Avg,Water Velocity
 hqx,Irregular,ft/sec,Inst,Water Velocity X Component
 hqy,Irregular,ft/sec,Inst,Water Velocity Y Component
 id,Daily,cfs,Avg,Computed Average Reservoir Inflow
+ig,Daily,cfs,Avg,Daily Gain (cfs)
 im,Monthly,1000 af,Avg,Reservoir Inflow
 ima,Monthly,1000 af,Avg,Average Reservoir Inflow
 in,Daily,cfs,Avg,Daily Mean Computed Inflow
+in_4nat,Instant, Prev. 4-Hour Average (cfs),Avg,Computed Natural Inflow
+in_g,Daily,cfs,Avg,Daily Mean Computed Gross Inflow (cfs)
+in_nat,Daily,cfs,Avg,Computed Average Natural Inflow (cfs)
+in_nat,Instant,cfs,Avg,Computed Average Natural Inflow (cfs)
+in_nat24,Instant, Computed,Avg,Natural Inflow
+in_nathr,Instant, Computed,Avg,Natural Inflow
+in30avg,Daily,cfs,Avg,Last 30 years average inflow (cfs)
+in30pct,Daily,percent,Avg,Daily Inflow Percent of 30 Year Average (percent)
+ind_nat,Daily,cfs,Avg,Daily Mean Natural Inflow (cfs)
+inmd,Daily,cfs,Avg,Daily Mean Measured Inflow (cfs)
+innat_i,Instant,cfs,Avg,Average Natural Inflow Imported (cfs)
 lec,Monthly,feet,Inst,Lower Limit Energy Content Curve
 ls,Irregular,acre-ft,Inst,Lake Water Storage
 lw,Irregular,kOhms,Inst,Leaf Wetness
@@ -92,6 +290,10 @@ mm,Monthly,degF,Avg,Average Air Temperature
 mn,Daily,degF,Min,Minimum Air Temperature
 mn,Monthly,degF,Min,Minimum Air Temperature
 mrc,Monthly,degF,Inst,Mandatory Rule Curve
+mw1,Daily,mwh,Inst,Unit #1 Daily Generation (mwh)
+mw2,Daily,mwh,Inst,Unit #2 Daily Generation (mwh)
+mw3,Daily,mwh,Inst,Unit #3 Daily Generation (mwh)
+mw4,Daily,mwh,Inst,Unit #4 Daily Generation (mwh)
 mx,Daily,degF,Max,Maximum Air Temperature
 mx,Monthly,degF,Max,Maximum Air Temperature
 nt,Daily,mmHg,Inst,Water Total Dissolved Gas
@@ -100,65 +302,203 @@ ob,Irregular,degF,Inst,Instantaneous Air Temperature
 obm,Irregular,degF,Avg,Average Air Temperature
 obn,Irregular,degF,Min,Minimum Air Temperature
 obx,Irregular,degF,Max,Maximum Air Temperature
+og1,Instant,feet,Max,Orifice Gate No. 1 Opening (feet)
+og1d,Daily,feet,Max,Orifice Gate No. 1 Daily Average Opening (feet)
+og2,Instant,feet,Max,Orifice Gate No. 2 Opening (feet)
+og2d,Daily,feet,Max,Orifice Gate No. 2 Daily Average Opening (feet)
 olk,Monthly,,Inst,"Weather Outlook: N=0, SN=-1, AN=+1"
 om,Monthly,1000 af,Sum,Reservoir Outflow
 oma,Monthly,1000 af,Avg,Average Reservoir Outflow
+p1,Instant,voltage,Avg,Pump No. 1 (voltage)
+p2,Instant,voltage,Avg,Pump No. 2 (voltage)
+p3,Instant,voltage,Avg,Pump No. 3 (voltage)
 pc,Daily,inches,Inst,Cummulative Precipitation
 pc,Irregular,inches,Inst,Cummulative Precipitation
+pc2,Instant,inches,Inst,Daily Percip (inches)
 pca,Monthly,1000 af,Inst,Principle Components First of Month Forecast
+pcn,Instant,voltage,Inst,Pump Canal North (voltage)
+pcs,Instant,voltage,Inst,Pump Canal South (voltage)
+pctfull,Daily,percent,Inst,Reservoir Storage Percent of Full (percent)
 pdr,Monthly,cfs,Inst,Power Discharge Requirements
 pe,Daily,inches,Sum,Total Pan Evaporation
+ph_a,Daily,hydrogen ions per liter,Sum,Water Acidity Afterbay (hydrogen ions per liter)
+ph_a,Instant,hydrogen ions per liter,Sum,Water Acidity Afterbay (hydrogen ions per liter)
+ph_l,Daily,hydrogen ions per liter,Sum,Water Acidity Left Bank (hydrogen ions per liter)
+ph_l,Instant,hydrogen ions per liter,Sum,Water Acidity Left Bank (hydrogen ions per liter)
+ph_r,Daily,hydrogen ions per liter,Sum,Water Acidity Right Bank (hydrogen ions per liter)
 pi,Irregular,inches,Sum,Incremental Precipitation
 pm,Monthly,inches,Sum,Precipitation
 pma,Monthly,inches,Avg,Average Precipitation
 pp,Daily,inches,Sum,Daily Total Precipitation
 pp,Monthly,inches,Sum,Precipitation from Telemetry
+pp_eff,Daily,percent,Sum,Powerplant Efficiency (percent)
+ppq,Instant,cfs,Sum,Shoshone Municipal Pipeline (cfs) (SCADA)
+psat,Daily,percent,Sum,Percent Total Saturation (percent)
+psat_a,Daily,percent,Sum,Total Gas Saturation Afterbay (percent)
+psat_a,Instant,percent,Sum,Total Gas Saturation Afterbay (percent)
+psat_l,Daily,percent,Sum,Total Gas Saturation Left Bank (percent)
+psat_l,Instant,percent,Sum,Total Gas Saturation Left Bank (percent)
+psat_r,Daily,percent,Sum,Total Gas Saturation Right Bank (percent)
+psat_r,Instant,percent,Sum,Total Gas Saturation Right Bank (percent)
+psatmn,Daily,percent,Sum,Daily Minimum Percent of Nitrogen Saturation (percent)
+psatmx,Daily,percent,Sum,Daily Maximum Percent of Nitrogen Saturation (percent)
 pu,Daily,inches,Sum,Cummulative Water Year Precipitation
 pv,Monthly,inches,Sum,Pan Evaporation
 px,Daily,inches,Sum,Mannually Observed Daily Total Precipitation
 q,Irregular,cfs,Inst,Discharge
+q_fh,Daily,cfs,Inst,Discharge (cfs)
+q_i,Instant,cfs,Inst,Total Discharge - imported data (cfs)
+q_m,Instant, instantaneous (cms),Inst,Total Discharge
+q1,Instant,cfs,Inst,Alternate Discharge (cfs)
 qa,Monthly,1000 af,Avg,Stream Flow Adjusted for Storage
+qa27,Daily,cfs,Avg,Interstate Canal (cfs)
+qbp,Daily,cfs,Avg,Daily Mean River Bypass (cfs)
+qbp,Instant,cfs,Avg,Daily Mean River Bypass (cfs)
 qc,Irregular,cfs,Inst,Canal Discharge
 qc,Monthly,1000 af,Avg,Canal Flow
+qc_g,Instant,gpm,Avg,Canal Discharge (gpm)
+qc_i,Instant, Instantaneous (cfs),Avg,Canal Discharge - imported data
+qc_tot,Instant, Canal Total (cfs),Avg,Discharge
+qc1,Instant,cfs,Avg,Alternate Canal Discharge (cfs)
+qc2,Instant,cfs,Avg,Alternate Canal Discharge (cfs)
+qc3,Instant,cfs,Avg,Alternate Canal Discharge (cfs)
+qcaf,Instant, cumulative (acre-feet),Avg,Canal Discharge
+qcl,Instant,cfs,Avg,Lateral Discharge (cfs)
+qcld,Daily,cfs,Avg,Daily Mean Lateral Discharge (cfs)
+qclw,Instant, Lower Lucerne Canal (cfs),Avg,Discharge
+qcn,Instant,cfs,Avg,North Canal Discharge (cfs)
+qcr,Instant, Right Canal (cfs),Avg,Discharge
+qcs,Instant,cfs,Avg,South Canal Discharge (cfs)
+qct,Instant,cfs,Avg,Turnout Discharge from Wasteway (cfs)
+qcu,Instant, Upper Lucerne Canal (cfs),Avg,Discharge
 qd,Daily,cfs,Avg,Average Stream Discharge
+qd_af,Daily,acre-feet,Avg,Daily Mean Total Discharge (acre-feet)
+qd_bal,Daily,-,Avg,Flow in Excess or Deficit (-) of Canadian Share (cfs)
+qd_blck,Daily,cfs,Avg,Daily Mean AF.QD WRCH Minus AF.QD BLCK (cfs)
+qd_holm,Daily,cfs,Avg,Daily Mean AF.QD HOLM (cfs)
+qd_nat,Daily,cfs,Avg,Daily Mean Total Milk River Natural Flow below Fresno (cfs)
+qd_wrsy,Daily,cfs,Avg,Estimated Daily Mean Flow of Wind River above Boysen (cfs)
+qd1,Daily,cfs,Avg,Alternate Daily Mean Total Discharge (cfs)
+qd30avg,Daily,cfs,Avg,Last 30 years average Discharge (cfs)
 qdx,Daily,cfs,Avg,WATSTORE Daily Mean Discharge
 qe,Daily,cfs,Avg,Power Discharge
 qe,Irregular,cfs,Inst,Power Discharge
+qe1,Instant,cfs,Inst,Discharge Turbine No. 1 (cfs)
+qe1d,Daily,cfs,Inst,Daily Mean Power Turbine No. 1 Discharge (cfs)
+qe2,Instant,cfs,Inst,Discharge Turbine No. 2 (cfs)
+qe2d,Daily,cfs,Inst,Daily Mean Power Turbine No. 2 Discharge (cfs)
+qe3d,Daily,cfs,Inst,Daily Mean Power Turbine No. 3 Discharge (cfs)
 qebbd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Buffalo Bill 
+qed,Daily,cfs,Avg,Daily Mean Power Turbine Discharge (cfs)
 qehd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge
+qehv,Instant,cfs,Avg,Turbine Discharge for Helena Valley (cfs)
+qehvd,Daily,cfs,Avg,Daily Mean Turbine Discharge for Helena Valley (cfs)
 qesd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Shoshone 
 qespd,Daily,cfs,Avg,Daily Mean Power Turbine Discharge Spirit Mtn 
+qev,Daily,cfs,Avg,Daily Mean Evaporation Rate (cfs)
+qev,Instant,cfs,Avg,Daily Mean Evaporation Rate (cfs)
+qitl,Daily,cfs,Avg,Interstate Canal (cfs)
 qj,Daily,cfs,Avg,Average Canal Discharge
+qj_fdr,Daily,cfs,Avg,Daily Mean Feeder Canal Discharge (cfs)
+qj_g,Daily,gpm,Avg,Daily Mean Canal Discharge (gpm)
+qj_gal,Daily,gpd,Avg,Daily Mean Canal Discharge (gpd)
+qj_psc,Daily,cfs,Avg,Daily Pishkun Supply Canal Discharge (cfs)
+qj_tot,Daily,cfs,Avg,Daily Mean Total Canal Discharge (cfs)
+qj_wcfc,Daily,cfs,Avg,Daily Willow Creek Feeder Canal Discharge (cfs)
 qjd,Daily,cfs,Avg,Daily Mean Deaver Canal Discharge 
+qjet,Instant,cfs,Avg,Discharge Jet Gates (cfs)
+qjet2,Instant,cfs,Avg,Discharge Jet Gate No. 2 (cfs)
+qjet4,Instant,cfs,Avg,Discharge Jet Gate No. 4 (cfs)
+qjetd,Daily,cfs,Avg,Daily Mean Discharge Jet Gates (cfs)
 qjg,Daily,cfs,Avg,Daily Mean Garland Canal Discharge 
+qji,Daily,cfs,Avg,Canal Inflow (cfs)
+qjlw,Daily,cfs,Avg,Daily Mean Lower Lucerne Canal Discharge (cfs)
+qjn,Daily,cfs,Avg,Daily North Canal Discharge (cfs)
+qjs,Daily,cfs,Avg,Daily South Canal Discharge (cfs)
+qjt,Daily,cfs,Avg,Daily Mean Turnout Discharge from Wasteway (cfs)
+qju,Daily,cfs,Avg,Daily Mean Upper Lucerne Canal Discharge (cfs)
 qjw,Daily,cfs,Avg,Daily Mean West Canal Discharge 
 ql,Monthly,1000 af,Avg,Local Inflow
 qm,Monthly,1000 af,Avg,Recorded Stream Flow
+qn,Daily,cfs,Avg,Daily Minimum Discharge (cfs)
+qop,Instant,cfs,Avg,Pipline Flow from Otero Pipeline (cfs)
 qp,Daily,cfs,Avg,Average Pump Discharge
+qphv,Instant,cfs,Avg,Discharge Pumped to Helena Valley (cfs)
+qphvd,Daily,cfs,Avg,Daily Mean Discharge Pumped to Helena Valley (cfs)
 qr,Irregular,cfs,Inst,Regulating Gate Discharge
+qr_bp,Instant,cfs,Inst,Reservoir Release through the Bypass Valve (cfs)
 qrd,Daily,cfs,Avg,Average Stream Discharge Duplicate
+qrd_30,Daily,cfs,Avg,30 Year Historic Average River Dischage (cfs)
+qriv,Daily,cfs,Avg,Daily Mean Flow at River Gage (cfs)
 qrivs,Daily,cfs,Avg,Daily Mean Release to Shoshone w/o Springs 
+qro,Instant,cfs,Avg,Regulating Outlet Discharge (cfs)
+qrod,Daily,cfs,Avg,Daily Mean Regulating Outlet Discharge (cfs)
 qs,Irregular,cfs,Inst,Spillway Discharge
+qsa,Instant,cfs,Inst,Spillway Gate #1 Discharge (cfs)
+qsb,Instant,cfs,Inst,Spillway Gate #2 Discharge (cfs)
+qsc,Instant,cfs,Inst,Spillway Gate #3 Discharge (cfs)
 qsd,Daily,cfs,Avg,Average Spillway Discharge
+qspg,Daily,cfs,Avg,Inflow to Shoshone River from the springs (cfs)
 qt,Daily,cfs,Inst,Totalled Average Discharge
 qt,Irregular,cfs,Inst,Total Powerplant Flow
 qu,Daily,cfs,Avg,Estimated Average Unregulated Flow
 qu,Monthly,1000 af,Avg,Unregulated Stream Flow
 qua,Monthly,1000 af,Avg,Average Unregulated Stream Flow
+qud,Daily,cfs,Avg,Daily Mean Computed Unregulated Flow (cfs)
+qud_can,Daily,cfs,Avg,Canadian share of natural flow (cfs)
+qud_us,Daily,cfs,Avg,United States share of natural flow (cfs)
+qux,Daily,cfs,Avg,Daily Mean Computed Unregulated USGS Flow (cfs)
 qv,Daily,cfs,Avg,Power Discharge
+qv4x5,Daily,cfs,Avg,Discharge through the 4 by 5 Gates (cfs)
+qvjf,Daily,cfs,Avg,Discharge through the Jet Flow Gate (cfs)
 qx,Daily,cfs,Max,Maximum Discharge
 qz,Irregular,cfs,Inst,Secondary Discharge
 qzd,Daily,cfs,Avg,Mean Daily Municipal Use Discharge 
+r_bp,Daily,% open,Avg,Bypass Opening (% open)
+r_bp,Instant,% open,Avg,Bypass Opening (% open)
+r1gh,Instant,feet,Avg,Gate No. 1 Gage Height (feet)
+r2gh,Instant,feet,Avg,Gate No. 2 Gage Height (feet)
+r2ghd,Daily,feet,Avg,Daily Mean Gate No. 2 Opening (feet)
+r3gh,Instant,feet,Avg,Gate No. 3 Gage Height (feet)
+r4gh,Instant,feet,Avg,Gate No. 4 Gage Height (feet)
+r4ghd,Daily,feet,Avg,Daily Mean Gate No. 4 Opening (feet)
+r5gh,Instant,feet,Avg,Gate No. 5 Gage Height (feet)
+ra,Instant,feet,Avg,Gate #1 Opening (feet)
 rad,Daily,feet,Avg,Gate 1 Opening
+rai,Instant,inches,Avg,Gate #1 Opening (inches)
+raid,Daily,inches,Avg,Daily Mean Gate #1 Opening (inches)
+rb,Instant,feet,Avg,Gate #2 Opening (feet)
 rbd,Daily,feet,Avg,Gate 2 Opening
+rbi,Instant,inches,Avg,Gate #2 Opening (inches)
+rbid,Daily,inches,Avg,Daily Mean Gate #2 Opening (inches)
+rc,Instant,feet,Avg,Gate #3 Opening (feet)
 rcd,Daily,feet,Avg,Gate 3 Opening
+rcx,Instant,percent,Avg,Auxilliary Gate Opening (percent)
+rcxd,Daily,percent,Avg,Daily Mean Auxilliary Gate Opening (percent)
+rd,Instant,feet,Avg,Gate #4 Opening (feet)
+rdd,Daily,feet,Avg,Daily Mean Gate #4 Opening (feet)
+re,Instant,feet,Avg,Gate #5 Opening (feet)
+red,Daily,feet,Avg,Daily Mean Gate #5 Opening (feet)
 rf,Monthly,1000 af,Avg,Return Flow
+rfd,Daily,feet,Avg,Daily Mean Gate #6 Opening (feet)
+rh,Instant,feet,Avg,Gate #8 Opening (feet)
+rhd,Daily,feet,Avg,Daily Mean Gate #8 Opening (feet)
 rhn,Daily,percent,Min,Minimum Relative Humidity
+s1gh,Instant,feet,Min,Yellowtail Afterbay Sluice Gate No. 1 (feet)
+s2gh,Instant,feet,Min,Yellowtail Afterbay Sluice Gate No. 2 (feet)
+s3gh,Instant,feet,Min,Yellowtail Afterbay Sluice Gate No. 3 (feet)
+sattemp,Instant,degrees F,Min,Satellite Transmitter Temperature (degrees F)
+scgh,Instant,cfs,Min,Shoshone Conduit below Buffalo Bill Powerplant (cfs) (SCADA)
 sd,Irregular,inches,Inst,Snow Depth
 sd,Monthly,inches,Inst,First of Month Snow Depth
 se,Daily,inches,Inst,Snow Water Content
 se,Irregular,inches,Inst,Snow Water Content
 se,Monthly,inches,Inst,First of Month Snow Water Content (Snotel)
+se_avg,Daily,inches,Inst,Snow Water Equivalent Average (inches)
+se_pct,Daily,percent,Inst,Snow Water Equivalent Percent of Average (percent)
+sebh,Daily,inches,Inst,Snow Water Equivalent Bighorn Drainage (inches)
+sebh_av,Daily,inches,Inst,Snow Water Equivalent Average Bighorn Drainage (inches)
+sebh_pc,Daily,percnt,Inst,Snow Water Equivalent Percent Ave Bighorn Drainage (percnt)
 sem,Monthly,inches,Inst,Mid-Month Snow Water Content (Snotel)
 sg,Monthly,inches,Inst,First of Month Snow Water Content (Snotel Ground-Truth)
 sgm,Monthly,inches,Inst,Mid-Month Snow Water Content (Snotel Ground-Truth)
@@ -166,19 +506,48 @@ si,Irregular,langleys/hr,Avg,Incremental Solar Radiation
 sk,Monthly,inches,Inst,First of Month Snow Water Content (Snotel)
 sl,Irregular,degF,Inst,Soil Temperature (1in)
 sm,Monthly,inches,Inst,First of Month Soil Moisture
+sm2,Daily,percent,Inst,Soil Moisture at 2 inch Depth (percent)
+sm2,Instant,percent,Inst,Soil Moisture at 2 inch Depth (percent)
+sm20,Daily,percent,Inst,Soil Moisture at 20 inch Depth (percent)
+sm20,Instant,percent,Inst,Soil Moisture at 20 inch Depth (percent)
+sm4,Daily,percent,Inst,Soil Moisture at 4 inch Depth (percent)
+sm4,Instant,percent,Inst,Soil Moisture at 4 inch Depth (percent)
+sm40,Daily,degrees F,Inst,Soil Temperature at 40 inch Depth (degrees F)
+sm40,Instant,degrees F,Inst,Soil Temperature at 40 inch Depth (degrees F)
+sm8,Daily,percent,Inst,Soil Moisture at 8 inch Depth (percent)
+sm8,Instant,percent,Inst,Soil Moisture at 8 inch Depth (percent)
 sma,Monthly,inches,Avg,Average Snow Moisture Accumulation
+smedpsi,Daily,psi,Avg,Water Pressure used to Determine Head on Spirit Mtn (psi)
+smfb,Instant,feet,Avg,Spirit Mountain Forebay Elevation (feet) (SCADA)
+smgh,Instant,feet,Avg,Spirit Mountain Gage Height (feet) (SCADA)
 so,Daily,inches,Sum,Cummulative Water Year Snow Water Equivalent
 sp,Daily,inches,Inst,Snow Water Equivalent
 sp,Irregular,inches,Inst,Snow Water Equivalent
 sp,Monthly,inches,Inst,First of Month Snow Water Content (Hydromet Snow Pillow)
+sp1,Instant,psi,Inst,Hydraulic System Pressure Gage #1 (psi)
+sp1_avg,Daily,psi,Inst,Daily Mean System Pressure Gage #1 (psi)
+sp1_max,Daily,psi,Inst,Daily Maximum System Pressure Gage #1 (psi)
+sp1_min,Daily,psi,Inst,Daily Minimum System Pressure Gage #1 (psi)
 spm,Monthly,inches,Inst,Mid-Month Snow Water Content (Hydromet Snow Pillow)
 sq,Irregular,langleys,Sum,Cummulative Solar Radiation
 sq2,Irregular,langleys,Sum,Cummulative Diffuse Solar Radiation
 sr,Daily,Langleys,Sum,Global Solar Radiation
 sr2,Daily,Langleys,Sum,Diffuse Solar Radiation
+srgh,Instant,feet,Sum,Shoshone River gage height (feet) (SCADA)
 ss,Monthly,inches,Inst,First of Month Snow Water Content (Hydromet Isotopic)
 ssc,Irregular,count,Inst,Signal Strength Counts
 ssm,Monthly,inches,Inst,Mid-Month Snow Water Content (Hydromet Isotopic)
+st2,Daily,degrees F,Inst,Soil Temperature at 2 inch Depth (degrees F)
+st2,Instant,degrees F,Inst,Soil Temperature at 2 inch Depth (degrees F)
+st20,Daily,degrees F,Inst,Soil Temperature at 20 inch Depth (degrees F)
+st20,Instant,degrees F,Inst,Soil Temperature at 20 inch Depth (degrees F)
+st4,Daily,degrees F,Inst,Soil Temperature at 4 inch Depth (degrees F)
+st4,Instant,degrees F,Inst,Soil Temperature at 4 inch Depth (degrees F)
+st40,Daily,degrees F,Inst,Soil Temperature at 40 inch Depth (degrees F)
+st40,Instant,degrees F,Inst,Soil Temperature at 40 inch Depth (degrees F)
+st8,Daily,degrees F,Inst,Soil Temperature at 8 inch Depth (degrees F)
+st8,Instant,degrees F,Inst,Soil Temperature at 8 inch Depth (degrees F)
+stmb_qd,Daily,cfs,Inst,St. Mary River at Boundary Discharge (cfs)
 su,Monthly,inches,Inst,First of Month Snow Water Content (Snow Course)
 sua,Monthly,inches,Avg,Average Snow Water Content Accumulation
 sue,Monthly,inches,Inst,Estimated First of Month Snow Water Content (Snow Course)
@@ -200,16 +569,33 @@ tun,Irregular,percent,Min,Minimum Relative Humidity
 tux,Irregular,percent,Max,Maximum Relative Humidity
 tv,Irregular,degF,Inst,Valve House Temperature
 tw,Irregular,feet,Inst,Tailbay Surface Water Elevation
+twmn,Daily,feet,Inst,Daily Mean Tailwater Elevation (feet)
+twmx,Daily,feet,Inst,Daily Maximum Tailwater Elevation (feet)
+u1q,Instant,cfs,Inst,Power Turbine #1 Discharge (cfs)
+u2q,Instant,cfs,Inst,Power Turbine #2 Discharge (cfs)
+u3q,Instant,cfs,Inst,Power Turbine #3 Discharge (cfs)
 ua,Daily,mph,Avg,Average Wind Speed
 ud,Daily,degAz,Avg,Resultant Wind Direction
 ui,Irregular,miles,Sum,Cummulative Wind Run
 ui2,Irregular,miles,Sum,Cummulative Wind Run (2ft)
+uq,Daily,cfs,Sum,Powerplant Flow Rate (cfs)
+uq,Instant,cfs,Sum,Powerplant Flow Rate (cfs)
+uqavg,Instant,cfs,Sum,Power Turbine Average Discharge (cfs)
+v1,Daily,gwh,Sum,Unit No. 1 Hourly Generation (gwh)
+v1,Instant,gwh,Sum,Unit No. 1 Hourly Generation (gwh)
+v2,Daily,gwh,Sum,Unit No. 2 Hourly Generation (gwh)
+v2,Instant,gwh,Sum,Unit No. 2 Hourly Generation (gwh)
+v3,Daily,gwh,Sum,Unit No. 3 Hourly Generation (gwh)
+v3,Instant,gwh,Sum,Unit No. 3 Hourly Generation (gwh)
+v4,Daily,gwh,Sum,Unit No. 4 Hourly Generation (gwh)
+v4,Instant,gwh,Sum,Unit No. 4 Hourly Generation (gwh)
 vb,Irregular,feet,Inst,Gage Height
 vea,Monthly,feet,Inst,Variable Energy Content Curve (APR Forecast)
 vec,Monthly,feet,Inst,Variable Energy Content Curve
 vee,Monthly,feet,Inst,Variable Energy Content Curve (JUN Forecast)
 vef,Monthly,feet,Inst,Variable Energy Content Curve (FEB Forecast)
 vej,Monthly,feet,Inst,Variable Energy Content Curve (JAN Forecast)
+vel,Instant,Feet per second,Inst,Velocity Magnitude from SONTEC Meter (Feet per second)
 vem,Monthly,feet,Inst,Variable Energy Content Curve (MAR Forecast)
 vey,Monthly,feet,Inst,Variable Energy Content Curve (MAY Forecast)
 vg,Monthly,GWH,Sum,Monthly Total Power Generation
@@ -219,10 +605,14 @@ vmf,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (FEB Forecast)
 vmj,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (JAN Forecast)
 vmm,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (MAR Forecast)
 vmy,Monthly,feet,Inst,Mid-Month Variable Energy Content Curve (MAY Forecast)
+vt,Daily,mwh,Inst,Total Daily Energy Generation (mwh)
 vt_bb,Daily,mwh,Sum,Total Buffalo Bill Powerplant Daily Energy Generation 
 vt_hm,Daily,mwh,Sum,Total Heart Mountain Powerplant Daily Energy Generation 
 vt_sh,Daily,mwh,Sum,Total Shoshone Powerplant Daily Energy Generation 
 vt_sp,Daily,mwh,Sum,Total Spirit Mountain Powerplant Daily Energy Generation 
+vt1,Instant,mwh,Sum,Unit #1 Daily Generation (mwh)
+vt2,Instant,mwh,Sum,Unit #2 Daily Generation (mwh)
+vt3,Instant,mwh,Sum,Unit #3 Daily Generation (mwh)
 vv,Irregular,MW,Inst,Power Generation
 wa,Monthly,miles,Sum,Cummulative Wind Travel
 wc,Irregular,degC,Inst,Water Temperature
@@ -230,12 +620,24 @@ wc2,Irregular,degC,Inst,Water Temperature
 wd,Irregular,degAz,Avg,Wind Direction 
 wds,Irregular,deg,StDev,Wind Direction Standard Deviation
 we,Irregular,uMHOS/cm,Inst,Water Specific Conductance
+we_a,Daily,microsiemens per centimeter,Inst,Specific Conductance Afterbay (microsiemens per centimeter)
+we_a,Instant,microsiemens per centimeter,Inst,Specific Conductance Afterbay (microsiemens per centimeter)
+we_l,Daily,microsiemens per centimeter,Inst,Specific Conductance Left Bank (microsiemens per centimeter)
+we_l,Instant,microsiemens per centimeter,Inst,Specific Conductance Left Bank (microsiemens per centimeter)
+we_r,Daily,microsiemens per centimeter,Inst,Specific Conductance Right Bank (microsiemens per centimeter)
 wf,Irregular,degF,Inst,Water Temperature
+wf_a,Daily,degrees F,Inst,Water Temperature Afterbay (degrees F)
+wf_a,Instant,degrees F,Inst,Water Temperature Afterbay (degrees F)
+wf_l,Daily,degrees F,Inst,Water Temperature Left Bank (degrees F)
+wf_l,Instant,degrees F,Inst,Water Temperature Left Bank (degrees F)
+wf_r,Daily,degrees F,Inst,Water Temperature Right Bank (degrees F)
 wf2,Irregular,degF,Inst,Water Temperature (secondary)
 wg,Daily,mph,Max,Peak Wind Gust
 wg,Irregular,mph,Max,Peak Wind Gust
+wgd,Daily,mph,Max,Daily Peak Wind Gust (mph)
 wi,Daily,degF,Min,Minimum Water Temperature
 wk,Daily,degF,Max,Maximum Water Temperature
+wl,Daily,degrees F,Max,Daily Minimum Water Temperature (degrees F)
 wm,Daily,degC,Max,Maximum Water Temperature
 wn,Daily,degC,Min,Minimum Water Temperature
 wp,Irregular,PH,Inst,Water pH Value
@@ -244,6 +646,7 @@ ws,Irregular,mph,Avg,Average Wind Speed
 wt,Irregular,NTU,Inst,Water Turbidity
 wy,Daily,degC,Avg,Average Water Temperature
 wz,Daily,degF,Avg,Average Water Temperature
+wz_7avg,Daily,degrees F,Avg,Daily Mean 7-Day Average Water Temperature (degrees F)
 xac,Irregular,voltage,Inst,A/C power
 xb,Daily,degF,Min,Minimum Soil Temperature (1in)
 xc,Daily,degF,Min,Minimum Soil Temperature (4in)
