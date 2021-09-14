@@ -76,7 +76,7 @@ namespace HdbApi.App_Code
 
             var p = new OracleDynamicParameters();
             p.Add("SITE_DATATYPE_ID", value: sdi, dbType: OracleDbType.Decimal);
-            p.Add("INTERVAL", value: interval, dbType: OracleDbType.Varchar2);
+            p.Add("INTERVAL", value: interval.ToLower(), dbType: OracleDbType.Varchar2);
             p.Add("START_DATE_TIME", value: t, dbType: OracleDbType.Date);
             p.Add("END_DATE_TIME", value: DBNull.Value, dbType: OracleDbType.Date);
             p.Add("VALUE", value: val, dbType: OracleDbType.Double);
@@ -131,7 +131,7 @@ namespace HdbApi.App_Code
             p.Add("START_DATE_TIME_IN", value: t, dbType: OracleDbType.Date);
             p.Add("END_DATE_TIME", value: DBNull.Value, dbType: OracleDbType.Date);
             p.Add("VALUE", value: val, dbType: OracleDbType.Double);
-            p.Add("INTERVAL_IN", value: interval, dbType: OracleDbType.Varchar2);
+            p.Add("INTERVAL_IN", value: interval.ToLower(), dbType: OracleDbType.Varchar2);
             if (isNewEntry)
             { p.Add("DO_UPDATE_Y_OR_N", value: "N", dbType: OracleDbType.Varchar2); }
             else
@@ -158,7 +158,7 @@ namespace HdbApi.App_Code
             p.Add("SAMPLE_SDI", value: sdi, dbType: OracleDbType.Decimal);
             p.Add("SAMPLE_DATE_TIME", value: t, dbType: OracleDbType.Date);
             p.Add("SAMPLE_END_TIME", value: DBNull.Value, dbType: OracleDbType.Date);
-            p.Add("SAMPLE_INTERVAL", value: interval, dbType: OracleDbType.Varchar2);
+            p.Add("SAMPLE_INTERVAL", value: interval.ToLower(), dbType: OracleDbType.Varchar2);
             p.Add("LOADING_APP_ID", value: s_LOADING_APPLICATION_ID, dbType: OracleDbType.Varchar2);
             p.Add("MODELRUN_ID", value: mrid, dbType: OracleDbType.Decimal);
             p.Add("AGENCY_ID", value: s_AGEN_ID, dbType: OracleDbType.Varchar2);
