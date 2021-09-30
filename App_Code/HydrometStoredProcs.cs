@@ -209,6 +209,7 @@ namespace HdbApi.App_Code
             sr.Close();
 
             urlData = urlData.Replace("NO RECORD", ",NaN");
+            urlData = urlData.Replace("MISSING", "NaN");
             string[] tableData = urlData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             // define datatable columns
             dataTable.Columns.Add("HDB_DATETIME", typeof(string));
@@ -216,12 +217,12 @@ namespace HdbApi.App_Code
             int headerIdx = 0;
             int startIdx = 1;
             int endIdx = tableData.Length;
-            if (tStep.ToLower() == "instant" && dbString == "gphyd")
-            {
-                headerIdx = 3;
-                startIdx = 4;
-                endIdx = endIdx - 5;
-            }
+            //if (tStep.ToLower() == "instant" && dbString == "gphyd")
+            //{
+            //    headerIdx = 3;
+            //    startIdx = 4;
+            //    endIdx = endIdx - 5;
+            //}
             for (int i = 1; i < tableData[headerIdx].Split(',').Length; i++)
             {
                 dataTable.Columns.Add("SDI_" + tableData[headerIdx].Split(',')[i].ToString().Trim().Replace(" ", "_").ToUpper(), typeof(string));
@@ -235,7 +236,12 @@ namespace HdbApi.App_Code
                 {
                     newDataRow[j] = tableDataRowVals[j].ToString().Trim();
                 }
-                dataTable.Rows.Add(newDataRow);
+                var jthDate = tableDataRowVals[0].ToString().Trim();
+                DateTime jthT;
+                if (DateTime.TryParse(jthDate, out jthT))
+                {
+                    dataTable.Rows.Add(newDataRow);
+                }
             }
             return dataTable;
         }
