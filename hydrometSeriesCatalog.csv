@@ -26909,3 +26909,16 @@ A_ID,parentid,isfolder,sortorder,iconname,name,siteid,units,timeinterval,paramet
 29119,25823,0,3395,sum,zurichmt_qc,zurichmt,,Irregular,qc,instant_zurichmt_qc,CalculationSeries,,,,1
 29120,25823,0,3396,sum,zurichmt_wf,zurichmt,,Irregular,wf,instant_zurichmt_wf,CalculationSeries,,,,1
 29121,25823,0,3397,sum,zurichmt_wc,zurichmt,,Irregular,wc,instant_zurichmt_wc,CalculationSeries,,,,1
+29122,25823,0,3398,sum,dvwy_qj,dvwy,,Daily,qj,daily_dvwy_qj,CalculationSeries,,,,
+29123,25823,0,3399,sum,gicwy_qj,gicwy,,Daily,qj,daily_gicwy_qj,CalculationSeries,,,,
+29124,25823,0,3400,sum,cdwy_qj,cdwy,,Daily,qj,daily_cdwy_qj,CalculationSeries,,,,
+29125,25823,0,3401,sum,wcwy_qj,wcwy,,Daily,qj,daily_wcwy_qj,CalculationSeries,,,,
+29126,25823,0,3402,sum,ecwy_qj,ecwy,,Daily,qj,daily_ecwy_qj,CalculationSeries,,,,
+29127,25823,0,3403,sum,hcwy_qj,hcwy,,Daily,qj,daily_hcwy_qj,CalculationSeries,,,,
+29128,25823,0,3404,sum,gbwy_qj,gbwy,,Daily,qj,daily_gbwy_qj,CalculationSeries,,,,
+29129,25823,0,3405,sum,nrwy_qj,nrwy,,Daily,qj,daily_nrwy_qj,CalculationSeries,,,,
+29130,25823,0,3406,sum,lcwy_qj,lcwy,,Daily,qj,daily_lcwy_qj,CalculationSeries,,,,
+29131,25823,0,3407,sum,gcwy_qj,gcwy,,Daily,qj,daily_gcwy_qj,CalculationSeries,,,,
+29132,25823,0,3408,sum,tdwy_qj,tdwy,,Daily,qj,daily_tdwy_qj,CalculationSeries,,,,
+29133,25823,0,3409,sum,npwy_qj,npwy,,Daily,qj,daily_npwy_qj,CalculationSeries,,,,
+29134,25823,0,3410,sum,pfwy_qj,pfwy,,Daily,qj,daily_pfwy_qj,CalculationSeries,,,,
