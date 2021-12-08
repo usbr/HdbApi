@@ -208,8 +208,10 @@ namespace HdbApi.App_Code
             string urlData = sr.ReadToEnd();
             sr.Close();
 
-            urlData = urlData.Replace("NO RECORD", ",NaN");
+            urlData = urlData.Replace("NO RECORD", "NaN");
             urlData = urlData.Replace("MISSING", "NaN");
+            //urlData = urlData.Replace("998877", "NaN");
+            //urlData = urlData.Replace("-998877", "NaN");
             string[] tableData = urlData.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             // define datatable columns
             dataTable.Columns.Add("HDB_DATETIME", typeof(string));
