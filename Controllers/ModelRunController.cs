@@ -61,7 +61,7 @@ namespace HdbApi.Controllers
                     model_run_name = "Official forecast from the Daily Operations Model (New BHOPS)",
                     date_time_loaded = new DateTime(2009, 5, 20, 0, 0, 0),
                     run_date = new DateTime(2012,2,24,0,0,0),
-                    user_name = "jrocha",
+                    user_name = "user",
                     model_run_cmmnt = "",
                     model_id = 6,
                     model_name = "Daily Water Operations Model (New BHOPS)",
